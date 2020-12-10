@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="phaser.js"></script>
+    <script src="test.js"></script>
     <style>
         @font-face {
             font-family: AmaticSC;
             src: url(assets/fonts/AmaticSC-Bold.ttf);
         }
         body {
-            margin: 0;
+            margin: auto;
         }
-        .hide {
-            display: none;
-        }
-
-        .nextButton {
+		
+        div_game canvas{
+            display: block;
+            padding-top: 30px;
             border: none;
-            font-family: "Times New Roman", Times, serif;
+            margin: auto;
+            width: 60%;
         }
     </style>
-    <script src="test.js"></script>
 <!--     <script type="module" src="main.js"></script> -->
 </head>
 <body>
-    Hallo
+    <div id="div_game"></div>
 </body>
 </html>
