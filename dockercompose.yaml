@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+    test:
+        image: test:v1
+        container_name: test
+        volumes:
+            - "./nodesrc:/var/src"
+        restart: always
+        ports:
+            - "3000:3000"
+volumes:
+    src_data:
