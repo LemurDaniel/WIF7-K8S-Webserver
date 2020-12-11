@@ -16,6 +16,8 @@ function setup() {
 
     input = createFileInput(handleFile);
     input.position(0, 0);
+
+    setupREST();
   }
 
 function handleFile(file) {
@@ -49,10 +51,26 @@ function gotResults(err, results, html_id) {
     // all the amazing things you'll add
 }
 
+
   
 function draw() {
     if (mouseIsPressed) {
       strokeWeight(8);
       line(mouseX, mouseY, pmouseX, pmouseY);
     }
+}
+
+
+
+
+
+
+/* REST Method Calls */
+function setupREST(){
+    const url = 'localhost:3000/data';
+
+    $('#test').on('click', function(){
+        $('body').append('babababakkk')
+        $post(url, data);
+    })
 }

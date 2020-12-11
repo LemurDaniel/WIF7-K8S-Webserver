@@ -1,13 +1,39 @@
+
 version: '3.1'
 
 services:
     test:
-        image: test:v1
+        depends_on: 
+            - db
+        image: test:v3
+        command: node bla.js
         container_name: test
-        volumes:
-            - "./nodesrc:/var/src"
         restart: always
+        volumes:
+            - "./nodesrc:/var/project/src"
         ports:
             - "3000:3000"
+        environment:
+            SQL_HOST: db
+            SQL_PORT: 3306
+            SQL_USER: node_user
+            SQL_PASSWORD: geheimesPWDuser
+            SQL_DATABASE: node_wp
+            
+
+    db:
+        image: mysql:5.7
+        container_name: database
+        restart: always
+        volumes:
+            - "./mysql_data:/var/lib/mysql"
+        ports:
+            - "8001:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: geheimesPWD
+            MYSQL_DATABASE: node_wp
+            MYSQL_USER: node_user
+            MYSQL_PASSWORD: geheimesPWDuser
 volumes:
     src_data:
+    db_data:
