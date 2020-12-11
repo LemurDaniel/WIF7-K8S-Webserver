@@ -29,9 +29,10 @@ function handleFile(file) {
   } 
 }
 
-function classifyImg(img) {
-    classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
-    classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
+function classifyImg() {
+    $('body').append("Test");
+    classifier.classify(canvas, (err, results) => gotResults(err, results, '#DoodleNet'));
+    classifier2.classify(canvas, (err, results) => gotResults(err, results, '#MobileNet'));
 }
 
 function clearCanvas() {
