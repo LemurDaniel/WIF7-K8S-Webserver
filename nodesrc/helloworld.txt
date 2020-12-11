@@ -1,3 +1,0 @@
-picdata: addafa
-user: daniel
-name: daniel

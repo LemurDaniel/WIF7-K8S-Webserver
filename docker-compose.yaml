@@ -6,7 +6,7 @@ services:
         depends_on: 
             - db
         image: test:v3
-        command: node bla.js
+        command: node webserver.js
         container_name: test
         restart: always
         volumes:
