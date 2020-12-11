@@ -1,5 +1,6 @@
 var gridsize = 5;
-var gridTotal = 5*5;
+var gridTotal = gridsize*gridsize;
+var moves = gridTotal;
 var board;
 var cells = [];
 
@@ -29,6 +30,7 @@ function setup() {
             cell.html.append(players[curr_player]);
             cell.player = players[curr_player];
             curr_player = (curr_player === 0 ? 1 : 0);
+            moves--;
             update_game();
         })
     }
@@ -44,18 +46,13 @@ function update_game() {
             
         }
     }
-    return;
-    if(winner_cells.length > 0) {
-        for (let index = 0; index < winnder_cells.length; index++) {
-            winnder_cells.html.html = "bla";       
-        }
-    }
+ 
 }
 
 function CheckForWin(){
 
     if(game_over) return;
-    $('body').append("dd\n");
+   
     //HOR
     for(row = 0; row<gridsize; row++){
         winner = cells[row*gridsize].player;
@@ -134,6 +131,8 @@ function CheckForWin(){
             }
         }
     }
+
+    if(moves === 0) game_over = true; //TIE
 
   }
   
