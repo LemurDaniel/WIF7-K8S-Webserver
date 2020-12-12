@@ -45,16 +45,26 @@ function setup() {
     p5canvas.parent("p5_canvas");   
     background(255);
 
-    clearButton = createButton('clear');
-    loadButton = createButton('LoadImage');
-    postButton = createButton('PostData');
+    clearBtn = createButton('clear');
+    loadBtn = createButton('LoadImage');
+    postBtn = createButton('PostData');
+    downloadBtn = createButton('Download');
     
-    clearButton.parent("p5_canvas");
-    loadButton.parent("p5_canvas");
-    postButton.parent("p5_canvas");
+    clearBtn.parent("p5_canvas");
+    loadBtn.parent("p5_canvas");
+    postBtn.parent("p5_canvas");
+    downloadBtn.parent("p5_canvas");
 
-    clearButton.mousePressed(() => background(255));
-    postButton.mousePressed(HTTP_Post_Data);
+    clearBtn.mousePressed(() => background(255));
+    postBtn.mousePressed(HTTP_Post_Data);
+    downloadBtn.mousePressed(() => save(p5canvas));
+
+    strokeWeight(8);
+    input_color = $('#input_color');
+    input_weight =  $('#input_weight');
+    input_name =  $('#input_name');
+    input_color.on('change', () => stroke(input_color[0].value));
+    input_weight.on('change', () => strokeWeight(input_weight[0].value))
 
 
     loadModel_DoodleNet();
@@ -72,9 +82,13 @@ function HTTP_Post_Data(){
     let url = 'http://localhost:4000/data';
     let data = {
         img_data: p5canvas.canvas.toDataURL(),
+        img_name: input_name[0].data,
         user: "Daniel",
-        ml5: ml5_predictions,
+        ml5_best_fit: ml5_predictions[0],
+        ml5: ml5_predictions
     }
+
+    if (!data.img_name || data.img_name.length === 0) data.img_name = "Drawing"; 
     httpPost(url, 'json', data, (result) => console.log(result)); 
 }
 
@@ -89,8 +103,7 @@ function handleFile(file) {
   
 function draw() {
     if (mouseIsPressed) {
-      strokeWeight(8);
-      line(mouseX, mouseY, pmouseX, pmouseY);
+        line(mouseX, mouseY, pmouseX, pmouseY);
     }
 }
 
