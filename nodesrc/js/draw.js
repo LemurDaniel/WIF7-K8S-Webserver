@@ -1,11 +1,15 @@
+// Works best with size=280 and stroke_weight=15
 const canvas_size = 280;
 const stroke_weight = 15;
 const domain = 'http://localhost:4000';
 const doodle_url =  domain+'/data';
 const translation_url =  domain+'/translation';
+const classifier = ml5.imageClassifier("DoodleNet", () => modelLoaded = true);
+const img_name_default = "My-Drawing";
+const grayscale = false;
+const predict_interval = 5; //One Prediction in <number> frames when drawing
 
-var classifier;
-var classifier2;
+var modelLoaded;
 var p5canvas;
 var p5canvas_2;
 
@@ -19,12 +23,6 @@ var translation;
 // ml5.imageClassifier("MobileNet");
 function onModelReady() {
     // TODO
-}
-
-function deml_gotResults(results){
-    let html_id = '#demo_DoodleNet';
-    $(html_id + ' div ').remove();
-    $(html_id).append('<div>'+results+'</div>');
 }
 
 function ml5_gotResults(err, results) {
@@ -51,8 +49,6 @@ function ml5_gotResults(err, results) {
 
 function Translate_Data(){
     for (let i = 0; i < ml5_predictions.length; i++) {
-        console.log(ml5_predictions[i].label);
-        console.log(translation[ml5_predictions[i].label]);
         ml5_predictions[i].label = translation[ml5_predictions[i].label];      
     }
 }
@@ -67,7 +63,7 @@ function HTTP_Post_Data(){;
         ml5: ml5_predictions
     }
 
-    if (!data.img_name || data.img_name.length === 0) data.img_name = "Drawing"; 
+    if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
     sketch_p5_2.httpPost(doodle_url, 'json', data, (result) => console.log(result)); 
 }
 
@@ -111,10 +107,9 @@ var p5_2 = function (sketch) {
 
     // Can be removed if canvas remains hidden
     sketch.setStroke = function(hex) {
+        if(!grayscale) return;
         let rgb = hexToRgb(hex);
         let grey = ((rgb.r + rgb.g + rgb.b)/3)*0.75;
-        console.log(rgb);
-        console.log(grey);
         sketch.stroke(grey);
     }
 }
@@ -131,10 +126,6 @@ var p5_1 = function (sketch) {
 
     sketch.background(255);
     sketch.strokeWeight(stroke_weight);
-    console.log("sss");
-
-    sketch_p5_2.makeCanvas();
-   
 
     clearBtn = sketch.createButton('clear');
     loadBtn = sketch.createButton('LoadImage');
@@ -148,7 +139,7 @@ var p5_1 = function (sketch) {
 
     clearBtn.mousePressed(() => {s.background(255); sketch_p5_2.background(255)});
     postBtn.mousePressed(HTTP_Post_Data);
-    downloadBtn.mousePressed(() => save(p5canvas));
+    downloadBtn.mousePressed(() => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
 
     input_color = $('#input_color');
     input_weight =  $('#input_weight');
@@ -157,16 +148,7 @@ var p5_1 = function (sketch) {
     input_weight.on('change', () => s.strokeWeight(input_weight[0].value))
     input_weight[0].value = stroke_weight;
 
-
-    loadModel_DoodleNet();
-    classifier = ml5.imageClassifier("DoodleNet", onModelReady);
-    //classifier2 = ml5.imageClassifier("MobileNet");
-
-    //input = createFileInput(handleFile);
-    //input.position(0, 0);
-
-    //setupREST();
-    console.log("aaa");
+    sketch_p5_2.makeCanvas();
   }
   
     s.draw = function () {
@@ -174,7 +156,7 @@ var p5_1 = function (sketch) {
         s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             sketch_p5_2.replicate(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             //deml_gotResults(doodleNet_classify(), "#DoodleNet");
-            classifier.classify(p5canvas2, ml5_gotResults);
+            if(modelLoaded && s.frameCount % predict_interval === 0) classifier.classify(p5canvas2, ml5_gotResults);
         }
     }
 }
@@ -185,7 +167,5 @@ new p5(p5_2);
 sketch_p5_2.httpGet(translation_url, 'json', (data) => {
     new p5(p5_1);
     translation = data
-    console.log(translation);
-    console.log(translation.belt);
 });
 /* REST Method Calls */

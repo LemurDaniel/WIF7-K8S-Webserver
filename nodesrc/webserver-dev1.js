@@ -9,23 +9,17 @@ var fs = require('fs');
 
 /*
 Create Translation File  */
-fs.readFile('./js/model-tfjs/class_names_german_space_seperated.txt', 'utf8', (err, data) => {
-    var german = data;
-    //console.log(data);
+fs.readFile('./other/class_names_german_space_seperated.txt', 'utf8', (err, data) => {
     var g_arr = data.split(' ');
-    //console.log(g_arr);
 
-    fs.readFile('./js/model-tfjs/class_names_space_seperated.txt', 'utf8', (err, data) => {
-        var eng = data;
+    fs.readFile('./other/class_names_space_seperated.txt', 'utf8', (err, data) => {
         var eng_arr = data.split(' ');
-        //console.log(eng_arr);
 
         var translation = {};
         for (let i = 0; i < eng_arr.length; i++) {
-            translation[eng_arr[i]] = g_arr[i];
-            //console.log(translation);  
+            translation[eng_arr[i]] = g_arr[i];  
         }
-        fs.writeFile('./js/model-tfjs/english_german_map.json', JSON.stringify(translation), (err, data) => console.log(data));
+        fs.writeFile('./other/translation.json', JSON.stringify(translation), () => {});
     });
 });
 //*/
@@ -74,7 +68,7 @@ server.listen(3000);
 
 // GET //
 app.get('/', (req,res) => res.sendFile(PATH+'draw.html'));
-app.get('/translation', (req,res) => res.sendFile(PATH+'js/model-tfjs/english_german_map.json'));
+app.get('/translation', (req,res) => res.sendFile(PATH+'other/translation.json'));
 app.get('/rocket', (req,res) => res.sendFile(PATH+'rocket_game.html'));
 app.get('/tictactoe', (req,res) => res.sendFile(PATH+'tictactoe.html'));
 app.get('/draw', (req,res) => res.sendFile(PATH+'draw.html'));
@@ -84,7 +78,7 @@ app.post('/data', function(req,res){
     
     // Get base64 Data and define path
     let base64 = req.body.img_data.replace(/^data:image\/png;base64,/, "");
-    let path = 'pics/'+Math.floor(Math.random() * 2147483647)+'.png';
+    let path = 'pics/'+req.body.img_name+Math.floor(Math.random() * 2147483647)+'.png';
 
     // Write image to file
     fs.writeFile(path, base64, 'base64', (err) => {
@@ -95,7 +89,7 @@ app.post('/data', function(req,res){
 
         // Write to JSON-File
         // TODO - Replace with Database-Calls
-        fs.readFile('web.json', (err, data) => {
+        fs.readFile('other/web.json', (err, data) => {
 
             // If file is empty, initialize json as array
             if(data.length === 0) var json = [];
@@ -103,7 +97,7 @@ app.post('/data', function(req,res){
             
             // Append new Data
             json.push(req.body);
-            fs.writeFile('web.json', JSON.stringify(json), (err, data) => res.json(json));
+            fs.writeFile('other/web.json', JSON.stringify(json), (err, data) => res.json(json));
         });    
 
     });
