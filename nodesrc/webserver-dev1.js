@@ -31,14 +31,12 @@ let tmp;
 var TABLE_Img = "doodles";
 var SQL_Create_Img;
 fs.readFile('./sql/createTable_Doodle.sql', (err, data) => { SQL_Create_Img = data });
-//fs.close();
 
 
 // Define SQL Statements
 const SQL_Exists_Key =    'Select * From '+TABLE_Img+' where name_key = ?';
 const SQL_insert_img =    'Insert Into  '+TABLE_Img+
                         ' (name_key, by_user, ml5_name, other_ml5_names) Values (?, ?, ?, ?)';
-
 
 
 //Create Server//
@@ -59,21 +57,33 @@ app.get('/draw', (req,res) => res.sendFile('/var/project/src/draw.html'));
 // POST //
 app.post('/data', function(req,res){
     
-    console.log(req.body);
-    fs.readFile('web.json', (err, data) => {
-        console.log(err+'\n\n'+data)
-        if(data.length === 0) var json = [];
-        else var json = JSON.parse(data);
-        json.push(req.body);
-        console.log(json);
-        fs.writeFile('web.json', JSON.stringify(data), (err, data) => console.log(err+'\n\n'+data));
-    });
+    // Get base64 Data and define path
+    let base64 = req.body.img_data.replace(/^data:image\/png;base64,/, "");
+    let path = 'pics/'+Math.floor(Math.random() * 2147483647)+'.png';
 
-    res.json(req.body);
+    // Write image to file
+    fs.writeFile(path, base64, 'base64', (err) => {
+        
+        // Replace img_data with path where image is saved
+        if(err) req.body.img_data = null;
+        else req.body.img_data = path; 
+
+        // Write to JSON-File
+        // TODO - Replace with Database-Calls
+        fs.readFile('web.json', (err, data) => {
+
+            // If file is empty, initialize json as array
+            if(data.length === 0) var json = [];
+            else var json = JSON.parse(data);
+            
+            // Append new Data
+            json.push(req.body);
+            fs.writeFile('web.json', JSON.stringify(json), (err, data) => res.json(json));
+        });    
+
+    });
+    //res.json(req.body);
 });
 
   // tutorial
   // https://medium.com/swlh/read-html-form-data-using-get-and-post-method-in-node-js-8d2c7880adbf
-
-  //ACIOS to call HTTP from Browser
- // https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/

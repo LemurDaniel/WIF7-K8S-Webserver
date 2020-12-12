@@ -22,7 +22,7 @@ RUN mkdir /var/project/src
 
 WORKDIR /var/project/src
 
-RUN cd /var/project/src
+#RUN cd /var/project/src
 
 #Expose Port
 EXPOSE 3000

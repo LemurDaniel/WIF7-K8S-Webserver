@@ -2,54 +2,78 @@ var classifier;
 var classifier2;
 var p5canvas;
 
+var ml5_predictions;
+
 // ml5.imageClassifier("MobileNet");
 function onModelReady() {
     classifyButton = createButton('Classify');
+    classifyButton.parent("p5_canvas");
     classifyButton.mousePressed(() => {
-      classifier.classify(p5canvas, (err, results) => gotResults(err,     results, '#DoodleNet'));
+        deml_gotResults(doodleNet_classify(), "#DoodleNet");
+        classifier.classify(p5canvas, ml5_gotResults);
     });
 }
 
-function gotResults(err, results, html_id) {
+function deml_gotResults(results){
+    let html_id = '#demo_DoodleNet';
+    $(html_id + ' div ').remove();
+    $(html_id).append('<div>'+results+'</div>');
+}
+
+function ml5_gotResults(err, results) {
     if(err){
         $('body').append(err);
         return;
     }
 
+    ml5_predictions = results;
+    let html_id = '#ml5_DoodleNet';
+
+    $(html_id + ' div ').remove();
+    $(html_id).append('<div></div>');
     results.forEach(element => {
-        $(html_id).append('<li>'+element.label+'</li>')
+        $(html_id + ' div ').append('<li>'+element.label+'</li>')
     });
     
+    //classifier.classify(p5canvas.canvas, gotResults);
     // all the amazing things you'll add
 }
 
-
 // P5.js Start
 function setup() {
-    p5canvas = createCanvas(400, 400);
+    p5canvas = createCanvas(280, 280);
+    p5canvas.parent("p5_canvas");   
+    background(255);
+
     clearButton = createButton('clear');
     loadButton = createButton('LoadImage');
-    clearButton.mousePressed(() => background(255));
+    postButton = createButton('PostData');
+    
+    clearButton.parent("p5_canvas");
+    loadButton.parent("p5_canvas");
+    postButton.parent("p5_canvas");
 
-    //classifier = ml5.imageClassifier("DoodleNet", onModelReady);
+    clearButton.mousePressed(() => background(255));
+    postButton.mousePressed(HTTP_Post_Data);
+
+
+    loadModel_DoodleNet();
+    classifier = ml5.imageClassifier("DoodleNet", onModelReady);
     //classifier2 = ml5.imageClassifier("MobileNet");
 
     //input = createFileInput(handleFile);
     //input.position(0, 0);
 
     //setupREST();
-    post = createButton('PostData');
-    post.mousePressed(HTTP_Post_Data);
     console.log("aaa");
   }
 
 function HTTP_Post_Data(){
     let url = 'http://localhost:4000/data';
     let data = {
-        img_data = p5canvas.canvas.toDataURL(),
+        img_data: p5canvas.canvas.toDataURL(),
         user: "Daniel",
-        ml5: "testing",
-        other_ml5: "testing | testing | testing"
+        ml5: ml5_predictions,
     }
     httpPost(url, 'json', data, (result) => console.log(result)); 
 }

@@ -3,12 +3,11 @@ version: '3.1'
 
 services:
     backend:
-        image: node-webserver:bakcend-dev
+        image: node-webserver:backend-dev
         container_name: dev_backend_webserver
         restart: always
-        command: 
-            - node
-            - webserver-dev1.js
+        stdin_open: true
+        tty: true
         volumes:
             - "./nodesrc:/var/project/src"
         ports:
