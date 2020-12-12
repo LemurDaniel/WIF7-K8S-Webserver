@@ -1,0 +1,1 @@
+docker run -v node_src:/var/project/src -itp - 4000:3000 --name dev_backend_webserver node-webserver:bakcend-dev ls

@@ -1,0 +1,27 @@
+
+version: '3.1'
+
+services:
+    browser-sync:
+        depends_on:
+            - backend
+        image: test:v3
+        container_name: developer_server_with_autorefresh
+        restart: always
+        volumes:
+            - "./nodesrc:/var/project/src"
+        ports:
+            - "3000:3000"
+    backend:
+        image: test:v3
+        container_name: dev_backend_webserver
+        restart: always
+        command: 
+            - node
+            - webserver.js
+        volumes:
+            - "./nodesrc:/var/project/src"
+        ports:
+            - "4000:3000"
+volumes:
+    src_data:

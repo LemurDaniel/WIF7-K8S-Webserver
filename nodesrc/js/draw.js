@@ -1,42 +1,13 @@
 var classifier;
 var classifier2;
+var p5canvas;
 
 // ml5.imageClassifier("MobileNet");
-function setup() {
-    //google = google.load("language", "1");
-    classifier = ml5.imageClassifier("DoodleNet");
-    classifier2 = ml5.imageClassifier("MobileNet");
-    canvas = createCanvas(400, 400);
-    clearButton = createButton('clear');
+function onModelReady() {
     classifyButton = createButton('Classify');
-    loadButton = createButton('LoadImage');
-    clearButton.mousePressed(clearCanvas);
-    classifyButton.mousePressed(() => classifyImg(canvas));
-    background(255);
-
-    input = createFileInput(handleFile);
-    input.position(0, 0);
-
-    //setupREST();
-  }
-
-function handleFile(file) {
-  print(file);
-  if (file.type === 'image') {
-    img = $('body').append('<img src="'+file.data+'"></img>');
-    classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
-    classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
-  } 
-}
-
-function classifyImg() {
-    $('body').append("Test");
-    classifier.classify(canvas, (err, results) => gotResults(err, results, '#DoodleNet'));
-    classifier2.classify(canvas, (err, results) => gotResults(err, results, '#MobileNet'));
-}
-
-function clearCanvas() {
-    background(255);
+    classifyButton.mousePressed(() => {
+      classifier.classify(p5canvas, (err, results) => gotResults(err,     results, '#DoodleNet'));
+    });
 }
 
 function gotResults(err, results, html_id) {
@@ -53,6 +24,44 @@ function gotResults(err, results, html_id) {
 }
 
 
+// P5.js Start
+function setup() {
+    p5canvas = createCanvas(400, 400);
+    clearButton = createButton('clear');
+    loadButton = createButton('LoadImage');
+    clearButton.mousePressed(() => background(255));
+
+    //classifier = ml5.imageClassifier("DoodleNet", onModelReady);
+    //classifier2 = ml5.imageClassifier("MobileNet");
+
+    //input = createFileInput(handleFile);
+    //input.position(0, 0);
+
+    //setupREST();
+    post = createButton('PostData');
+    post.mousePressed(HTTP_Post_Data);
+    console.log("aaa");
+  }
+
+function HTTP_Post_Data(){
+    let url = 'http://localhost:4000/data';
+    let data = {
+        img_data = p5canvas.canvas.toDataURL(),
+        user: "Daniel",
+        ml5: "testing",
+        other_ml5: "testing | testing | testing"
+    }
+    httpPost(url, 'json', data, (result) => console.log(result)); 
+}
+
+function handleFile(file) {
+  print(file);
+  if (file.type === 'image') {
+    img = $('body').append('<img src="'+file.data+'"></img>');
+    //classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
+    //classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
+  } 
+}
   
 function draw() {
     if (mouseIsPressed) {
@@ -67,11 +76,3 @@ function draw() {
 
 
 /* REST Method Calls */
-function setupREST(){
-    const url = 'localhost:3000/data';
-
-    $('#test').on('click', function(){
-        $('body').append('babababakkk')
-        $post(url, data);
-    })
-}
