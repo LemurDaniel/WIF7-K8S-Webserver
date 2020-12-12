@@ -7,6 +7,29 @@ var mysql = require('mysql');
 var cors = require('cors')
 var fs = require('fs');
 
+/*
+Create Translation File  */
+fs.readFile('./js/model-tfjs/class_names_german_space_seperated.txt', 'utf8', (err, data) => {
+    var german = data;
+    //console.log(data);
+    var g_arr = data.split(' ');
+    //console.log(g_arr);
+
+    fs.readFile('./js/model-tfjs/class_names_space_seperated.txt', 'utf8', (err, data) => {
+        var eng = data;
+        var eng_arr = data.split(' ');
+        //console.log(eng_arr);
+
+        var translation = {};
+        for (let i = 0; i < eng_arr.length; i++) {
+            translation[eng_arr[i]] = g_arr[i];
+            //console.log(translation);  
+        }
+        fs.writeFile('./js/model-tfjs/english_german_map.json', JSON.stringify(translation), (err, data) => console.log(data));
+    });
+});
+//*/
+
 // Get Environment Variables
 const SQL_HOST = process.env.SQL_HOST;
 const SQL_USER = process.env.SQL_USER;
@@ -14,6 +37,7 @@ const SQL_PORT = process.env.SQL_PORT;
 const SQL_PASSWORD = process.env.SQL_PASSWORD;
 const SQL_DATABASE = process.env.SQL_DATABASE;
 
+const PATH = '/var/project/src/';
 
 // MYSQL General Config
 function getCon(){
@@ -49,10 +73,11 @@ var server = http.createServer(app)
 server.listen(3000);
 
 // GET //
-app.get('/', (req,res) => res.sendFile('/var/project/src/draw.html'));
-app.get('/rocket', (req,res) => res.sendFile('/var/project/src/rocket_game.html'));
-app.get('/tictactoe', (req,res) => res.sendFile('/var/project/src/tictactoe.html'));
-app.get('/draw', (req,res) => res.sendFile('/var/project/src/draw.html'));
+app.get('/', (req,res) => res.sendFile(PATH+'draw.html'));
+app.get('/translation', (req,res) => res.sendFile(PATH+'js/model-tfjs/english_german_map.json'));
+app.get('/rocket', (req,res) => res.sendFile(PATH+'rocket_game.html'));
+app.get('/tictactoe', (req,res) => res.sendFile(PATH+'tictactoe.html'));
+app.get('/draw', (req,res) => res.sendFile(PATH+'draw.html'));
 
 // POST //
 app.post('/data', function(req,res){
