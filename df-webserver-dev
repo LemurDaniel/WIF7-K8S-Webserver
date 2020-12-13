@@ -11,13 +11,9 @@ RUN npm install mysql
 
 RUN npm install cors
 
-#Define Workspace
-RUN mkdir /var/project/src
 
 WORKDIR /var/project/src
 
-#Expose Port
 EXPOSE 3000
-
 
 CMD ["node", "webserver-dev1.js"]

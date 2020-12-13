@@ -2,8 +2,8 @@
 version: '3.1'
 
 services:
-    backend:
-        image: node-webserver:backend-dev
+    webserver_dev:
+        image: node-webserver:dev
         container_name: dev_backend_webserver
         restart: always
         stdin_open: true

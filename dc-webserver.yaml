@@ -2,7 +2,7 @@
 version: '3.1'
 
 services:
-    browser-sync:
+    webserver_bsync:
         depends_on:
             - backend
         image: test:v3
@@ -12,9 +12,9 @@ services:
             - "./nodesrc:/var/project/src"
         ports:
             - "3000:3000"
-    backend:
-        image: test:v3
-        container_name: dev_backend_webserver
+    webserver_dev:
+        image: node-webserver:dev
+        container_name: backend_webserver_dev
         restart: always
         command: 
             - node

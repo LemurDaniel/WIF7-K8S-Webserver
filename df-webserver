@@ -1,0 +1,17 @@
+FROM node:alpine3.12
+
+WORKDIR /var/project
+
+#Install Dependencies
+RUN npm install express -d
+
+RUN npm install body-parser
+
+RUN npm install mysql
+
+
+WORKDIR /var/project/src
+
+EXPOSE 3000
+
+CMD ["node", "webserver-dev1.js"]

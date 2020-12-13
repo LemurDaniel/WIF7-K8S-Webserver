@@ -2,9 +2,9 @@
 version: '3.1'
 
 services:
-    test:
+    webserver_dev_bsync:
         image: node-webserver:dev-bsync
-        container_name: test
+        container_name: webserver_dev_bsync
         restart: always
         volumes:
             - "./nodesrc:/var/project/src"

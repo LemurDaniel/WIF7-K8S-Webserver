@@ -1,0 +1,9 @@
+FROM node:alpine3.12
+
+RUN npm install -g browser-sync
+
+WORKDIR /var/project/src
+
+EXPOSE 3000
+
+CMD ["browser-sync", "start", "--server", "--cors", "true", "-f", "-w"]
