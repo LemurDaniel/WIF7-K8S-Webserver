@@ -13,6 +13,6 @@ services:
         ports:
             - "4000:3000"
         environment:
-            ENABLE_SQL: 'false'
+            SQL_ENABLE: 'false'
 volumes:
     src_data:

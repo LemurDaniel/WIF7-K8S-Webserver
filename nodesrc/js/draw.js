@@ -6,9 +6,9 @@ const img_name_default = "My-Drawing";
 const grayscale = false;
 const predict_interval = 5; //One Prediction in <number> frames when drawing
 
-const domain = 'http://localhost:4000';
-const doodle_url =  domain+'/data';
-const translation_url =  domain+'/translation';
+const domain = window.location.href;
+const doodle_url =  domain+'data';
+const translation_url =  domain+'translation';
 
 //const classifier_model = "DarkNet-tiny";
 //const classifier_model = "Darknet-reference";
@@ -63,7 +63,7 @@ function Translate_Data(){
 function HTTP_Post_Data(){;
     let data = {
         img_data: p5canvas.canvas.toDataURL(),
-        img_name: input_name[0].data,
+        img_name: input_name[0].value,
         img_path: server_path,
         user: "Daniel",
         ml5_best_fit: ml5_predictions[0],
@@ -121,10 +121,14 @@ var p5_2 = function (sketch) {
 
     // Can be removed if canvas remains hidden
     sketch.setStroke = function(hex) {
-        if(!grayscale) return;
+        //if(!grayscale) return;
         let rgb = hexToRgb(hex);
-        let grey = ((rgb.r + rgb.g + rgb.b)/3)*0.75;
-        sketch.stroke(grey);
+        //let grey = ((rgb.r + rgb.g + rgb.b)/3)*0.75;
+        let trsh = 250; //treshold
+        console.log(rgb);
+        if(rgb.r >= trsh && rgb.g >= trsh && rgb.b >= trsh) sketch.stroke(255);
+        else sketch.stroke(0);
+        //sketch.stroke(grey);
     }
 }
 

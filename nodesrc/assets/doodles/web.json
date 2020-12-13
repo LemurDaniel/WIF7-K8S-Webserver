@@ -1,1 +1,574 @@
-{"my-drawing-950604427.png":{"img_data":"","img_name":"My-Drawing","img_path":"my-drawing-950604427.png","user":"Daniel","ml5_best_fit":{"label":"Nähmaschen","confidence":0.4159986078739166},"ml5":[{"label":"Nähmaschen","confidence":0.4159986078739166},{"label":"Tierwanderung","confidence":0.07105608284473419},{"label":"Strand","confidence":0.05366955325007439},{"label":"Gras","confidence":0.0393238328397274},{"label":"Wippe","confidence":0.03369998559355736},{"label":"Rechen","confidence":0.020874105393886566},{"label":"Ozean","confidence":0.018413430079817772},{"label":"Sprungbrett","confidence":0.018160413950681686},{"label":"Spritze","confidence":0.017734073102474213},{"label":"Gewehr","confidence":0.015386678278446198}]},"my-drawing-393286630.png":{"img_data":"","img_name":"My-Drawing","img_path":"my-drawing-393286630.png","user":"Daniel","ml5_best_fit":{"label":"Axt","confidence":0.16321170330047607},"ml5":[{"label":"Axt","confidence":0.16321170330047607},{"label":"Wolkenkratzer","confidence":0.10168413817882538},{"label":"Burg","confidence":0.06925316154956818},{"label":"Strassenlaterne","confidence":0.05756730958819389},{"label":"Treppe","confidence":0.05523497983813286},{"label":"Pullover","confidence":0.04450603201985359},{"label":"Chinesische_Mauer","confidence":0.02912846766412258},{"label":"Gartenschlauch","confidence":0.028363419696688652},{"label":"Bohrer","confidence":0.023822959512472153},{"label":"Regen","confidence":0.020389577373862267}]},"my-drawing-1998338425.png":{"img_data":"","img_name":"My-Drawing","img_path":"my-drawing-1998338425.png","user":"Daniel","ml5_best_fit":{"label":"Bohrer","confidence":0.15004894137382507},"ml5":[{"label":"Bohrer","confidence":0.15004894137382507},{"label":"Löwe","confidence":0.1454629749059677},{"label":"Blume","confidence":0.08662962168455124},{"label":"Krankenwagen","confidence":0.061345331370830536},{"label":"Hut","confidence":0.03233962878584862},{"label":"Armband","confidence":0.030967596918344498},{"label":"Kamera","confidence":0.0302208811044693},{"label":"Igel","confidence":0.027609096840023994},{"label":"Kompass","confidence":0.018335694447159767},{"label":"Blitz","confidence":0.017430324107408524}]},"my-drawing-1964766608.png":{"img_data":"","img_name":"My-Drawing","img_path":"my-drawing-1964766608.png","user":"Daniel","ml5_best_fit":{"label":"Mona_Lisa","confidence":0.8127904534339905},"ml5":[{"label":"Mona_Lisa","confidence":0.8127904534339905},{"label":"Kommode","confidence":0.03757436200976372},{"label":"Tarnung","confidence":0.03680349886417389},{"label":"Kirche","confidence":0.016797801479697227},{"label":"Karte","confidence":0.011660581454634666},{"label":"Jacke","confidence":0.011251579038798809},{"label":"Engel","confidence":0.007552372291684151},{"label":"Pass","confidence":0.006403285078704357},{"label":"Pullover","confidence":0.006359282415360212},{"label":"Chinesische_Mauer","confidence":0.00398934306576848}]},"my-drawing-589611340.png":{"img_data":"","img_name":"My-Drawing","img_path":"my-drawing-589611340.png","user":"Daniel","ml5_best_fit":{"label":"Mona_Lisa","confidence":0.9772739410400391},"ml5":[{"label":"Mona_Lisa","confidence":0.9772739410400391},{"label":"Kommode","confidence":0.005375720094889402},{"label":"Eule","confidence":0.002738814102485776},{"label":"Tarnung","confidence":0.0022942202631384134},{"label":"Pullover","confidence":0.0011353222653269768},{"label":"Wolkenkratzer","confidence":0.0011329142143949866},{"label":"Kamin","confidence":0.0010690263006836176},{"label":"Jacke","confidence":0.0006844614399597049},{"label":"Unterwäsche","confidence":0.0005997282569296658},{"label":"Chinesische_Mauer","confidence":0.0005635494599118829}]}}
+{
+    "my-drawing-950604427.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-950604427.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Nähmaschen",
+            "confidence": 0.4159986078739166
+        },
+        "ml5": [
+            {
+                "label": "Nähmaschen",
+                "confidence": 0.4159986078739166
+            },
+            {
+                "label": "Tierwanderung",
+                "confidence": 0.07105608284473419
+            },
+            {
+                "label": "Strand",
+                "confidence": 0.05366955325007439
+            },
+            {
+                "label": "Gras",
+                "confidence": 0.0393238328397274
+            },
+            {
+                "label": "Wippe",
+                "confidence": 0.03369998559355736
+            },
+            {
+                "label": "Rechen",
+                "confidence": 0.020874105393886566
+            },
+            {
+                "label": "Ozean",
+                "confidence": 0.018413430079817772
+            },
+            {
+                "label": "Sprungbrett",
+                "confidence": 0.018160413950681686
+            },
+            {
+                "label": "Spritze",
+                "confidence": 0.017734073102474213
+            },
+            {
+                "label": "Gewehr",
+                "confidence": 0.015386678278446198
+            }
+        ]
+    },
+    "my-drawing-393286630.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-393286630.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Axt",
+            "confidence": 0.16321170330047607
+        },
+        "ml5": [
+            {
+                "label": "Axt",
+                "confidence": 0.16321170330047607
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.10168413817882538
+            },
+            {
+                "label": "Burg",
+                "confidence": 0.06925316154956818
+            },
+            {
+                "label": "Strassenlaterne",
+                "confidence": 0.05756730958819389
+            },
+            {
+                "label": "Treppe",
+                "confidence": 0.05523497983813286
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.04450603201985359
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.02912846766412258
+            },
+            {
+                "label": "Gartenschlauch",
+                "confidence": 0.028363419696688652
+            },
+            {
+                "label": "Bohrer",
+                "confidence": 0.023822959512472153
+            },
+            {
+                "label": "Regen",
+                "confidence": 0.020389577373862267
+            }
+        ]
+    },
+    "my-drawing-1998338425.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-1998338425.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Bohrer",
+            "confidence": 0.15004894137382507
+        },
+        "ml5": [
+            {
+                "label": "Bohrer",
+                "confidence": 0.15004894137382507
+            },
+            {
+                "label": "Löwe",
+                "confidence": 0.1454629749059677
+            },
+            {
+                "label": "Blume",
+                "confidence": 0.08662962168455124
+            },
+            {
+                "label": "Krankenwagen",
+                "confidence": 0.061345331370830536
+            },
+            {
+                "label": "Hut",
+                "confidence": 0.03233962878584862
+            },
+            {
+                "label": "Armband",
+                "confidence": 0.030967596918344498
+            },
+            {
+                "label": "Kamera",
+                "confidence": 0.0302208811044693
+            },
+            {
+                "label": "Igel",
+                "confidence": 0.027609096840023994
+            },
+            {
+                "label": "Kompass",
+                "confidence": 0.018335694447159767
+            },
+            {
+                "label": "Blitz",
+                "confidence": 0.017430324107408524
+            }
+        ]
+    },
+    "my-drawing-1964766608.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-1964766608.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.8127904534339905
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.8127904534339905
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.03757436200976372
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.03680349886417389
+            },
+            {
+                "label": "Kirche",
+                "confidence": 0.016797801479697227
+            },
+            {
+                "label": "Karte",
+                "confidence": 0.011660581454634666
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.011251579038798809
+            },
+            {
+                "label": "Engel",
+                "confidence": 0.007552372291684151
+            },
+            {
+                "label": "Pass",
+                "confidence": 0.006403285078704357
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.006359282415360212
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.00398934306576848
+            }
+        ]
+    },
+    "my-drawing-589611340.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-589611340.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ]
+    },
+    "mona-lisa-1017855852.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "mona-lisa-1017855852.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ]
+    },
+    "mona-lisa-2058390148.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "mona-lisa-2058390148.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ]
+    },
+    "mona-lisa-1773510479.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa Updated",
+        "img_path": "mona-lisa-1773510479.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ]
+    },
+    "my-drawing-2126955760.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "my-drawing-2126955760.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Blitz",
+            "confidence": 0.9781002998352051
+        },
+        "ml5": [
+            {
+                "label": "Blitz",
+                "confidence": 0.9781002998352051
+            },
+            {
+                "label": "Spritze",
+                "confidence": 0.010132423602044582
+            },
+            {
+                "label": "Schnörkel",
+                "confidence": 0.005264796782284975
+            },
+            {
+                "label": "Tierwanderung",
+                "confidence": 0.0005854778573848307
+            },
+            {
+                "label": "Zickzack",
+                "confidence": 0.0005709553952328861
+            },
+            {
+                "label": "Bohrer",
+                "confidence": 0.0003936624270863831
+            },
+            {
+                "label": "Fluss",
+                "confidence": 0.0003300978278275579
+            },
+            {
+                "label": "Apfel",
+                "confidence": 0.000324099266435951
+            },
+            {
+                "label": "Tornado",
+                "confidence": 0.00031850728555582464
+            },
+            {
+                "label": "Hurrikan",
+                "confidence": 0.00026165044982917607
+            }
+        ]
+    },
+    "my-drawing-1569837788.png": {
+        "img_data": "",
+        "img_name": "Blitz",
+        "img_path": "my-drawing-1569837788.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Blitz",
+            "confidence": 0.9468249082565308
+        },
+        "ml5": [
+            {
+                "label": "Blitz",
+                "confidence": 0.9468249082565308
+            },
+            {
+                "label": "Spritze",
+                "confidence": 0.014455022290349007
+            },
+            {
+                "label": "Nähmaschen",
+                "confidence": 0.013384871184825897
+            },
+            {
+                "label": "Zickzack",
+                "confidence": 0.010880691930651665
+            },
+            {
+                "label": "Schnörkel",
+                "confidence": 0.006038014777004719
+            },
+            {
+                "label": "Feder",
+                "confidence": 0.0011664015473797917
+            },
+            {
+                "label": "Streichhölzer",
+                "confidence": 0.00044676405377686024
+            },
+            {
+                "label": "Treppe",
+                "confidence": 0.0004042831715196371
+            },
+            {
+                "label": "Radiergummi",
+                "confidence": 0.00035806960659101605
+            },
+            {
+                "label": "Finger",
+                "confidence": 0.00031230493914335966
+            }
+        ]
+    },
+    "ein-strand-152919380.png": {
+        "img_data": "",
+        "img_name": "Ein Strändchen",
+        "img_path": "ein-strand-152919380.png",
+        "user": "Daniel",
+        "ml5_best_fit": {
+            "label": "Strand",
+            "confidence": 0.5394004583358765
+        },
+        "ml5": [
+            {
+                "label": "Strand",
+                "confidence": 0.5394004583358765
+            },
+            {
+                "label": "Strassenlaterne",
+                "confidence": 0.07541359215974808
+            },
+            {
+                "label": "Sprungbrett",
+                "confidence": 0.05417555570602417
+            },
+            {
+                "label": "Gartenschlauch",
+                "confidence": 0.02906806953251362
+            },
+            {
+                "label": "Tierwanderung",
+                "confidence": 0.02348092384636402
+            },
+            {
+                "label": "Skorpion",
+                "confidence": 0.019359983503818512
+            },
+            {
+                "label": "Bodenlampe",
+                "confidence": 0.017413688823580742
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.014661476947367191
+            },
+            {
+                "label": "Flamingo",
+                "confidence": 0.012974156998097897
+            },
+            {
+                "label": "Stethoskop",
+                "confidence": 0.0122543815523386
+            }
+        ]
+    }
+}

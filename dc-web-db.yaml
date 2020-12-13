@@ -6,13 +6,13 @@ services:
         depends_on: 
             - db
         image: node-webserver:dev
-        command: node webserver.js
+        command: node webserver-dev1.js
         container_name: test
         restart: always
         volumes:
             - "./nodesrc:/var/project/src"
         ports:
-            - "3000:3000"
+            - "5000:3000"
         environment:
             SQL_HOST: db
             SQL_PORT: 3306
