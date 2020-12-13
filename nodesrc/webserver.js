@@ -77,7 +77,7 @@ app.post('/data', function(req,res){
     });
 });
 
-function func_is_unique_key(con, tries, func){
+function func_is_unique_path(con, tries, func){
     if(tries <= 0) func("err");
     let unique = false;
     let rand = Math.floor(Math.random() * 2147483647);

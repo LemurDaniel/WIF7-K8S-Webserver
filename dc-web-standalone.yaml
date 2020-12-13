@@ -12,5 +12,7 @@ services:
             - "./nodesrc:/var/project/src"
         ports:
             - "4000:3000"
+        environment:
+            ENABLE_SQL: 'false'
 volumes:
     src_data:

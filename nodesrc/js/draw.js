@@ -13,7 +13,7 @@ const translation_url =  domain+'/translation';
 //const classifier_model = "DarkNet-tiny";
 //const classifier_model = "Darknet-reference";
 //const classifier_model = "MobileNet";
-const classifier_model = "DoodleNet"
+const classifier_model = "DoodleNet";
 const classifier = ml5.imageClassifier(classifier_model, () => modelLoaded = true);
 
 var modelLoaded;
@@ -45,7 +45,7 @@ function ml5_gotResults(err, results) {
     $(html_id).append('<div></div>');
     results.forEach(element => {
         let conf = Math.round(element.confidence*100);
-        $(html_id + ' div ').append('<li>'+element.label+'('+conf+'%)</li>')
+        $(html_id + ' div ').append('<li>('+conf+'%) '+element.label+'</li>');
     });
     
     //classifier.classify(p5canvas.canvas, gotResults);
@@ -53,6 +53,7 @@ function ml5_gotResults(err, results) {
 }
 
 function Translate_Data(){
+    if(!translation) return;
     for (let i = 0; i < ml5_predictions.length; i++) {
         ml5_predictions[i].label = translation[ml5_predictions[i].label];      
     }
@@ -177,9 +178,9 @@ var p5_1 = function (sketch) {
 
 //Initialize Sketches
 new p5(p5_2);
+new p5(p5_1);
 
-sketch_p5_2.httpGet(translation_url, 'json', (data) => {
-    new p5(p5_1);
+sketch_p5_2.httpGet(translation_url, 'json', (data) => { 
     translation = data
 });
 /* REST Method Calls */
