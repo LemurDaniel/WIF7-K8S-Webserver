@@ -13,7 +13,7 @@
 
     <style>
 
-        #p5_canvas_hidden {
+        #p5_canvas_hidde {
             position: absolute;
 
             width: 1px;
@@ -59,16 +59,30 @@
         body {
             margin: auto;
         }
+        
+        #weight_showcase {
+            background-color: black;
+            width: 10px;
+            display: block;
+        }
+
     </style>
 <!--     <script type="module" src="main.js"></script> -->
 </head>
 <body>
     <div id="div_top">
+        <div id="weight_showcase"></div>
         <div id="p5_canvas">
-            <input id="input_color" type="color">
-            <label for="input_weight">Stroke:</label>
-            <input id="input_weight" type="number" min="1" max="20" step="1" value="15">
-            <input id="input_name" type="text" placeholder="Name your drawing">
+            <div>
+                <input id="input_color" type="color">
+                <input type="range" min="1" max="25" value="20" id="input_weight">
+                <input id="input_name" type="text" placeholder="Name your drawing">
+            </div>
+            <div>
+                <button type="button" id="btn_clear">Clear</button>
+                <button type="button" id="btn_post">Post</button>
+                <button type="button" id="btn_download">Download</button>
+            </div>
         </div>
         <div id="predictions">
             <div id="ml5_DoodleNet"></div>

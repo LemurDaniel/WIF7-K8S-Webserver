@@ -2,6 +2,9 @@
 const canvas_size = 280;
 const stroke_weight = 15;
 
+const FRAME_RATE = 30;
+const FRAME_RATE_SHOWCASE = 10;
+
 const img_name_default = "My-Drawing";
 const grayscale = false;
 const predict_interval = 5; //One Prediction in <number> frames when drawing
@@ -19,9 +22,6 @@ const classifier = ml5.imageClassifier(classifier_model, () => modelLoaded = tru
 var modelLoaded;
 var p5canvas;
 var p5canvas_2;
-
-var sketch_p5_1;
-var sketch_p5_2;
 
 var ml5_predictions;
 var server_path = '';
@@ -59,30 +59,6 @@ function Translate_Data(){
     }
 }
 
-// POST DATA
-function HTTP_Post_Data(){;
-    let data = {
-        img_data: p5canvas.canvas.toDataURL(),
-        img_name: input_name[0].value,
-        img_path: server_path,
-        user: "Daniel",
-        ml5_best_fit: ml5_predictions[0],
-        ml5: ml5_predictions
-    }
-
-    if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
-    sketch_p5_2.httpPost(doodle_url, 'json', data, (result) => server_path = result.img_path); 
-}
-
-function handleFile(file) {
-  print(file);
-  if (file.type === 'image') {
-    img = $('body').append('<img src="'+file.data+'"></img>');
-    //classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
-    //classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
-  } 
-}
-
 
 
 /*  P5 HIDDEN CANVA
@@ -94,9 +70,6 @@ function handleFile(file) {
     which draws the same picture parallel with only a black stroke.
 */
 var p5_2 = function (sketch) {
-    
-    
-    sketch_p5_2 = sketch;
 
     // src => https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
     function hexToRgb(hex) {
@@ -108,7 +81,7 @@ var p5_2 = function (sketch) {
         } : null;
       }
 
-    sketch.makeCanvas = function () {
+    sketch.setup = function () {
         p5canvas2 = sketch.createCanvas(canvas_size, canvas_size);
         p5canvas2.parent("p5_canvas_hidden"); 
         sketch.strokeWeight(stroke_weight);
@@ -135,56 +108,142 @@ var p5_2 = function (sketch) {
 // P5 MAIN CANVAS
 var p5_1 = function (sketch) {
 
-    var sketch_p5_1 = sketch;
+    // Define input elements
+    let input_weight;
+    let clearBtn;
+    let downloadBtn;
+    let uploadBtn;
+    let postBtn;
+    let input_color;
+    let input_name;
+    let input_file;
+
+    // Showcase for strokesize and color
+    let showcase = function(sketch){
+
+        let sh_size = 35;
+        let wIsPressed = false;
+        let cIsPressed = false;
+        sketch.setup = function(){
+            sketch.createCanvas(sh_size, sh_size).parent("weight_showcase"); 
+            sketch.background(255); 
+            sketch.fill(255);
+            sketch.noStroke();
+
+            input_weight.on('mousedown', () => wIsPressed = true);
+            input_weight.on('mouseleave', () => wIsPressed = false);
+
+            input_color.on('mousedown', () => cIsPressed = true);
+            input_color.on('change', () => cIsPressed = false);
+
+            sketch.fill(input_color[0].value);
+            const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
+            sketch.circle(sh_size/2, sh_size/2, size);
+        }
+
+        sketch.draw = function(){
+            // Set size relative to strokesize
+            if(wIsPressed || cIsPressed){
+                sketch.background(255);
+                sketch.fill(input_color[0].value);
+                // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
+                const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
+                sketch.circle(sh_size/2, sh_size/2, size);
+                console.log(cIsPressed)
+            } 
+        }
+    }
+    // showcase END
+
+
+    // Actual Canvas
     let s = sketch;
     
     sketch.setup = function () {
-    p5canvas = sketch.createCanvas(canvas_size, canvas_size);
-    p5canvas.parent("p5_canvas");   
 
-    sketch.background(255);
-    sketch.strokeWeight(stroke_weight);
+        // Define input elements
+        input_weight =  $('#input_weight');
+        clearBtn = $('#btn_clear');
+        downloadBtn = $('#btn_download');
+        uploadBtn = $('#btn_upload');
+        postBtn = $('#btn_post');
+        input_color = $('#input_color');
+        input_name =  $('#input_name');
+        input_file =  $('#input_file');
 
-    clearBtn = sketch.createButton('clear');
-    loadBtn = sketch.createButton('LoadImage');
-    postBtn = sketch.createButton('PostData');
-    downloadBtn = sketch.createButton('Download');
+        // Initialize showcase
+        p5_3 = new p5(showcase);
+        // Create hiddencanvas
+        p5_2 = new p5(p5_2);
+
+        p5_3.frameRate(FRAME_RATE_SHOWCASE)
+        p5_2.frameRate(FRAME_RATE);
+        sketch.frameRate(FRAME_RATE);
+   
+        // Create main canvas
+        p5canvas = sketch.createCanvas(canvas_size, canvas_size);
+        p5canvas.parent("p5_canvas");   
+        sketch.background(255);
+        sketch.strokeWeight(stroke_weight);
+
     
-    clearBtn.parent("p5_canvas");
-    loadBtn.parent("p5_canvas");
-    postBtn.parent("p5_canvas");
-    downloadBtn.parent("p5_canvas");
+        // Button Functionality
+        clearBtn.on('click', () => {s.background(255); p5_2.background(255)});
+        postBtn.on('click', () => HTTP_Post_Data);
+        downloadBtn.on('click', () => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
 
-    clearBtn.mousePressed(() => {s.background(255); sketch_p5_2.background(255)});
-    postBtn.mousePressed(HTTP_Post_Data);
-    downloadBtn.mousePressed(() => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
-
-    input_color = $('#input_color');
-    input_weight =  $('#input_weight');
-    input_name =  $('#input_name');
-    input_color.on('change', () => { s.stroke(input_color[0].value); sketch_p5_2.setStroke(input_color[0].value) });
-    input_weight.on('change', () => s.strokeWeight(input_weight[0].value))
-    input_weight[0].value = stroke_weight;
-
-    //Call function to create hidden canvas
-    sketch_p5_2.makeCanvas();
-  }
+        input_color.on('change', () => { 
+            s.stroke(input_color[0].value); 
+            p5_2.setStroke(input_color[0].value) 
+        });
+        
+        input_weight.on('change', () => {
+            const val = input_weight[0].value;
+            s.strokeWeight(val); 
+            p5_2.strokeWeight(val);
+        })
+        input_weight[0].value = stroke_weight;
+    }
   
-    s.draw = function () {
+    sketch.draw = function () {
         if (s.mouseIsPressed) {
         s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-            sketch_p5_2.replicate(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+            p5_2.replicate(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             //deml_gotResults(doodleNet_classify(), "#DoodleNet");
             if(modelLoaded && s.frameCount % predict_interval === 0) classifier.classify(p5canvas2, ml5_gotResults);
         }
     }
+
 }
 
-//Initialize Sketches
-new p5(p5_2);
-new p5(p5_1);
+function handleFile(file) {
+    print(file);
+    if (file.type.match('image')) {
+      img = $('body').append('<img src="'+file.data+'"></img>');
+      //classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
+      //classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
+    } 
+  }
 
-sketch_p5_2.httpGet(translation_url, 'json', (data) => { 
+//Initialize Sketches
+p5_1 = new p5(p5_1);
+
+/* REST Method Calls */
+p5_1.httpGet(translation_url, 'json', (data) => { 
     translation = data
 });
-/* REST Method Calls */
+
+// POST DATA
+function HTTP_Post_Data(){;
+    let data = {
+        img_data: p5canvas.canvas.toDataURL(),
+        img_name: input_name[0].value,
+        img_path: server_path,
+        user: "Daniel",
+        ml5_best_fit: ml5_predictions[0],
+        ml5: ml5_predictions
+    }
+
+    if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
+    p5_1.httpPost(doodle_url, 'json', data, (result) => server_path = result.img_path); 
+}
