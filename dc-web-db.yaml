@@ -6,7 +6,7 @@ services:
         depends_on: 
             - db
         image: node-webserver:dev
-        command: node webserver-dev1.js
+        command: node webserver.js
         container_name: test
         restart: always
         volumes:

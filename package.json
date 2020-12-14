@@ -1,0 +1,21 @@
+{
+    "name": "doodle-drawing",
+    "version": "1.0.0",
+    "description": "kk",
+    "author": "Daniel Landau <landau.daniel.1998+dev@gmail.com",
+    "main": "webserver.js",
+
+    "dependencies": {
+        "express": "^4.17.1",
+        "body-parser": "^1.19.0",
+        "mysql": "^2.18.1"
+    },
+    "devDependencies": {
+        "express": "^4.17.1",
+        "body-parser": "^1.19.0",
+        "mysql": "^2.18.1",
+        "cors": "^2.8.5",
+        "browser-sync": "^2.26.13"
+    }
+
+}
