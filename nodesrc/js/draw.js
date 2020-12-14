@@ -105,19 +105,19 @@ var p5_2 = function (sketch) {
     }
 }
 
+
+ // Define input elements
+ var input_weight;
+ var clearBtn;
+ var downloadBtn;
+ var uploadBtn;
+ var postBtn;
+ var input_color;
+ var input_name;
+ var input_file;
+
 // P5 MAIN CANVAS
 var p5_1 = function (sketch) {
-
-    // Define input elements
-    let input_weight;
-    let clearBtn;
-    let downloadBtn;
-    let uploadBtn;
-    let postBtn;
-    let input_color;
-    let input_name;
-    let input_file;
-
     // Showcase for strokesize and color
     let showcase = function(sketch){
 
@@ -189,7 +189,7 @@ var p5_1 = function (sketch) {
     
         // Button Functionality
         clearBtn.on('click', () => {s.background(255); p5_2.background(255)});
-        postBtn.on('click', () => HTTP_Post_Data);
+        postBtn.on('click', () => HTTP_Post_Data());
         downloadBtn.on('click', () => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
 
         input_color.on('change', () => { 
@@ -203,6 +203,8 @@ var p5_1 = function (sketch) {
             p5_2.strokeWeight(val);
         })
         input_weight[0].value = stroke_weight;
+
+        console.log(postBtn)
     }
   
     sketch.draw = function () {
@@ -234,7 +236,7 @@ p5_1.httpGet(translation_url, 'json', (data) => {
 });
 
 // POST DATA
-function HTTP_Post_Data(){;
+function HTTP_Post_Data(){
     let data = {
         img_data: p5canvas.canvas.toDataURL(),
         img_name: input_name[0].value,
