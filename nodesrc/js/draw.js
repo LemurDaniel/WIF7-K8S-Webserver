@@ -10,7 +10,8 @@ const grayscale = false;
 const predict_interval = 5; //One Prediction in <number> frames when drawing
 
 const domain = window.location.href;
-const doodle_url =  domain+'data';
+const url_save =  domain+'/images/save';
+const url_search = domain+'/images/search';
 const translation_url =  domain+'translation';
 
 //const classifier_model = "DarkNet-tiny";
@@ -242,7 +243,7 @@ function HTTP_Post_Data(){
         img_name: input_name[0].value,
         img_path: server_path,
         user: "Daniel",
-        ml5_best_fit: ml5_predictions[0],
+        ml5_bestfit: ml5_predictions[0],
         ml5: ml5_predictions
     }
 

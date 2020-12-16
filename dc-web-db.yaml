@@ -12,7 +12,7 @@ services:
         volumes:
             - "./nodesrc:/var/project/src"
         ports:
-            - "5000:3000"
+            - "5001:3000"
         environment:
             SQL_HOST: db
             SQL_PORT: 3306

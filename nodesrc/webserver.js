@@ -16,7 +16,7 @@ console.log('SQL: '+SQL_ENABLE);
 const SERVER_PORT = 3000;
 
 // Initialize DB
-if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 1000);
+if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
 
 
 //Create Server//
@@ -43,6 +43,21 @@ app.get('/tictactoe', (req,res) => res.sendFile(helper.PATH+'tictactoe.html'));
 app.get('/draw', (req,res) => res.sendFile(helper.PATH+'draw.html'));
 
 
+app.get('/images/search', (req,res) => {
+
+    let params = req.body;
+    
+    let con = sql.getCon();
+
+    con.connect( (err) => {
+        sql.get_img(con, params, (err, result) => {
+            res.json(result);
+        });
+    });
+
+});
+
+
 
 // POST //
 func_get_rand_path = (body) => {
@@ -50,7 +65,7 @@ func_get_rand_path = (body) => {
     body.img_path += '-'+Math.floor(Math.random() * 2147483647)+'.png';
 }
 
-app.post('/data', function(req,res){
+app.post('/images/save', (req,res) => {
     
     let body = req.body;
     if (!SQL_ENABLE) {
@@ -72,9 +87,9 @@ app.post('/data', function(req,res){
                 if(!unique) return;
 
                 sql.insert_img(con, body, (err, result) => {
- 
                     // 
                     if(err) return;
+                    sql.insert_into_ml5(con, result.insertId, body.ml5);
                     helper.write_img_to_file(body, (err, result) => {
                         res.json(body);
                     });
@@ -96,6 +111,7 @@ app.post('/data', function(req,res){
     });
 
 });
+
 
 
 //*/
