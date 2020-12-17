@@ -2,12 +2,12 @@
 const canvas_size = 280;
 const stroke_weight = 15;
 
-const FRAME_RATE = 30;
-const FRAME_RATE_SHOWCASE = 10;
+const FRAME_RATE = 60;
+const FRAME_RATE_SHOWCASE = 20;
 
 const img_name_default = "My-Drawing";
 const grayscale = false;
-const predict_interval = 5; //One Prediction in <number> frames when drawing
+const predict_interval = 10; //One Prediction in <number> frames when drawing
 
 const domain = window.location.href;
 const url_save =  domain+'/images/save';
@@ -22,7 +22,11 @@ const classifier = ml5.imageClassifier(classifier_model, () => modelLoaded = tru
 
 var modelLoaded;
 var p5canvas;
-var p5canvas_2;
+var p5canvas2;
+
+var p5_1;
+var p5_2;
+var p5_2;
 
 var ml5_predictions;
 var server_path = '';
@@ -49,8 +53,6 @@ function ml5_gotResults(err, results) {
         $(html_id + ' div ').append('<li>('+conf+'%) '+element.label+'</li>');
     });
     
-    //classifier.classify(p5canvas.canvas, gotResults);
-    // all the amazing things you'll add
 }
 
 function Translate_Data(){
@@ -70,7 +72,7 @@ function Translate_Data(){
     One with color wich the user can see and second hidden one,
     which draws the same picture parallel with only a black stroke.
 */
-var p5_2 = function (sketch) {
+p5_2 = function (sketch) {
 
     // src => https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
     function hexToRgb(hex) {
@@ -118,40 +120,48 @@ var p5_2 = function (sketch) {
  var input_file;
 
 // P5 MAIN CANVAS
-var p5_1 = function (sketch) {
+p5_1 = function (sketch) {
     // Showcase for strokesize and color
     let showcase = function(sketch){
 
         let sh_size = 35;
-        let wIsPressed = false;
-        let cIsPressed = false;
+       
         sketch.setup = function(){
             sketch.createCanvas(sh_size, sh_size).parent("weight_showcase"); 
             sketch.background(255); 
             sketch.fill(255);
             sketch.noStroke();
+            sketch.frameRate(0);
 
-            input_weight.on('mousedown', () => wIsPressed = true);
-            input_weight.on('mouseleave', () => wIsPressed = false);
+            input_weight[0].value = stroke_weight;
+            input_weight.on('mousedown', () => sketch.frameRate(FRAME_RATE_SHOWCASE));
+            input_weight.on('mouseleave', () => sketch.frameRate(0));                
+            input_weight.on('change', () => {
+                const val = input_weight[0].value;
+                p5_1.strokeWeight(val); 
+                p5_2.strokeWeight(val);
+                sketch.draw();
+            })
 
-            input_color.on('mousedown', () => cIsPressed = true);
-            input_color.on('change', () => cIsPressed = false);
+            input_color.on("click", () => sketch.frameRate(FRAME_RATE_SHOWCASE));
+            input_color.on('change', () => { 
+                p5_1.stroke(input_color[0].value); 
+                p5_2.stroke(input_color[0].value);
+                sketch.frameRate(0)
+            });
+      
 
-            sketch.fill(input_color[0].value);
-            const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
-            sketch.circle(sh_size/2, sh_size/2, size);
+            sketch.draw();
         }
 
         sketch.draw = function(){
             // Set size relative to strokesize
-            if(wIsPressed || cIsPressed){
-                sketch.background(255);
-                sketch.fill(input_color[0].value);
-                // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
-                const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
-                sketch.circle(sh_size/2, sh_size/2, size);
-                console.log(cIsPressed)
-            } 
+            sketch.background(255);
+            sketch.fill(input_color[0].value);
+            // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
+            const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
+            sketch.circle(sh_size/2, sh_size/2, size);
+            console.log(true)
         }
     }
     // showcase END
@@ -163,21 +173,18 @@ var p5_1 = function (sketch) {
     sketch.setup = function () {
 
         // Define input elements
+        input_color = $('#input_color');
         input_weight =  $('#input_weight');
         clearBtn = $('#btn_clear');
         downloadBtn = $('#btn_download');
         uploadBtn = $('#btn_upload');
         postBtn = $('#btn_post');
-        input_color = $('#input_color');
         input_name =  $('#input_name');
-        input_file =  $('#input_file');
 
         // Initialize showcase
         p5_3 = new p5(showcase);
         // Create hiddencanvas
         p5_2 = new p5(p5_2);
-
-        p5_3.frameRate(FRAME_RATE_SHOWCASE)
         p5_2.frameRate(FRAME_RATE);
         sketch.frameRate(FRAME_RATE);
    
@@ -192,18 +199,6 @@ var p5_1 = function (sketch) {
         clearBtn.on('click', () => {s.background(255); p5_2.background(255)});
         postBtn.on('click', () => HTTP_Post_Data());
         downloadBtn.on('click', () => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
-
-        input_color.on('change', () => { 
-            s.stroke(input_color[0].value); 
-            p5_2.setStroke(input_color[0].value) 
-        });
-        
-        input_weight.on('change', () => {
-            const val = input_weight[0].value;
-            s.strokeWeight(val); 
-            p5_2.strokeWeight(val);
-        })
-        input_weight[0].value = stroke_weight;
 
         console.log(postBtn)
     }

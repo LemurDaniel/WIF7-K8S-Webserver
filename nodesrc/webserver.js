@@ -84,8 +84,8 @@ app.post('/images/save', (req,res) => {
 
             func_get_rand_path(body);
             sql.is_unique_path(con, body.img_path, (err, unique) => { 
+                
                 if(!unique) return;
-
                 sql.insert_img(con, body, (err, result) => {
                     // 
                     if(err) return;
@@ -102,7 +102,7 @@ app.post('/images/save', (req,res) => {
             sql.update_img(con, body, (err, result) => {
                 
                 if(err) return;
-                helper.write_img_to_file(body, (err, result) => {
+                helper.write_img_to_file(body, (err) => {
                     res.json(body);
                 });
             });
