@@ -10,8 +10,8 @@ const grayscale = false;
 const predict_interval = 10; //One Prediction in <number> frames when drawing
 
 const domain = window.location.href;
-const url_save =  domain+'/images/save';
-const url_search = domain+'/images/search';
+const url_save =  domain+'images/save';
+const url_search = domain+'images/search';
 const translation_url =  domain+'translation';
 
 //const classifier_model = "DarkNet-tiny";
@@ -243,5 +243,5 @@ function HTTP_Post_Data(){
     }
 
     if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
-    p5_1.httpPost(doodle_url, 'json', data, (result) => server_path = result.img_path); 
+    p5_1.httpPost(url_save, 'json', data, (result) => server_path = result.img_path); 
 }

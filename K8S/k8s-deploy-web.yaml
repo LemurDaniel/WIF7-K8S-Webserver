@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: webserver
+        image: daniellandau1998/node-webserver:dev4
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3000
+        env:
+          - { name: SQL_PASSWORD, value: "geheimesPWDuser"}
+          - { name: SQL_DATABASE, value: "node_wp"}
+          - { name: SQL_USER, value: "node_user"}
+          - { name: SQL_HOST, value: "db-server"}
+          - { name: SQL_PORT, value: "3306"}
+          - { name: SQL_ENABLE, value: "true"}
+        volumeMounts:
+        - mountPath: "/var/project/src/assets/doodles"
+          name: image-data
+      volumes:
+      - name: image-data
+        persistentVolumeClaim:
+          claimName: image-data-claim
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  selector:
+    app: webserver
+  type: NodePort
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30123
+
+#doesn't work on docker for desktop, use port-forward for testing
+#kubectl port-forward svc/webserver 6000:3000

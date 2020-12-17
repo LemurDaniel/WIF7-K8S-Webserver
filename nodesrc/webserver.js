@@ -24,6 +24,7 @@ var app = express();
 app.use(express.static("/var/project/src"));
 app.use(bodyParser.json());
 app.use(cors());
+app.set('json spaces', 2)
 
 var server = http.createServer(app)
 server.listen(SERVER_PORT);
@@ -41,6 +42,7 @@ app.get('/translation', (req,res) => res.sendFile(helper.TRANSLATION));
 app.get('/rocket', (req,res) => res.sendFile(helper.PATH+'rocket_game.html'));
 app.get('/tictactoe', (req,res) => res.sendFile(helper.PATH+'tictactoe.html'));
 app.get('/draw', (req,res) => res.sendFile(helper.PATH+'draw.html'));
+app.get('/info', (req,res) =>  res.json(process.env) );
 
 
 app.get('/images/search', (req,res) => {

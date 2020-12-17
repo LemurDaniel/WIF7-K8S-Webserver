@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-data
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes: 
+  - ReadWriteMany
+  hostPath:
+    path: /var/mysql
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: db-data-claim
+spec:
+  accessModes: 
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

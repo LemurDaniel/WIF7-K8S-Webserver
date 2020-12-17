@@ -52,8 +52,8 @@ func.write_img_to_file = (body, callback) => {
         let file = fs.readFileSync(WEB_JSON, 'utf-8');
 
         // If file is empty, initialize json as Object
-        if(file.length === 0) var json = {};
-        else var json = JSON.parse(data);
+        if(!file || file.length === 0) var json = {};
+        else var json = JSON.parse(file);
             
         // Append new Data
         json[body.img_path] = body;        

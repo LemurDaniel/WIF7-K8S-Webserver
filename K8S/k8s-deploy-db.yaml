@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: database
+        image: mysql:5.7
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
+        env:
+          - { name: MYSQL_ROOT_PASSWORD, value: "geheimesPWD"}
+          - { name: MYSQL_PASSWORD, value: "geheimesPWDuser"}
+          - { name: MYSQL_DATABASE, value: "node_wp"}
+          - { name: MYSQL_USER, value: "node_user"}
+          - { name: MYSQL_PORT, value: "3306"}
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: db-data
+      volumes:
+      - name: db-data
+        persistentVolumeClaim:
+          claimName: db-data-claim
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-server
+spec:
+  selector:
+    app: database
+  type: NodePort
+  ports:
+  - port: 3306
+    targetPort: 3306
+    nodePort: 30124
+
+#doesn't work on docker for desktop, use port-forward for testing
+#kubectl port-forward svc/db-server 6001:3306
