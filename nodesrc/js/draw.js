@@ -146,7 +146,7 @@ p5_1 = function (sketch) {
             input_color.on("click", () => sketch.frameRate(FRAME_RATE_SHOWCASE));
             input_color.on('change', () => { 
                 p5_1.stroke(input_color[0].value); 
-                p5_2.stroke(input_color[0].value);
+                p5_2.setStroke(input_color[0].value);
                 sketch.frameRate(0)
             });
       
