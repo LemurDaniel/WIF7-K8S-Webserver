@@ -45,78 +45,32 @@ app.get('/draw', (req,res) => res.sendFile(helper.PATH+'draw.html'));
 app.get('/info', (req,res) =>  res.json(process.env) );
 
 
-app.get('/images/search', (req,res) => {
 
-    let params = req.body;
-    
-    let con = sql.getCon();
-
-    con.connect( (err) => {
-        sql.get_img(con, params, (err, result) => {
-            res.json(result);
-        });
+// POSTS //
+app.post('/images/search', (req,res) => {
+    sql.call((con) => {
+        sql.get_img(con, req.body, (err, result) => res.json(result));
     });
-
 });
 
-
-
-// POST //
-func_get_rand_path = (body) => {
-    body.img_path = body.img_name.toLowerCase().replaceAll(' ','-');
-    body.img_path += '-'+Math.floor(Math.random() * 2147483647)+'.png';
-}
+app.post('/images/data', (req,res) => {
+    helper.get_img_from_file(req.body, (err) => res.json(req.body));
+});
 
 app.post('/images/save', (req,res) => {
     
     let body = req.body;
     if (!SQL_ENABLE) {
-        if (body.img_path.length === 0) func_get_rand_path(body);
+        if (body.img_path.length === 0) helper.get_rand_path(body);
         helper.write_img_to_file(body, (err, result) => {
             res.json(body);
         });
         return;
     }
 
-    let con = sql.getCon();
-
-    con.connect( (err) => {
-    // When new Image
-        if (body.img_path.length === 0){
-
-            func_get_rand_path(body);
-            sql.is_unique_path(con, body.img_path, (err, unique) => { 
-                
-                if(!unique) return;
-                sql.insert_img(con, body, (err, result) => {
-                    // 
-                    if(err) return;
-                    sql.insert_into_ml5(con, result.insertId, body.ml5);
-                    helper.write_img_to_file(body, (err, result) => {
-                        res.json(body);
-                    });
-                });
-            });
-
-    // Update Existing Image
-        } else {
-
-            sql.update_img(con, body, (err, result) => {
-                
-                if(err) return;
-                helper.write_img_to_file(body, (err) => {
-                    res.json(body);
-                });
-            });
-        }
-
-    });
+    if (body.img_path.length === 0)
+        sql.call( (con) => helper.handle_new_image(con, body, res));
+    else
+        sql.call( (con) => helper.handle_update_img(con, body, res));
 
 });
-
-
-
-//*/
-
-  // tutorial
-  // https://medium.com/swlh/read-html-form-data-using-get-and-post-method-in-node-js-8d2c7880adbf

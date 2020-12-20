@@ -9,9 +9,11 @@ const img_name_default = "My-Drawing";
 const grayscale = false;
 const predict_interval = 10; //One Prediction in <number> frames when drawing
 
-const domain = window.location.href;
+//const domain = window.location.href;
+const domain = 'localhost:4000/';
 const url_save =  domain+'images/save';
 const url_search = domain+'images/search';
+const url_getData =  domain+'images/data';
 const translation_url =  domain+'translation';
 
 //const classifier_model = "DarkNet-tiny";
@@ -233,7 +235,7 @@ p5_1.httpGet(translation_url, 'json', (data) => {
 
 // POST DATA
 function HTTP_Post_Data(){
-    let data = {
+    const data = {
         img_data: p5canvas.canvas.toDataURL(),
         img_name: input_name[0].value,
         img_path: server_path,
@@ -244,4 +246,23 @@ function HTTP_Post_Data(){
 
     if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
     p5_1.httpPost(url_save, 'json', data, (result) => server_path = result.img_path); 
+}
+
+function HTTP_Search_Images(){
+    const params = {
+        img_name: "",
+        user: "Daniel",
+        ml5_bestfit: "",
+        ml5_bestfit_conf: ""
+    }
+
+    p5_1.httpPost(url_search, 'json', params, (result) => console.log(result)); 
+}
+
+function HTTP_Get_ImageData(){
+    const params = {
+        img_path: "mona-lisa-updated-1605368304.png",
+    }
+
+    p5_1.httpPost(url_getData, 'json', params, (result) => $('body').append('<img src="'+result.img_data+'" >')); 
 }

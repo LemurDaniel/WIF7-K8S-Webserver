@@ -570,5 +570,57 @@
                 "confidence": 0.0005635494599118829
             }
         ]
+    },
+    "mona-lisa-2027905434.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa testing",
+        "img_path": "mona-lisa-2027905434.png",
+        "user": "Daniel",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ]
     }
 }

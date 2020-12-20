@@ -63,6 +63,15 @@ func = {};
     }
 
 
+    func.call = (method) =>  {
+        let con = func.getCon();
+        con.connect( (err) => {
+            console.log(err);
+            method(con);
+        });
+    }
+
+
     func.insert_img = (con, body, callback) => {
 
         con.query(SQL_INSERT_IMG, 
