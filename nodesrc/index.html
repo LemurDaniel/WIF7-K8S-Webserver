@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Doodledrawing</title>
     <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.15.2"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
@@ -16,68 +16,7 @@
         body {
             background-image: url("./assets/doodles-background.jpg");
             background-color: #cccccc;
-            background-position: center;
             background-size: 540px;
-        }
-
-        .hidden {
-            position: absolute;
-
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            border: 0;
-            padding: 0;
-
-            clip: rect(0 0 0 0);
-            overflow: hidden;
-        }
-        
-        #input_color {
-            opacity:0;
-            height: 40px;
-            position: absolute;
-        }
-
-        #div_drawing {
-            display: inline-block;
-            margin: 50px;
-        }
-
-        #predictions {
-            float: right;
-            width: auto;
-            font-size: 30px;
-            background-color: #cccccc;
-        }
-
-        #predictions div {
-            display: inline-block;
-        }
-
-        #p5_canvas {
-            float: left;
-            display: block;
-            width: auto;
-        }
-
-        canvas {
-            display: block;
-            border-style: solid;
-        }
-
-        @font-face {
-            font-family: AmaticSC;
-            src: url(assets/fonts/AmaticSC-Bold.ttf);
-        }
-        body {
-            margin: auto;
-        }
-        
-        #weight_showcase {
-            background-color: black;
-            width: 10px;
-            display: block;
         }
 
     </style>
@@ -85,29 +24,11 @@
 </head>
 <body>
     <div>
-        <div id="div_drawing">
-            <div id="weight_showcase">
-                <input id="input_color" type="color">
-            </div>
-            <div id="p5_canvas">
-                <div>
-                    <input type="range" min="1" max="25" value="20" id="input_weight">
-                    <input id="input_name" type="text" placeholder="Name your drawing">
-                </div>
-                <div>
-                    <button type="button" id="btn_clear">Clear</button>
-                    <button type="button" id="btn_post">Post</button>
-                    <button type="button" id="btn_download">Download</button>
-                </div>
-            </div>
-            <div id="predictions">
-                <div id="ml5_DoodleNet"></div>
-                <div id="demo_DoodleNet"></div>
-            </div>
-            <div id="p5_canvas_hidden" class="hidden"></div>
+        <div id="referals">
+            <a href="./draw">Draw some doodles</a>
+            <a href="./draw/gallery">Check out the doodle gallery</a>
+            <a href="./rocket">Fly a rocket</a>
         </div>
-
-        <div id="gallery"></div>
     </div>
 </body>
 </html>
