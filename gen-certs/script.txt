@@ -1,0 +1,25 @@
+
+    Generate Self-signed SSL 
+        
+
+1. Create docker image with openssl installed 
+
+    docker build -t gen_ssl:v1 -f df-ssl .
+
+2. Spin up Container with localfolder mounted
+
+    docker run -v "C:\Users\Daniel Notebook\Documents\Git\Projekt\cert:/var/project/cert" -it gen_ssl:v1 bash
+
+3. Enter following three commands:
+
+    openssl req -config daniel-wif7-projekt.conf -days 365 \
+            -new -x509 -newkey rsa:2048 -nodes \
+            -keyout daniel-wif7-projekt.key.pem -out daniel-wif7-projekt.cert.pem
+
+4. Import ***.cert.pem file into windows Cert-Manager
+
+    search windows for "Computerzertifikate verwalten"
+
+    Go to "Vertrauenswürdige Stammzertifizierungsstellen" ==> "Zertifikate"
+
+    Importiere the ***.cert.pem file

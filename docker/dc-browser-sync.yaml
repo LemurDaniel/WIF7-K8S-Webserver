@@ -7,7 +7,7 @@ services:
         container_name: webserver_dev_bsync
         restart: always
         volumes:
-            - "./nodesrc:/var/project/src"
+            - ".././nodesrc:/var/project/src"
         ports:
             - "3000:3000"
         environment:

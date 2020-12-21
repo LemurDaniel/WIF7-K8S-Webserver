@@ -10,7 +10,7 @@ services:
         container_name: test
         restart: always
         volumes:
-            - "./nodesrc:/var/project/src"
+            - ".././nodesrc:/var/project/src"
         ports:
             - "5001:3000"
         environment:

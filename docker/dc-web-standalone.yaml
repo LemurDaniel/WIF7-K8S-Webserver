@@ -9,7 +9,7 @@ services:
         stdin_open: true
         tty: true
         volumes:
-            - "./nodesrc:/var/project/src"
+            - ".././nodesrc:/var/project/src"
         ports:
             - "4000:3000"
         environment:

@@ -1,5 +1,6 @@
 // Load Modules //
 const http = require('http');
+const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const createError = require('http-errors');
@@ -12,22 +13,23 @@ const helper = require('./js/helper');
 const SQL_ENABLE = (process.env.SQL_ENABLE == 'true' ? true:false); 
 console.log('SQL: '+SQL_ENABLE);
 
-// Get Environment Variables
-const SERVER_PORT = 3000;
-
 // Initialize DB
 if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
 
 
 //Create Server//
-var app = express();
+const app = express();
 app.use(express.static("/var/project/src"));
 app.use(bodyParser.json());
 app.use(cors());
 app.set('json spaces', 2)
 
-var server = http.createServer(app)
-server.listen(SERVER_PORT);
+//const server = http.createServer(app);
+const server = https.createServer({
+    key: fs.readFileSync('./daniel-wif7-projekt.key.pem'),
+    cert: fs.readFileSync('./daniel-wif7-projekt.cert.pem')
+}, app);
+server.listen(3000);
 
 /*
 // Catch 404 and forward to error handler //
@@ -36,12 +38,12 @@ app.use((req, res, next) => {
 });*/
 
 // GET //
-app.get('/', (req,res) => res.sendFile(helper.PATH+'draw.html'));
+app.get('/', (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
 app.get('/web', (req,res) => res.sendFile(helper.WEB));
 app.get('/translation', (req,res) => res.sendFile(helper.TRANSLATION));
-app.get('/rocket', (req,res) => res.sendFile(helper.PATH+'rocket_game.html'));
-app.get('/tictactoe', (req,res) => res.sendFile(helper.PATH+'tictactoe.html'));
-app.get('/draw', (req,res) => res.sendFile(helper.PATH+'draw.html'));
+app.get('/rocket', (req,res) => res.sendFile(helper.PATH+'html/rocket_game.html'));
+app.get('/tictactoe', (req,res) => res.sendFile(helper.PATH+'html/tictactoe.html'));
+app.get('/draw', (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
 app.get('/info', (req,res) =>  res.json(process.env) );
 
 

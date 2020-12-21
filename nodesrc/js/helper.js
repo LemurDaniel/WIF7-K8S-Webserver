@@ -3,12 +3,12 @@ const sql = require('./sql_calls');
 
 
 // Constants
-const PATH = '/var/project/src';
-const DOODLES = PATH+'/assets/doodles/';
-const WEB_JSON = PATH+'/assets/doodles/web.json';
-const TRANSLATION = PATH+'/assets/other/translation.json';
-const TRANSLATION_ENG = PATH+'/assets/other/class_names.txt';
-const TRANSLATION_DE = PATH+'/assets/other/class_names_german.txt';
+const PATH = '/var/project/src/';
+const DOODLES = PATH+'assets/doodles/';
+const WEB_JSON = PATH+'assets/doodles/web.json';
+const TRANSLATION = PATH+'assets/other/translation.json';
+const TRANSLATION_ENG = PATH+'assets/other/class_names.txt';
+const TRANSLATION_DE = PATH+'assets/other/class_names_german.txt';
 
 fs.readFile(WEB_JSON, 'utf8', (err, data) => {
     if(err === null) return;
