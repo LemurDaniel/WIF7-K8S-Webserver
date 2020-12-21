@@ -13,7 +13,12 @@
 
     <style>
 
-
+        body {
+            background-image: url("./assets/doodles-background.jpg");
+            background-color: #cccccc;
+            background-position: center;
+            background-size: 540px;
+        }
 
         .hidden {
             position: absolute;
@@ -34,7 +39,7 @@
             position: absolute;
         }
 
-        #div_top {
+        #div_drawing {
             display: inline-block;
             margin: 50px;
         }
@@ -43,6 +48,7 @@
             float: right;
             width: auto;
             font-size: 30px;
+            background-color: #cccccc;
         }
 
         #predictions div {
@@ -78,26 +84,30 @@
 <!--     <script type="module" src="main.js"></script> -->
 </head>
 <body>
-    <div id="div_top">
-        <div id="weight_showcase">
-            <input id="input_color" type="color">
-        </div>
-        <div id="p5_canvas">
-            <div>
-                <input type="range" min="1" max="25" value="20" id="input_weight">
-                <input id="input_name" type="text" placeholder="Name your drawing">
+    <div>
+        <div id="div_drawing">
+            <div id="weight_showcase">
+                <input id="input_color" type="color">
             </div>
-            <div>
-                <button type="button" id="btn_clear">Clear</button>
-                <button type="button" id="btn_post">Post</button>
-                <button type="button" id="btn_download">Download</button>
+            <div id="p5_canvas">
+                <div>
+                    <input type="range" min="1" max="25" value="20" id="input_weight">
+                    <input id="input_name" type="text" placeholder="Name your drawing">
+                </div>
+                <div>
+                    <button type="button" id="btn_clear">Clear</button>
+                    <button type="button" id="btn_post">Post</button>
+                    <button type="button" id="btn_download">Download</button>
+                </div>
             </div>
+            <div id="predictions">
+                <div id="ml5_DoodleNet"></div>
+                <div id="demo_DoodleNet"></div>
+            </div>
+            <div id="p5_canvas_hidden" class="hidden"></div>
         </div>
-        <div id="predictions">
-            <div id="ml5_DoodleNet"></div>
-            <div id="demo_DoodleNet"></div>
-        </div>
-        <div id="p5_canvas_hidden" class="hidden"></div>
+
+        <div id="gallery"></div>
     </div>
 </body>
 </html>
