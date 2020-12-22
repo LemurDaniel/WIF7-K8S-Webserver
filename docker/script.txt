@@ -4,6 +4,6 @@
 
 Build from Parentdirectory: ./ or else dockerfile can't copy content of Parentdirectory
 
-    docker build -t webserver:dev -f ./docker/df-webserver .
+    docker build -t node-webserver:dev -f ./docker/df-webserver .
     docker build -t node-webserver:dev-bsync -f ./docker/df-bsync .
 

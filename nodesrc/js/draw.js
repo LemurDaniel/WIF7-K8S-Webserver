@@ -239,7 +239,6 @@ function HTTP_Post_Data(){
         img_data: p5canvas.canvas.toDataURL(),
         img_name: input_name[0].value,
         img_path: server_path,
-        user: "Daniel",
         ml5_bestfit: ml5_predictions[0],
         ml5: ml5_predictions
     }
@@ -251,7 +250,7 @@ function HTTP_Post_Data(){
 function HTTP_Search_Images(){
     const params = {
         img_name: "",
-        user: "Daniel",
+        user_searched: "",
         ml5_bestfit: "",
         ml5_bestfit_conf: ""
     }

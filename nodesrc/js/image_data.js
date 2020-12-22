@@ -1,5 +1,7 @@
 const fs = require('fs');
+const routes =  require('express').Router();
 const sql = require('./sql_calls');
+const { auth } = require('./user_auth');
 
 
 // Constants
@@ -39,10 +41,10 @@ func.DOODLES = DOODLES;
 func.PATH = PATH;
 
 
-// Write postet image to shared volume (todo env for shared volume path?)
+// Write posted image to shared volume (todo env for shared volume path?)
 func.write_img_to_file = (body, callback) => {
 
-    // Get base64 Data and define path
+    // Get base64 Data
     let base64 = body.img_data.replace(/^data:image\/png;base64,/, "");
     body.img_data = '';
 
@@ -76,26 +78,24 @@ func.get_img_from_file = (body, callback) => {
 }
 
 
-// create a random unique path on shared volume
-func.get_rand_path = (body) => {
-    body.img_path = body.img_name.toLowerCase().replaceAll(' ','-');
-    body.img_path += '-'+Math.floor(Math.random() * 2147483647)+'.png';
-}
-
 
 // Handling everything todo when new image is post to server
 func.handle_new_image = (con, body,res) => {
-    func.get_rand_path(body);
-    sql.is_unique_path(con, body.img_path, (err, unique) => { 
-            
-        if(!unique) return;
-        sql.insert_img(con, body, (err, result) => {
+   
+    body.img_path = body.img_name.toLowerCase().replaceAll(' ','-');
+    body.img_path += '-'+Math.floor(Math.random() * 2147483647)+'.png';
 
-            if(err) return;
-            sql.insert_into_ml5(con, result.insertId, body.ml5);
-            func.write_img_to_file(body, (err, result) => {
-                res.json(body);
-            });
+    sql.insert_img(con, body, (err, result) => {
+
+        if(err) {
+            // if entry already exists just retry. It's rare that this will happen
+            if(err && err.code == 'ER_DUB_ENTRY') return func.handle_new_image(con, body, res);
+            else res.status(400).send('Something went wrong');
+        }
+        
+        sql.insert_into_ml5(con, result.insertId, body.ml5);
+        func.write_img_to_file(body, (err, result) => {
+            res.json(body);
         });
     });
 }
@@ -104,7 +104,7 @@ func.handle_new_image = (con, body,res) => {
 // Handling everything todo when existiting image on server is to be updated
 func.handle_update_img = (con, body, res) => {  
     sql.update_img(con, body, (err, result) => {
-                
+                       
         if(err) return;
         func.write_img_to_file(body, (err) => {
             res.json(body);
@@ -112,4 +112,35 @@ func.handle_update_img = (con, body, res) => {
     });
 }
 
-module.exports = func;
+
+
+// POSTS //
+routes.post('/images/search', (req,res) => {
+    sql.call((con) => {
+        sql.get_img(con, req.body, (err, result) => res.json(result));
+    });
+});
+
+routes.post('/images/data', auth, (req,res) => {
+    func.get_img_from_file(req.body, (err) => res.json(req.body));
+});
+
+routes.post('/images/save', auth, (req,res) => {
+    
+    let body = req.body;
+    if (!(process.env.SQL_ENABLE == 'true' ? true:false)) {
+        if (body.img_path.length === 0) helper.get_rand_path(body);
+        helper.write_img_to_file(body, (err, result) => {
+            res.json(body);
+        });
+        return;
+    }
+
+    if (body.img_path.length === 0)
+        sql.call( (con) => func.handle_new_image(con, body, res));
+    else
+        sql.call( (con) => func.handle_update_img(con, body, res));
+
+});
+
+module.exports = { helper: func, image_routes: routes }
