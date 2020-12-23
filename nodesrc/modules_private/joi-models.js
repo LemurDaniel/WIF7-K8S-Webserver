@@ -96,4 +96,21 @@ schemas.image = joi.object({
     ml5: joi.array() 
 })
 
+schemas.error = (message) => {
+    const err = { code: 0, err: message.details[0].message};
+    const label = message.details[0].context.label;
+
+    if(label == 'username_display')
+        err.err = 'Displayname only allows alphanumeric Characters including Spaces and - or _';
+
+    if(label == 'username')
+        err.err = 'Username only allows alphanumeric Characters';
+
+    if(label == 'password')
+        err.err = 'Password must be between 7 and 30 Characters '+
+                    'and must include each once: <br>Number, Lowercase and Uppercase Character';
+
+    return err;
+}
+
 module.exports = schemas;

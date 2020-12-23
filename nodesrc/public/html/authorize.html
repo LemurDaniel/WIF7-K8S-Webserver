@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodledrawing - Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="html/js/authorize.js"></script>
+
+    <link rel="stylesheet" href="html/css/main.css">
+    <link rel="stylesheet" href="html/css/authorize.css">
+
+    <style>
+
+    </style>
+<!--     <script type="module" src="main.js"></script> -->
+</head>
+<body>
+    <div>
+        <div class="container, center">
+            <input type="button" id="state_switch" class="mark_on_hover" value="You already have an account?">
+            <div class="header_container"><h3 class="header">Create a new Account</h3></div>
+            <div class="loader loader_large loaderhidden" id="loader"></div>
+            <div id="input_fields">
+                <label for="display_name">Displayed Name</label>
+                <input class="shown" type="text" id="display_name" placeholder="Your Public Name">
+                <label for="login_name">Login Name</label><br>
+                <input class="shown" type="text" id="login_name" placeholder="Your Login ID">
+                <label for="password">password</label><br>
+                <input class="shown" type="password" id="password" placeholder="Enter password">
+                <input class="shown" type="password" id="password_repeat" placeholder="Repeat password">
+                <label for="send_data">password</label><br>
+                <input class="shown" type="button" id="send_data" class="buttons" value="Create Account">
+            </div>
+            <div id="error_display" class="hidden"><p></p></div>
+        </div>
+    </div>
+</body>
+</html>

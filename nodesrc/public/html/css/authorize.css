@@ -1,0 +1,42 @@
+#state_switch {
+    font-weight: bold;
+    border-style:solid;
+    border-width: 0.5px;
+    opacity: 0.6;
+}
+
+#error_display p {
+    color: darkred;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+
+input.shown {
+    display: block;
+    background-color: white;
+    padding: 5px;
+    margin: auto;
+    margin-bottom: 2.5px;
+    border-style: solid;
+    height: auto;
+
+    opacity: 1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
+}
+
+input.hidden {
+    display: block;
+    margin: auto;
+    margin-bottom: -20px;
+
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
+}
+

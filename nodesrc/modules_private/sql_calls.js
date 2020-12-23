@@ -8,7 +8,7 @@ const SQL_PASSWORD = process.env.SQL_PASSWORD;
 const SQL_DATABASE = process.env.SQL_DATABASE;
 
 
-const TABLE_IMG = 'doodles17';
+const TABLE_IMG = process.env.SQL_TABLE_NAME;
 const TABLE_ML5 = TABLE_IMG+'_ml5';
 const TABLE_USER = TABLE_IMG+'_user';
 const MIN_CONF = 0.05;
@@ -81,7 +81,7 @@ func = {};
     func.call = (method) =>  {
         let con = func.getCon();
         con.connect( (err) => {
-            console.log(err);
+            if(err) console.log(err);
             method(con);
         });
     }
@@ -198,20 +198,25 @@ func = {};
     func.init_Database = function (doodles_path) {
     
         // Check for file indicating initialization
-        fs.readFile(doodles_path+TABLE_IMG+'_EXISTS.info', (err, data) => {
-            // If file exists then return
-            if(!err) return;
-            // else create table
-            let con = func.getCon();
-            con.connect((err) => {     
-                console.log(err)
-                con.query(SQL_CREATE_USER,(error, result) => {
+        let file;
+        try{ 
+            file = fs.readFileSync(doodles_path+TABLE_IMG+'_EXISTS.info');
+        } catch(ex){}
+        // If file exists then return
+        if(file) return;
+        // else create table
+        let con = func.getCon();
+        con.connect((err) => {
+            let i=0;
+            const statements = [SQL_CREATE_USER, SQL_CREATE_IMG, SQL_CREATE_ML5];
+            const func = (con, i) => {
+                con.query(statements[i],(error, result) => {
                     if(error) return console.log(error);
-                    con.query(SQL_CREATE_IMG,(error, result) => {console.log(error)});
-                    con.query(SQL_CREATE_ML5,(error, result) => {console.log(error)});
-                    fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {});
-                });
-            });
+                    if(i++ < 2) func(con, i);
+                    else fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {});
+                })
+            }
+                func(con, i);
         });
     }
 

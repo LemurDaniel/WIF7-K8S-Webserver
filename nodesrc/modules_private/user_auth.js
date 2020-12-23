@@ -13,6 +13,7 @@ const SIGNING_KEY = process.env.JWT_SIGNING_KEY;
 const ENCRYPTION_KEY = process.env.JWT_ENCRYPTION_KEY;
 const ENCRYPTION_ALGO = process.env.JWT_ENCRYPTION_ALGO;
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
+const JWT_LIFESPAN = 12; // hours
 
 
 function create_jwt(user, res) {
@@ -21,7 +22,7 @@ function create_jwt(user, res) {
     user = { id: user.id, username_display: user.username_display };            
 
     // Genereate jwt and store it in cookie for 24hours
-    const token = jwt.sign(user, SIGNING_KEY, { expiresIn: '24h' });
+    const token = jwt.sign(user, SIGNING_KEY, { expiresIn: JWT_LIFESPAN+'h' });
 
     // Encrypt token
     const cipher = crypto.createCipher(ENCRYPTION_ALGO, ENCRYPTION_KEY);
@@ -29,8 +30,8 @@ function create_jwt(user, res) {
     token_encrypted += cipher.final('hex');
 
     // Set cookie with encrypted token
-    if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'webToken='+token_encrypted+'; path=/; HttpOnly; secure; max-age='+24*60*60);
-    else res.setHeader('Set-Cookie', 'webToken='+token_encrypted+'; path=/; HttpOnly; max-age='+24*60*60);
+    if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'doodle_token='+token_encrypted+'; path=/; HttpOnly; secure; max-age='+24*60*60);
+    else res.setHeader('Set-Cookie', 'doodle_token='+token_encrypted+'; path=/; HttpOnly; max-age='+JWT_LIFESPAN*60*60);
     
     return res;
 }
@@ -40,7 +41,7 @@ route.post('/user/register', (req, res) => {
 
     const user = req.body;
     const validated = schema.user_register.validate(user);
-    if(validated.error) return res.status(400).send(validated.error);
+    if(validated.error) return res.json(schema.error(validated.error));
 
     sql.call( (con) => {
         // make password hash
@@ -52,8 +53,8 @@ route.post('/user/register', (req, res) => {
             sql.insert_user(con, user, (err) => {
                 if(err) {
                     // if user already exists send error back
-                    if(err.code == 'ER_DUP_ENTRY') return res.status(400).json({err: 'User already exists'});
-                    else return res.status(400).json(err);
+                    if(err.code == 'ER_DUP_ENTRY') return res.json({code: 10, err: 'User already exists'});
+                    else return res.json({code: 20, err: err});
                 }
                 
                 create_jwt(user, res).status(200).setHeader('Location', '/');
@@ -69,17 +70,17 @@ route.post('/user/login', (req, res) => {
 
     const user = req.body;
     const validated = schema.user_login.validate(user);
-    if(validated.error) return res.status(400).send(validated.error);
+    if(validated.error)  return res.json(schema.error(validated.error));
 
     sql.call( (con) => {
         // Search database for user
         sql.get_password_hash(con, user, (err, user) =>{
 
-            if(!user.id) return res.status(400).json({err: 'User doesn\'t exist'});
+            if(!user.id) return res.json({code: 11, err: 'User doesn\'t exist'});
 
             // compare passwords sent and in database
             bcrypt.compare(user.password, user.bcrypt, (err, result) => {
-                if(!result) return res.status(400).send('Invalid password');
+                if(!result) return res.send({code: 11, err: 'Invalid Passwort'});
 
                 create_jwt(user, res).status(200).setHeader('Location', '/');
                 res.json({req: 'done'});
@@ -95,31 +96,30 @@ route.get('/user/testuser', (req, res) => {
     res.status(200).send('OK');
 });
 
-route.post('/user/logout', (req, res) => { });
+route.get('/user/logout', (req, res) => { 
+    if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'doodle_token=nix; path=/; HttpOnly; secure; max-age=0');
+    else res.setHeader('Set-Cookie', 'doodle_token=nix; path=/; HttpOnly; max-age=0');
+    res.status(300).redirect('/user');
+});
 
 
-const auth = (req, res, next) => {
+const validate_token = (req) => {
 
-    if(req.originalUrl == '/user') return next();
     // deny access if no cookie present
-    if(!req.headers.cookie) return res.status(400).redirect('/user');
+    if(!req.headers.cookie) return false;
 
     //split cookies to array
     const cookies = req.headers.cookie.split(';');
     let token;
     for(let i=0; i<cookies.length; i++){
-        // check wether one of the cookies include name: webToken
-        if(!cookies[i].includes('webToken')) continue;
-        // get the value of the webToken
+        // check wether one of the cookies include name: doodle_token
+        if(!cookies[i].includes('doodle_token')) continue;
+        // get the value of the doodle_token
         token = cookies[i].split('=')[1].trim();
     }
 
     // if no jwt present, deny access
-    if(!token) {
-        return res.status(403).redirect('/user');
-        //res.status(403).setHeader('Location', '/');
-        res.send('No Access token'); 
-    }
+    if(!token) return false;
 
     try {
         // decrypt token
@@ -129,13 +129,17 @@ const auth = (req, res, next) => {
 
         // if jwt verified, grant access
         req.body.user = jwt.verify(token_decrypted, SIGNING_KEY);
-        next();
+        return true;
     } catch (ex) {
         // if jwt invalid, deny access
-        return res.status(400).redirect('/user');
-        ///res.send('Invalid Token'); 
+        return false;
     }
 }
 
+const auth = (req, res, next) => {
+    if(validate_token(req)) next();
+    else res.redirect('/user');
+}
 
-module.exports = { auth: auth, auth_routes: route};
+
+module.exports = { auth: auth, verify_token: validate_token, auth_routes: route};

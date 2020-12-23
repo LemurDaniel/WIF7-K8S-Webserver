@@ -4,11 +4,11 @@ const http = require('http');
 const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
-const createError = require('http-errors');
-const sql = require('./js/sql_calls');
 
-const { auth, auth_routes } = require('./js/user_auth');
-const { image_routes, helper } = require('./js/image_data');
+const sql = require('./modules_private/sql_calls');
+const { auth, verify_token, auth_routes } = require('./modules_private/user_auth');
+const { image_routes, helper } = require('./modules_private/image_data');
+const HTML = helper.HTML;
 
 const SQL_ENABLE = (process.env.SQL_ENABLE == 'true' ? true:false); 
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
@@ -23,12 +23,17 @@ if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
 
 //Create Server//
 const app = express();
-app.use(express.static("/var/project/src"));
+// Make everything in /public  publicly accessible
+app.use(express.static('/var/project/src/public'));
+// Use bodyParser to automatically convert json body to object
 app.use(bodyParser.json());
+// Use routes from authorization module and image module
 app.use(auth_routes);
 app.use(image_routes);
+// Send nicley formatted Json
 app.set('json spaces', 2)
 
+// Create http or https server depending on environment Variable
 var server;
 if(HTTPS_ENABLE){
     server = https.createServer({
@@ -39,23 +44,37 @@ if(HTTPS_ENABLE){
     server = http.createServer(app);
 server.listen(3000);
 
-/*
-// Catch 404 and forward to error handler //
-app.use((req, res, next) => {
-    next(createError(404));
-});*/
-
 // GET //
-app.get('/', auth, (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
+app.get('/', auth, (req,res) => res.sendFile(HTML('index')));
+app.get('/draw', auth, (req,res) => res.sendFile(HTML('draw')));
+app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
+app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
 app.get('/web', auth, (req,res) => res.sendFile(helper.WEB));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
-app.get('/rocket', auth, (req,res) => res.sendFile(helper.PATH+'html/rocket_game.html'));
-app.get('/tictactoe', auth, (req,res) => res.sendFile(helper.PATH+'html/tictactoe.html'));
-app.get('/draw', auth, (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
-app.get('/user', auth, (req,res) => res.sendFile(helper.PATH+'html/authorize.html'));
-app.get('/draw', auth, (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
-app.get('/info', auth, (req,res) =>  res.json(process.env) );
+app.get('/info', (req,res) =>  res.json(process.env) );
 
-app.get('/user', (req,res) => res.sendFile(helper.PATH+'html/authorize.html'));
-app.get('/font/ZukaDoodle-Kz7y', (req,res) =>  res.sendFile(helper.PATH+'assets/ZukaDoodle-Kz7y.ttf'));
-app.get('/font/ZukaDoodle-MnVJ', (req,res) =>  res.sendFile(helper.PATH+'assets/ZukaDoodle-MnVJ.ttf'));
+const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8'); 
+app.get('/user', (req,res) => {
+    
+    // if not verifed direct to login page
+    if(!verify_token(req)) return res.sendFile(HTML('authorize'));
+
+    // if loggend in, show some info
+    let html = authorized_html.replace('%0', req.body.user.username_display);
+    html = html.replace('%1', process.env.HOSTNAME);
+    html = html.replace('%2', process.env.NODE_VERSION);
+    res.send(html);
+    
+});
+
+app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
+app.get('/404', (req,res) => res.sendFile(HTML('codepen_template/404')));
+
+
+
+
+// Catch 404 and forward to 404 page //
+app.use((req, res, next) => {
+    if(req.accepts('html'))
+        res.status(404).redirect('/404');
+});

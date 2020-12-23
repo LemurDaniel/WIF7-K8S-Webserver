@@ -6,7 +6,7 @@ const { auth } = require('./user_auth');
 
 
 // Constants
-const PATH = '/var/project/src/';
+const PATH = '/var/project/src/public/';
 const DOODLES = PATH+'assets/doodles/';
 const WEB_JSON = PATH+'assets/doodles/web.json';
 const TRANSLATION = PATH+'assets/other/translation.json';
@@ -41,7 +41,9 @@ func.TRANSLATION = TRANSLATION;
 
 func.DOODLES = DOODLES;
 
-func.PATH = PATH;
+func.PATH = PATH
+
+func.HTML = (str) => PATH+'html/'+str+'.html';
 
 
 // Write posted image to shared volume (todo env for shared volume path?)
