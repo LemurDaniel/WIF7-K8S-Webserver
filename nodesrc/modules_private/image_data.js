@@ -1,7 +1,7 @@
 const fs = require('fs');
 const routes =  require('express').Router();
 const sql = require('./sql_calls');
-const schema = require('./joi-models');
+const schema = require('./joi_models');
 const { auth } = require('./user_auth');
 
 

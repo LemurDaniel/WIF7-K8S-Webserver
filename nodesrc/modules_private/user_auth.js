@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const route =  require('express').Router();
 const jwt = require('jsonwebtoken');
 const sql = require('./sql_calls');
-const schema = require('./joi-models');
+const schema = require('./joi_models');
 
 
 
