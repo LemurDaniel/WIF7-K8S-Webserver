@@ -14,5 +14,6 @@ services:
             - "4000:3000"
         environment:
             SQL_ENABLE: 'false'
+            HTTPS_ENABLE: 'false'
 volumes:
     src_data:

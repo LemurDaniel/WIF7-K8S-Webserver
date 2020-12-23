@@ -11,7 +11,11 @@ const { auth, auth_routes } = require('./js/user_auth');
 const { image_routes, helper } = require('./js/image_data');
 
 const SQL_ENABLE = (process.env.SQL_ENABLE == 'true' ? true:false); 
+const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
+const SSL_KEY = process.env.SSL_KEY;
+const SSL_CERT = process.env.SSL_CERT;
 console.log('SQL: '+SQL_ENABLE);
+console.log('HTTPS: '+HTTPS_ENABLE);
 
 // Initialize DB
 if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
@@ -25,12 +29,14 @@ app.use(auth_routes);
 app.use(image_routes);
 app.set('json spaces', 2)
 
-const server = http.createServer(app);
-/*
-const server = https.createServer({
-    key: fs.readFileSync('./daniel-wif7-projekt.key.pem'),
-    cert: fs.readFileSync('./daniel-wif7-projekt.cert.pem')
-}, app);*/
+var server;
+if(HTTPS_ENABLE){
+    server = https.createServer({
+        key: SSL_KEY,
+        cert: SSL_CERT
+    }, app);
+}else
+    server = http.createServer(app);
 server.listen(3000);
 
 /*
@@ -46,10 +52,10 @@ app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 app.get('/rocket', auth, (req,res) => res.sendFile(helper.PATH+'html/rocket_game.html'));
 app.get('/tictactoe', auth, (req,res) => res.sendFile(helper.PATH+'html/tictactoe.html'));
 app.get('/draw', auth, (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
+app.get('/user', auth, (req,res) => res.sendFile(helper.PATH+'html/authorize.html'));
+app.get('/draw', auth, (req,res) => res.sendFile(helper.PATH+'html/draw.html'));
 app.get('/info', auth, (req,res) =>  res.json(process.env) );
 
-
-
-
-
-
+app.get('/user', (req,res) => res.sendFile(helper.PATH+'html/authorize.html'));
+app.get('/font/ZukaDoodle-Kz7y', (req,res) =>  res.sendFile(helper.PATH+'assets/ZukaDoodle-Kz7y.ttf'));
+app.get('/font/ZukaDoodle-MnVJ', (req,res) =>  res.sendFile(helper.PATH+'assets/ZukaDoodle-MnVJ.ttf'));

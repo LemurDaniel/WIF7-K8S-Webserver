@@ -8,15 +8,15 @@ const SQL_PASSWORD = process.env.SQL_PASSWORD;
 const SQL_DATABASE = process.env.SQL_DATABASE;
 
 
-const TABLE_IMG = 'doodles16';
+const TABLE_IMG = 'doodles17';
 const TABLE_ML5 = TABLE_IMG+'_ml5';
 const TABLE_USER = TABLE_IMG+'_user';
 const MIN_CONF = 0.05;
 
 const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
                             'user_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
-                            'username_lc nvarchar(50) NOT NULL unique,'+
-                            'username nvarchar(50) NOT NULL,'+
+                            'username nvarchar(50) NOT NULL unique,'+
+                            'username_display nvarchar(50) NOT NULL unique,'+
                             'bcrypt BINARY(60) NOT NULL ) ';
 
 const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
@@ -24,7 +24,7 @@ const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_path nvarchar(100) NOT NULL unique,'+
                             'img_name nvarchar(50),'+
                             'user_id int NOT NULL,'+
-                            'user nvarchar(50) NOT NULL,'+
+                            'user_display nvarchar(50) NOT NULL,'+
                             'ml5_bestfit nvarchar(20),'+
                             'ml5_bestfit_conf Decimal(20,19),'+
                             'ml5 text, '+
@@ -40,18 +40,18 @@ const SQL_CREATE_ML5 =      'create table '+TABLE_ML5+' ( '+
 const SQL_IS_UNIQUE =       'Select img_id From '+TABLE_IMG+' where img_path = ?';
 
 const SQL_INSERT_IMG =      'Insert Into  '+TABLE_IMG+
-                            ' (img_path, img_name, user_id, user, ml5_bestfit, ml5_bestfit_conf, ml5) '+
+                            ' (img_path, img_name, user_id, user_display, ml5_bestfit, ml5_bestfit_conf, ml5) '+
                             ' Values (?, ?, ?, ?, ?, ?, ? )';
 
 const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
                             'img_name = ?, ml5_bestfit = ?, ml5_bestfit_conf = ?, ml5 = ?'+
                             ' Where img_path = ?';
 
-const SQL_GET_IMG       =   'Select img_id, img_path, user, ml5_bestfit, ml5_bestfit_conf '+
+const SQL_GET_IMG       =   'Select img_id, img_path, user_display, ml5_bestfit, ml5_bestfit_conf '+
                             ' from '+TABLE_IMG+' where '+
                             ' ml5_bestfit like ? And' +
                             ' img_name like ? And'+
-                            ' user like ? '+
+                            ' user_display like ? '+
                             ' Order By ml5_bestfit_conf desc';
 
 const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
@@ -59,11 +59,11 @@ const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
                             ' Values ( ?, ?, ? )';
 
 const SQL_INSERT_USER    =  'Insert Into '+TABLE_USER+
-                            ' (username_lc, username, bcrypt) '+
+                            ' (username, username_display, bcrypt) '+
                             ' Values ( ?, ?, ? )';
 
-const SQL_GET_HASH    =     'select user_id, username, bcrypt from '+TABLE_USER+
-                            ' where username_lc = ?';
+const SQL_GET_HASH    =     'select user_id, username_display, bcrypt from '+TABLE_USER+
+                            ' where username = ?';
 
 
 func = {};
@@ -93,7 +93,7 @@ func = {};
             [body.img_path, 
             body.img_name,
             body.user.id,
-            body.user.username, 
+            body.user.username_display, 
             body.ml5_bestfit.label,
             body.ml5_bestfit.confidence,
             JSON.stringify(body.ml5)], 
@@ -123,19 +123,18 @@ func = {};
     func.get_img = (con, params, callback) => {
 
         let img_name = params.img_name;
-        let user = params.user_searched;
+        let user_display = params.user_searched;
         let ml5_bestfit = params.ml5_bestfit;
 
         if(!ml5_bestfit) ml5_bestfit = '%';
         if(!img_name) img_name = '%';
-        if(!user) user = '%';
+        if(!user_display) user_display = '%';
 
         con.query(SQL_GET_IMG,[
             ml5_bestfit,
             img_name,
-            user],
+            user_display],
             (err, res) => {
-                console.log(err)
                 if(err) return callback(err, null);
                 
                 let result = [];
@@ -144,7 +143,7 @@ func = {};
                         img_id: row.img_id,
                         img_path: row.img_path,
                         img_name: row.img_name,
-                        user: row.user,
+                        user_display: row.user_display,
                         ml5_bestfit: {
                             label: row.ml5_bestfit,
                             confidence: row.ml5_bestfit_conf
@@ -172,15 +171,12 @@ func = {};
 
     func.insert_user = (con, user, callback) => {
 
-        user.username = user.username.trim();
-        user.username_lc = user.username.toLowerCase().split(' ').join('-');
         con.query(SQL_INSERT_USER, [
             user.username,
-            user.username_lc,
+            user.username_display,
             user.bcrypt
         ], (err, res) => {
             if(!err) user.id = res.insertId;
-            delete user.bcrypt;
             callback(err, user);
         });
     }
@@ -188,12 +184,10 @@ func = {};
 
     func.get_password_hash = (con, user, callback) => {
 
-        user.username = user.username.trim();
-        const username_unique = user.username.toLowerCase().split(' ').join('-');
-        con.query(SQL_GET_HASH, [username_unique], (err, res) => {
+        con.query(SQL_GET_HASH, [user.username], (err, res) => {
             if(res && res.length > 0){
                 user.id =  res[0].user_id;
-                user.username = res[0].username;
+                user.username_display = res[0].username_display;
                 user.bcrypt = res[0].bcrypt.toString();
             }
             callback(err, user);

@@ -9,8 +9,7 @@ const img_name_default = "My-Drawing";
 const grayscale = false;
 const predict_interval = 10; //One Prediction in <number> frames when drawing
 
-//const domain = window.location.href;
-const domain = 'localhost:4000/';
+const domain = window.location.href;
 const url_save =  domain+'images/save';
 const url_search = domain+'images/search';
 const url_getData =  domain+'images/data';

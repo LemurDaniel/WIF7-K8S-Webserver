@@ -20,7 +20,13 @@ services:
             SQL_PASSWORD: geheimesPWDuser
             SQL_DATABASE: node_wp
             SQL_ENABLE: 'true'
-            
+            HTTPS_ENABLE: 'false'
+            JWT_SIGNING_KEY:  signingkeyss
+            JWT_ENCRYPTION_KEY: geheimerkeys
+            JWT_ENCRYPTION_ALGO: aes256
+        env_file:
+            - https-config.env
+
     db:
         image: mysql:5.7
         container_name: database

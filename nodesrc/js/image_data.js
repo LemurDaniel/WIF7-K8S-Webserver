@@ -1,6 +1,7 @@
 const fs = require('fs');
 const routes =  require('express').Router();
 const sql = require('./sql_calls');
+const schema = require('./joi-models');
 const { auth } = require('./user_auth');
 
 
@@ -29,6 +30,8 @@ fs.readFile(TRANSLATION, 'utf8', (err, data) => {
     }
     fs.writeFileSync(TRANSLATION, JSON.stringify(translation, null, 4));
 });
+
+
 
 var func = {};
 
@@ -66,17 +69,6 @@ func.write_img_to_file = (body, callback) => {
     });
 }
 
-// read image form shared volume on browser request
-func.get_img_from_file = (body, callback) => {
-
-    fs.readFile(DOODLES+body.img_path, 'base64', (err, data) =>{
-        console.log(err)
-        console.log(data);
-        body.img_data = data;
-        callback(err);
-    })
-}
-
 
 
 // Handling everything todo when new image is post to server
@@ -95,7 +87,7 @@ func.handle_new_image = (con, body,res) => {
         
         sql.insert_into_ml5(con, result.insertId, body.ml5);
         func.write_img_to_file(body, (err, result) => {
-            res.json(body);
+            res.status(200).json({ img_path: body.img_path });
         });
     });
 }
@@ -105,9 +97,9 @@ func.handle_new_image = (con, body,res) => {
 func.handle_update_img = (con, body, res) => {  
     sql.update_img(con, body, (err, result) => {
                        
-        if(err) return;
+        if(err) return res.status(400).send('NOT OK');;
         func.write_img_to_file(body, (err) => {
-            res.json(body);
+            res.status(200).send('OK');
         });
     });
 }
@@ -122,20 +114,22 @@ routes.post('/images/search', (req,res) => {
 });
 
 routes.post('/images/data', auth, (req,res) => {
-    func.get_img_from_file(req.body, (err) => res.json(req.body));
+
+    if(!req.body) return res.status(400).send('Not Body');
+
+    fs.readFile(DOODLES+req.body.img_path, 'base64', (err, data) =>{
+        
+        if(err) return res.status(404).send('Not Found');
+        res.status(200).json({img_data: data});
+    })
 });
 
 routes.post('/images/save', auth, (req,res) => {
     
     let body = req.body;
-    if (!(process.env.SQL_ENABLE == 'true' ? true:false)) {
-        if (body.img_path.length === 0) helper.get_rand_path(body);
-        helper.write_img_to_file(body, (err, result) => {
-            res.json(body);
-        });
-        return;
-    }
-
+    const validated = schema.image.validate(body);
+    if(validated.error) return res.status(400).send(validated.error);
+    
     if (body.img_path.length === 0)
         sql.call( (con) => func.handle_new_image(con, body, res));
     else
