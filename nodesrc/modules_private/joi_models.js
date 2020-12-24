@@ -11,7 +11,7 @@ schemas.user_register = joi.object({
         .required(),
 
     username: joi.string()
-        .alphanum()
+        .pattern(new RegExp('^[0-9a-zA-Z-_.]+$'))
         .min(5)
         .max(50)
         .lowercase()
@@ -30,18 +30,6 @@ schemas.user_register = joi.object({
         */
 })
 
-schemas.user_login = joi.object({
-
-    username: joi.string()
-        .alphanum()
-        .lowercase()
-        .trim()
-        .replace(' ', '-')
-        .required(),
-
-    password: joi.string()
-        .required(),
-})
 
 schemas.user = joi.object({
 
@@ -68,8 +56,7 @@ schemas.image = joi.object({
         .required(),
 
     img_path: joi.string()
-        .min(5)
-        .max(100)
+        .max(20)
         .allow('')
         .lowercase()
         .required(),
@@ -85,7 +72,6 @@ schemas.image = joi.object({
 
     ml5_bestfit: joi.object({
         label: joi.string()
-        .pattern(new RegExp('^[0-9a-zA-Z-_\\s]+$'))
         .max(20)
         .required(),
 
@@ -104,7 +90,7 @@ schemas.error = (message) => {
         err.err = 'Displayname only allows alphanumeric Characters including Spaces and - or _';
 
     if(label == 'username')
-        err.err = 'Username only allows alphanumeric Characters';
+        err.err = 'Username only allows alphanumeric Characters including . or - or _';
 
     if(label == 'password')
         err.err = 'Password must be between 7 and 30 Characters '+

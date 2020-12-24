@@ -21,7 +21,7 @@ const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
 
 const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
-                            'img_path nvarchar(100) NOT NULL unique,'+
+                            'img_path nvarchar(20) NOT NULL unique,'+
                             'img_name nvarchar(50),'+
                             'user_id int NOT NULL,'+
                             'user_display nvarchar(50) NOT NULL,'+
@@ -47,7 +47,7 @@ const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
                             'img_name = ?, ml5_bestfit = ?, ml5_bestfit_conf = ?, ml5 = ?'+
                             ' Where img_path = ?';
 
-const SQL_GET_IMG       =   'Select img_id, img_path, user_display, ml5_bestfit, ml5_bestfit_conf '+
+const SQL_GET_IMG       =   'Select img_path, user_display, ml5_bestfit, ml5_bestfit_conf '+
                             ' from '+TABLE_IMG+' where '+
                             ' ml5_bestfit like ? And' +
                             ' img_name like ? And'+
@@ -112,6 +112,7 @@ func = {};
             callback);
     }
 
+    /* Obsolete */
     func.is_unique_path = (con, img_path, callback) => {
 
         con.query(SQL_IS_UNIQUE, [img_path], function (error, result, fields) {
@@ -140,7 +141,6 @@ func = {};
                 let result = [];
                 res.forEach(row => {
                     result.push({
-                        img_id: row.img_id,
                         img_path: row.img_path,
                         img_name: row.img_name,
                         user_display: row.user_display,

@@ -9,11 +9,11 @@ const img_name_default = "My-Drawing";
 const grayscale = false;
 const predict_interval = 10; //One Prediction in <number> frames when drawing
 
-const domain = window.location.href;
-const url_save =  domain+'images/save';
+const domain = window.location.origin;
+const url_save =  domain+'/images/save';
 const url_search = domain+'images/search';
-const url_getData =  domain+'images/data';
-const translation_url =  domain+'translation';
+const url_getData =  domain+'/images/data';
+const translation_url =  domain+'/translation';
 
 //const classifier_model = "DarkNet-tiny";
 //const classifier_model = "Darknet-reference";

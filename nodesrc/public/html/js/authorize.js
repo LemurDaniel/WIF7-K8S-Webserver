@@ -1,6 +1,6 @@
-const domain = window.location.href;
-const url_register =  domain+'/register';
-const url_login = domain+'/login';
+const domain = window.location.origin;
+const url_register =  domain+'/user/register';
+const url_login = domain+'/user/login';
 
 // state 0 - create Account | 1 -  Log into Account
 var state = 0;

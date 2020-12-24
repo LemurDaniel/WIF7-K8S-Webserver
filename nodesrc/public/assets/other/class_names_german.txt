@@ -148,7 +148,7 @@ Hotdog
 Löffel
 Laptop
 Tasse
-Flaschendecker
+Flaschendeckel
 Chinesische_Mauer
 Mona_Lisa
 Smileygesicht
@@ -315,7 +315,7 @@ Tastatur
 Mikrowelle
 Rad
 Feuerhydrant
-van
+Van
 Kamera
 Wal
 Kerze
@@ -331,7 +331,7 @@ Diamant
 Spitzbart
 Zaun
 Gras
-Seejungfrau
+Meerjungfrau
 Motorrad
 Mikrofon
 Zeh

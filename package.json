@@ -1,8 +1,8 @@
 {
-    "name": "doodle-drawing",
+    "name": "doodle-drawing-server",
     "version": "1.0.0",
-    "description": "kk",
-    "author": "Daniel Landau <landau.daniel.1998+dev@gmail.com",
+    "description": "A webserver with user login/register serving services to draw, classify and search doodles of other users",
+    "author": "Daniel Landau <landau.daniel.1998+code@gmail.com",
     "main": "webserver.js",
 
     "dependencies": {
@@ -11,15 +11,7 @@
         "mysql": "^2.18.1",
         "bcrypt": "^5.0.0",
         "jsonwebtoken": "^8.5.1",
-        "joi": "^17.3.0",
-        "http-errors": "^1.8.0"
-    },
-    "devDependencies": {
-        "express": "^4.17.1",
-        "body-parser": "^1.19.0",
-        "mysql": "^2.18.1",
-        "cors": "^2.8.5",
-        "browser-sync": "^2.26.13"
+        "joi": "^17.3.0"
     }
 
 }

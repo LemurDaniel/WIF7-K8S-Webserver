@@ -16,12 +16,13 @@ services:
         environment:
             SQL_HOST: db
             SQL_PORT: 3306
-            SQL_USER: node_user
-            SQL_PASSWORD: geheimesPWDuser
             SQL_DATABASE: node_wp
-            SQL_TABLE_NAME: doodle17
+            SQL_TABLE_NAME: doodle
+            SQL_USER: node-webserver
+            SQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`
             SQL_ENABLE: 'true'
-            HTTPS_ENABLE: 'false'
+            HTTPS_ENABLE: 'true'
+            JWT_ENCRYPTION_ENABLE: 'true'
         env_file:
             - jwt-config.env
             - https-config.env
@@ -35,10 +36,10 @@ services:
         ports:
             - "5002:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: geheimesPWD
+            MYSQL_ROOT_PASSWORD: ZG6p)VD3gj{C])eM66_)KMc)K46eZ5LW_UZKLjhDG<g[948I
+            MYSQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`
+            MYSQL_USER: node-webserver
             MYSQL_DATABASE: node_wp
-            MYSQL_USER: node_user
-            MYSQL_PASSWORD: geheimesPWDuser
 volumes:
     src_data:
     db_data:

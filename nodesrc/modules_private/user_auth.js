@@ -9,11 +9,34 @@ const schema = require('./joi_models');
 
 
 // Constants
+const JWT_LIFESPAN = process.env.JWT_LIFESPAN; // hours
 const SIGNING_KEY = process.env.JWT_SIGNING_KEY;
+const VERIFY_KEY = process.env.JWT_VERIFY_KEY;
+const SIGNING_ALGO = process.env.JWT_SIGING_ALGO;
 const ENCRYPTION_KEY = process.env.JWT_ENCRYPTION_KEY;
+const ENCRYPTION_IV = process.env.JWT_ENCRYPTION_IV;
 const ENCRYPTION_ALGO = process.env.JWT_ENCRYPTION_ALGO;
+const ENCRYPTION_ENABLE = (process.env.JWT_ENCRYPTION_ENABLE == 'true' ? true:false);
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
-const JWT_LIFESPAN = 12; // hours
+
+function encrypt(plain){
+
+    const cipher =  crypto.createCipheriv(ENCRYPTION_ALGO, Buffer.from(ENCRYPTION_KEY, 'hex'), Buffer.from(ENCRYPTION_IV, 'hex')); 
+    let encrypted = cipher.update(plain); 
+    encrypted = Buffer.concat([encrypted, cipher.final()]); 
+     
+    return encrypted.toString('hex'); 
+}
+
+function decrypt(encrypted){
+
+    const encrypted_text = Buffer.from(encrypted, 'hex'); 
+    const decipher = crypto.createDecipheriv(ENCRYPTION_ALGO, Buffer.from(ENCRYPTION_KEY, 'hex'), Buffer.from(ENCRYPTION_IV, 'hex')); 
+    let decrypted = decipher.update(encrypted_text); 
+    decrypted = Buffer.concat([decrypted, decipher.final()]); 
+     
+    return decrypted.toString(); 
+}
 
 
 function create_jwt(user, res) {
@@ -22,16 +45,14 @@ function create_jwt(user, res) {
     user = { id: user.id, username_display: user.username_display };            
 
     // Genereate jwt and store it in cookie for 24hours
-    const token = jwt.sign(user, SIGNING_KEY, { expiresIn: JWT_LIFESPAN+'h' });
+    let token = jwt.sign(user, SIGNING_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  SIGNING_ALGO });
 
     // Encrypt token
-    const cipher = crypto.createCipher(ENCRYPTION_ALGO, ENCRYPTION_KEY);
-    let token_encrypted = cipher.update(token, 'utf8', 'hex')
-    token_encrypted += cipher.final('hex');
+    if(ENCRYPTION_ENABLE) token = encrypt(token);
 
     // Set cookie with encrypted token
-    if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'doodle_token='+token_encrypted+'; path=/; HttpOnly; secure; max-age='+24*60*60);
-    else res.setHeader('Set-Cookie', 'doodle_token='+token_encrypted+'; path=/; HttpOnly; max-age='+JWT_LIFESPAN*60*60);
+    if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'doodle_token='+token+'; path=/; HttpOnly; secure; max-age='+JWT_LIFESPAN*60*60);
+    else res.setHeader('Set-Cookie', 'doodle_token='+token+'; path=/; HttpOnly; max-age='+JWT_LIFESPAN*60*60);
     
     return res;
 }
@@ -69,8 +90,6 @@ route.post('/user/register', (req, res) => {
 route.post('/user/login', (req, res) => {
 
     const user = req.body;
-    const validated = schema.user_login.validate(user);
-    if(validated.error)  return res.json(schema.error(validated.error));
 
     sql.call( (con) => {
         // Search database for user
@@ -123,12 +142,10 @@ const validate_token = (req) => {
 
     try {
         // decrypt token
-        const cipher = crypto.createDecipher(ENCRYPTION_ALGO, ENCRYPTION_KEY);
-        let token_decrypted = cipher.update(token, 'hex', 'utf8')
-        token_decrypted += cipher.final('utf8');
+        if(ENCRYPTION_ENABLE) token = decrypt(token);
 
         // if jwt verified, grant access
-        req.body.user = jwt.verify(token_decrypted, SIGNING_KEY);
+        req.body.user = jwt.verify(token, VERIFY_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  [SIGNING_ALGO] });
         return true;
     } catch (ex) {
         // if jwt invalid, deny access

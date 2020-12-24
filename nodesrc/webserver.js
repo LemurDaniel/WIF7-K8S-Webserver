@@ -5,11 +5,14 @@ const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// load custom moduless
 const sql = require('./modules_private/sql_calls');
 const { auth, verify_token, auth_routes } = require('./modules_private/user_auth');
 const { image_routes, helper } = require('./modules_private/image_data');
 const HTML = helper.HTML;
 
+
+// Get environment variables
 const SQL_ENABLE = (process.env.SQL_ENABLE == 'true' ? true:false); 
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
 const SSL_KEY = process.env.SSL_KEY;
@@ -49,8 +52,9 @@ app.get('/', auth, (req,res) => res.sendFile(HTML('index')));
 app.get('/draw', auth, (req,res) => res.sendFile(HTML('draw')));
 app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
 app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
-app.get('/web', auth, (req,res) => res.sendFile(helper.WEB));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
+
+app.get('/web', auth, (req,res) => res.sendFile(helper.WEB));
 app.get('/info', (req,res) =>  res.json(process.env) );
 
 const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8'); 
@@ -69,8 +73,6 @@ app.get('/user', (req,res) => {
 
 app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
 app.get('/404', (req,res) => res.sendFile(HTML('codepen_template/404')));
-
-
 
 
 // Catch 404 and forward to 404 page //

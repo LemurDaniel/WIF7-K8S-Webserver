@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto');
 const routes =  require('express').Router();
 const sql = require('./sql_calls');
 const schema = require('./joi_models');
@@ -76,13 +77,13 @@ func.write_img_to_file = (body, callback) => {
 // Handling everything todo when new image is post to server
 func.handle_new_image = (con, body,res) => {
    
-    body.img_path = body.img_name.toLowerCase().replaceAll(' ','-');
-    body.img_path += '-'+Math.floor(Math.random() * 2147483647)+'.png';
+    // Convert random 8Bytes to hex: 2^64 or 16^16 possible permutations
+    body.img_path = crypto.randomBytes(8).toString('hex')+'.png';
 
     sql.insert_img(con, body, (err, result) => {
 
         if(err) {
-            // if entry already exists just retry. It's rare that this will happen
+            // if entry already exists just retry. It's so rare it will practically never happen
             if(err && err.code == 'ER_DUB_ENTRY') return func.handle_new_image(con, body, res);
             else res.status(400).send('Something went wrong');
         }
@@ -115,28 +116,32 @@ routes.post('/images/search', (req,res) => {
     });
 });
 
+routes.post('/images/save', auth, (req,res) => {
+    
+    let body = req.body;
+    const validated = schema.image.validate(body);
+    if(validated.error) return res.status(400).json(schema.error(validated.error));
+    
+    sql.call( (con) => {      
+        if (body.img_path.length === 0)
+            func.handle_new_image(con, body, res);
+        else
+            func.handle_update_img(con, body, res);  
+    });
+
+});
+
+
+/* Obsolete */
 routes.post('/images/data', auth, (req,res) => {
 
-    if(!req.body) return res.status(400).send('Not Body');
+    if(!req.body) return res.status(400).send('No Body');
 
     fs.readFile(DOODLES+req.body.img_path, 'base64', (err, data) =>{
         
         if(err) return res.status(404).send('Not Found');
         res.status(200).json({img_data: data});
     })
-});
-
-routes.post('/images/save', auth, (req,res) => {
-    
-    let body = req.body;
-    const validated = schema.image.validate(body);
-    if(validated.error) return res.status(400).send(validated.error);
-    
-    if (body.img_path.length === 0)
-        sql.call( (con) => func.handle_new_image(con, body, res));
-    else
-        sql.call( (con) => func.handle_update_img(con, body, res));
-
 });
 
 module.exports = { helper: func, image_routes: routes }

@@ -1,6 +1,6 @@
 
-    Generate Self-signed SSL 
-        
+   //// Generate Self-signed SSL /////
+
 
 1. Create docker image with openssl installed 
 
@@ -8,18 +8,31 @@
 
 2. Spin up Container with localfolder mounted
 
-    docker run -v "C:\Users\Daniel Notebook\Documents\Git\Projekt\cert:/var/project/cert" -it gen_ssl:v1 bash
+    docker run -v "C:\Users\Daniel Notebook\Documents\Git\Projekt\docker\gen-certs:/var/project/cert" -it gen_ssl:v1 bash
 
-3. Enter following three commands:
+3. Enter following command:
 
-    openssl req -config daniel-wif7-projekt.conf -days 365 \
+    openssl req -config ssl.key.conf -days 365 \
             -new -x509 -newkey rsa:2048 -nodes \
-            -keyout daniel-wif7-projekt.key.pem -out daniel-wif7-projekt.cert.pem
+            -keyout ssl.key.pem -out ssl.cert.pem
 
 4. Import ***.cert.pem file into windows Cert-Manager
 
     search windows for "Computerzertifikate verwalten"
 
-    Go to "Vertrauenswürdige Stammzertifizierungsstellen" ==> "Zertifikate"
+    Go to "Vertrauenswürdige Stammzertifizierungsstellen"
 
-    Importiere the ***.cert.pem file
+    Import the ***.cert.pem file
+
+
+
+
+   //// Generate Private / Public Key pair for JWT signing /////
+
+    1. Generate private key
+        
+        openssl genrsa -out jwt.private.pem 512
+
+    2 Generate public key
+
+        openssl rsa -in jwt.private.pem -outform PEM -pubout -out jwt.public.pem
