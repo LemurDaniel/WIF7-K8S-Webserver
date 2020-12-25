@@ -1,0 +1,27 @@
+.box * {
+    display: block;
+    overflow: hidden;
+    margin: auto;
+}
+
+.box img{
+   max-width: 50%;
+   max-height: auto;
+}
+
+.box {
+    width: 35%;
+    height: 35%;
+    opacity: 0.85;
+}  
+
+.box:hover {
+    font-size: 1.4em;
+    background-color: transparent;
+    opacity: 1;
+
+    -webkit-transition: font-size 1s;
+    -moz-transition: font-size 1s;
+    -o-transition: font-size 1s;
+    transition: font-size 1s;
+}

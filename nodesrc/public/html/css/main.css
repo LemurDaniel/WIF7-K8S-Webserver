@@ -12,8 +12,12 @@ body {
     text-align: center;
     font-family: ZukaDoodle1;
     font-size: 1.05em;
+    text-decoration: none;
+
     border-radius: 10px;
-    border-width: 2px;
+    border-width: 1px;
+    border-color:#3498db;
+    border-style: none;
 }
 
 
@@ -26,10 +30,30 @@ canvas {
     display: none;
 }
 
+input, .mark_on_hover {
+    display: inline-block;
+    background-color: transparent;
+
+    margin: 0.4em;
+    padding: 0.4em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
+}
+
 
 input:hover, .mark_on_hover:hover {
     background-color: lightgrey;
     font-weight: bold;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
 }
 
 /* For headers */
@@ -173,9 +197,8 @@ input:hover, .mark_on_hover:hover {
 
 .link_button {
     background-color: transparent;
-    text-decoration: none;
     color: #3498db;
-    border:#3498db;
+    border-color:#3498db;
     border-style: solid;
     border-width: 1px;
 
@@ -188,9 +211,7 @@ input:hover, .mark_on_hover:hover {
 .link_button:hover {
     background-color:#3498db;
     color: white;
-    border: white;
-    border-style: solid;
-    border-width: 1px;
+    border-color: white;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
