@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doodledrawing</title>
-    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.15.2"></script>-->
+
+    <link rel="stylesheet" href="html/css/main.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-    <!--<srcipt src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>-->
-    <script src="js/draw.js"></script>
 
-    <style>
+    <script src="html/js/logout.js"></script>
 
-        body {
-            background-image: url(".././assets/doodles-background-seamless.jpg");
-            background-color: #cccccc;
-            background-size: 540px;
-        }
-
-    </style>
-<!--     <script type="module" src="main.js"></script> -->
 </head>
 <body>
-    <div>
+    <div class="container right">
+        <input type="button" class="link_button" id="logout_button" value="logout">
+    </div>
+    <div class="container center">
         <div id="referals">
-            <a href="./draw">Draw some doodles</a>
-            <a href="./draw/gallery">Check out the doodle gallery</a>
-            <a href="./rocket">Fly a rocket</a>
+            <a href="/draw">Draw some doodles</a>
+            <a href="/draw/gallery">Check out the doodle gallery</a>
+            <a href="/rocket">Fly a rocket</a>
+            <a href="/user">Who am I</a>
         </div>
     </div>
 </body>

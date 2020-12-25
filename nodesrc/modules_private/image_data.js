@@ -22,12 +22,17 @@ fs.readFile(WEB_JSON, 'utf8', (err, data) => {
 /* Create Translation File  */
 fs.readFile(TRANSLATION, 'utf8', (err, data) => {
     if(err === null) return;
-    let de = fs.readFileSync(TRANSLATION_DE, 'utf8').split('\r\n');
-    let eng = fs.readFileSync(TRANSLATION_ENG, 'utf8').split('\r\n');
-
-    var translation = {};
+    const de = fs.readFileSync(TRANSLATION_DE, 'utf8').split('\r\n');
+    const eng = fs.readFileSync(TRANSLATION_ENG, 'utf8').split('\r\n');
+    const replace = { 'ä': 'ae', 'ö': 'oe', 'ü': 'ue' }
+ 
+    const translation = {};
     for (let i = 0; i < eng.length; i++) {
+        if(!eng[i]) continue;
         translation[eng[i]] = de[i];  
+        Object.keys(replace).forEach(rp => {
+            translation[eng[i]] = translation[eng[i]].split(rp).join(replace[rp]);
+        });
     }
     fs.writeFileSync(TRANSLATION, JSON.stringify(translation, null, 4));
 });

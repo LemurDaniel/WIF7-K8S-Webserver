@@ -7,7 +7,7 @@ const FRAME_RATE_SHOWCASE = 20;
 
 const img_name_default = "My-Drawing";
 const grayscale = false;
-const predict_interval = 10; //One Prediction in <number> frames when drawing
+const predict_interval = 5; //One Prediction in <number> frames when drawing
 
 const domain = window.location.origin;
 const url_save =  domain+'/images/save';
@@ -162,7 +162,6 @@ p5_1 = function (sketch) {
             // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
             const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
             sketch.circle(sh_size/2, sh_size/2, size);
-            console.log(true)
         }
     }
     // showcase END
@@ -172,15 +171,6 @@ p5_1 = function (sketch) {
     let s = sketch;
     
     sketch.setup = function () {
-
-        // Define input elements
-        input_color = $('#input_color');
-        input_weight =  $('#input_weight');
-        clearBtn = $('#btn_clear');
-        downloadBtn = $('#btn_download');
-        uploadBtn = $('#btn_upload');
-        postBtn = $('#btn_post');
-        input_name =  $('#input_name');
 
         // Initialize showcase
         p5_3 = new p5(showcase);
@@ -200,8 +190,6 @@ p5_1 = function (sketch) {
         clearBtn.on('click', () => {s.background(255); p5_2.background(255)});
         postBtn.on('click', () => HTTP_Post_Data());
         downloadBtn.on('click', () => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
-
-        console.log(postBtn)
     }
   
     sketch.draw = function () {
@@ -215,22 +203,7 @@ p5_1 = function (sketch) {
 
 }
 
-function handleFile(file) {
-    print(file);
-    if (file.type.match('image')) {
-      img = $('body').append('<img src="'+file.data+'"></img>');
-      //classifier.classify(img, (err, results) => gotResults(err, results, '#DoodleNet'));
-      //classifier2.classify(img, (err, results) => gotResults(err, results, '#MobileNet'));
-    } 
-  }
-
-//Initialize Sketches
-p5_1 = new p5(p5_1);
-
 /* REST Method Calls */
-p5_1.httpGet(translation_url, 'json', (data) => { 
-    translation = data
-});
 
 // POST DATA
 function HTTP_Post_Data(){
@@ -264,3 +237,37 @@ function HTTP_Get_ImageData(){
 
     p5_1.httpPost(url_getData, 'json', params, (result) => $('body').append('<img src="'+result.img_data+'" >')); 
 }
+
+
+
+
+$(window).on('load', function() {
+
+        // Define input elements
+    input_color = $('#input_color');
+    input_weight =  $('#input_weight');
+    clearBtn = $('#btn_clear');
+    downloadBtn = $('#btn_download');
+    uploadBtn = $('#btn_upload');
+    postBtn = $('#btn_post');
+    input_name =  $('#input_name');
+
+    input_name.keypress(function(e){
+        
+        switch(e.which){
+            case 252: console.log('test'); return false;
+            case 246: return false;
+            case 228: return false;
+        }
+      });
+
+    //Initialize Sketches
+    p5_1 = new p5(p5_1);
+    //Get translation
+    p5_1.httpGet(translation_url, 'json', (data) => translation = data);
+
+    //TEST
+    p5_1.loadImage(domain+'/assets/doodles/mona-lisa-73451083.png', img => 
+        p5_1.image(img, 0, 0, 280, 280));
+
+});

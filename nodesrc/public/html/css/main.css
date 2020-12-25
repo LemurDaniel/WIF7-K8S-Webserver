@@ -16,6 +16,12 @@ body {
     border-width: 2px;
 }
 
+
+canvas {
+    display: block;
+    border-style: solid;
+}
+
 #input_fields label {
     display: none;
 }
@@ -53,6 +59,19 @@ input:hover, .mark_on_hover:hover {
     transform: translate(-50%, -50%);
 }
 
+.right {
+    display: inline;
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+.left {
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-right: 40px;
+}
 
 /* hide an show elements */
 .hidden {
@@ -72,6 +91,20 @@ input:hover, .mark_on_hover:hover {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition:all 0.5s;
+}
+
+/* hide element visually, but still accessible in DOM */
+.hidden_visually {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 
@@ -128,4 +161,39 @@ input:hover, .mark_on_hover:hover {
     0% { transform: rotate(90deg); }
     50% { opacity: 0.4; }
     100% { transform: rotate(450deg); }
+}
+
+
+.container {
+    display: inline;
+    border: black;
+    border-width: 2px;
+    border-style: dashed;
+}
+
+.link_button {
+    background-color: transparent;
+    text-decoration: none;
+    color: #3498db;
+    border:#3498db;
+    border-style: solid;
+    border-width: 1px;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
+}
+
+.link_button:hover {
+    background-color:#3498db;
+    color: white;
+    border: white;
+    border-style: solid;
+    border-width: 1px;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
 }

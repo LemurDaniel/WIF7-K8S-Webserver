@@ -106,7 +106,7 @@ function register(){
 
     //make post to endpoint with json-object
     httpPost(url_register, 'json', user, (result) => {
-        if(!result.err) window.location.replace(domain.replace('user', ''));
+        if(!result.err) window.location.replace(domain);
         else handle_error(result);
     }, (err) => {
         handle_error({code:1, err:'The service is currently unavailable'});
@@ -123,7 +123,7 @@ function login(){
 
     //make post to endpoint with json-object
     httpPost(url_login, 'json', user, (result) => {
-        if(!result.err) window.location.replace(domain.replace('user', ''));
+        if(!result.err) window.location.replace(domain);
         else handle_error(result);
     }, (err) => {
         handle_error({code:1, err:'The service is currently unavailable'});

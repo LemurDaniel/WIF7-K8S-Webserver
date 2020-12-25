@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="html/css/main.css">
     <link rel="stylesheet" href="html/css/authorize.css">
+
+    <script src="html/js/logout.js"></script>
     
 <style>
     .header b {
@@ -20,10 +22,14 @@
 
 </head>
 <body>
+    <div class="container right">
+        <input type="button" class="link_button" id="logout_button" value="logout">
+    </div>
+
     <div>
         <div class="container, center">
             <div class="header_container">
-                <h3 class="header">You are already logged in as <br> <br>
+                <h3 class="header">You are logged in as <br> <br>
                     <b>%0</b>
                 </h3>
                 <h4 class="header">You are being served from Host<br><br>

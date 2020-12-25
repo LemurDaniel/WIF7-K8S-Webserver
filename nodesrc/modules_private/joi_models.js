@@ -72,7 +72,7 @@ schemas.image = joi.object({
 
     ml5_bestfit: joi.object({
         label: joi.string()
-        .max(20)
+        .max(25)
         .required(),
 
         confidence: joi.number()

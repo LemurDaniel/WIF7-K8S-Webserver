@@ -21,18 +21,18 @@ const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
 
 const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
-                            'img_path nvarchar(20) NOT NULL unique,'+
+                            'img_path nchar(20) NOT NULL unique,'+
                             'img_name nvarchar(50),'+
                             'user_id int NOT NULL,'+
                             'user_display nvarchar(50) NOT NULL,'+
-                            'ml5_bestfit nvarchar(20),'+
+                            'ml5_bestfit nvarchar(25),'+
                             'ml5_bestfit_conf Decimal(20,19),'+
                             'ml5 text, '+
                             'FOREIGN KEY(user_id) REFERENCES '+TABLE_USER+'(user_id) )';
 
 const SQL_CREATE_ML5 =      'create table '+TABLE_ML5+' ( '+
 	                        'img_id int NOT NULL, '+
-	                        'ml5 nvarchar(20), '+
+	                        'ml5 nvarchar(25), '+
 	                        'ml5_confidence Decimal(20,19), '+
                             'FOREIGN KEY(img_id) REFERENCES '+TABLE_IMG+'(img_id) ) ';
 
