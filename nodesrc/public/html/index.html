@@ -6,7 +6,7 @@
     <title>Doodledrawing</title>
 
     <link rel="stylesheet" href="html/css/main.css">
-    <link rel="stylesheet" href="html/css/draw.css">
+    <link rel="stylesheet" href="html/css/index.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
@@ -16,25 +16,39 @@
 </head>
 <body>
     <div class="container right">
-        <input type="button" class="link_button" id="logout_button" value="logout">
+        <a href="/credits">
+            <div class="link_button button"> credits</div>
+        </a>
+        <div id="logout_button" class="link_button button">logout</div>
     </div>
+    
     <div class="container center">
+        <h3 class="header">Choose something to do</h3>
+
         <div id="referals">
-            <div class="box mark_on_hover">
-                <a href="/draw">Drawing Doodles</a>
-                <img src="/assets/placeholder.png" alt="">
+            <div class="box">
+                <a href="/draw">
+                    Drawing Doodles
+                    <img src="/assets/placeholder.png" alt="">
+                </a>
             </div>
-            <div class="box mark_on_hover">
-                <a href="/draw/gallery">Doodle Gallery</a>
-                <img src="/assets/placeholder.png" alt="">
+            <div class="box">
+                <a href="/draw/gallery">
+                    Doodle Gallery
+                    <img src="/assets/placeholder.png" alt="">
+                </a>
             </div>
-            <div class="box mark_on_hover">
-                <a href="/rocket">Fly a rocket</a>
-                <img src="/assets/placeholder.png" alt="">
+            <div class="box">
+                <a href="/rocket">
+                    Fly a rocket
+                    <img src="/assets/placeholder.png" alt="">
+                </a>
             </div>
-            <div class="box mark_on_hover">
-                <a href="/user">Who am I</a>
-                <img src="/assets/placeholder.png" alt="">
+            <div class="box">
+                <a href="/user">    
+                    Who am I
+                    <img src="/assets/placeholder.png" alt="">
+                </a>
             </div>
         </div>
     </div>

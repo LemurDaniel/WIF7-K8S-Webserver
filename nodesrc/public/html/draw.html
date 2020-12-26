@@ -15,75 +15,51 @@
     <script src="html/js/logout.js"></script>
     <script src="html/js/draw.js"></script>
 
-    <style>
-        
-        #input_color {
-            opacity:0;
-            height: 40px;
-            position: absolute;
-        }
-
-        #div_drawing {
-            display: inline-block;
-            margin: 50px;
-        }
-
-        #predictions {
-            float: right;
-            width: auto;
-            font-size: 30px;
-            background-color: #cccccc;
-        }
-
-        #predictions div {
-            display: inline-block;
-        }
-
-        
-        #weight_showcase {
-            background-color: black;
-            width: 10px;
-            display: block;
-        }
-
-    </style>
-<!--     <script type="module" src="main.js"></script> -->
 </head>
 <body>
     <div class="container right">
-        <input type="button" class="link_button" id="logout_button" value="logout">
+        <a href="/credits">
+            <div class="link_button button"> credits</div>
+        </a>
+        <div id="logout_button" class="link_button button">logout</div>
     </div>
 
-    <div class="container center_down">
-        <div id="div_drawing">
-            <div id="weight_showcase">
+    <div class="container center">
+
+        <div class="container">
+            <input id="input_name" type="text" placeholder="Name your drawing">
+        </div>
+        <br>
+        <div class="container weight_showcase_container">
+            <div class="switch box inactive">
+                <img src="assets/rubber.png" alt="" class="">
+                <img src="assets/rubber-white.png" alt="" style="display: none;">
+            </div>
+            <div id="weight_showcase" class="box mark_on_hover">
                 <input id="input_color" type="color">
+                <!-- p5 canvas here -->
             </div>
-
-            <div id="div_interactives">
-                <div>
-                    <input type="range" min="1" max="25" value="20" id="input_weight">
-                    <input id="input_name" type="text" placeholder="Name your drawing">
-                </div>
-                <div>
-                    <button type="button" id="btn_clear">Clear</button>
-                    <button type="button" id="btn_post">Post</button>
-                    <button type="button" id="btn_download">Download</button>
-                </div>
-            </div>
-
-            <div id="p5_canvas_" class="left">
+            <input type="range" min="1" max="25" value="20" id="input_weight" class="box">
+        </div>
+        <br>
+        <div class="container container_canvas">
+            <div id="p5_canvas" class="box left">
                 <div id="p5_canvas_hidden" class="hidden_visually"></div>
             </div>
 
             <!-- Predictions -->
-            <div id="predictions" class="right">
+            <div id="predictions" class="box right">
+                <div class="loader_small"></div>
                 <div id="ml5_DoodleNet"></div>
-                <div id="demo_DoodleNet"></div>
             </div>
         </div>
-
-        <div id="gallery"></div>
+        <br>
+        <div class="container">
+            <button type="button" id="btn_clear" class="link_button">Clear</button>
+            <button type="button" id="btn_post"  class="link_button">Post</button>
+            <button type="button" id="btn_download" class="link_button">Download</button>
+        </div>
     </div>
+ 
 </body>
 </html>

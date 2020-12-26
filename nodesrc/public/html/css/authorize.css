@@ -17,13 +17,10 @@ canvas{
 
 
 input.shown {
-    display: block;
-    background-color: white;
-
     margin: auto;
-    margin-bottom: 2.5px;
-    border-style: solid;
     height: auto;
+    margin-bottom: 2.5px;
+    display: block;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -34,7 +31,9 @@ input.shown {
 input.hidden {
     display: block;
     margin: auto;
-    margin-bottom: -2%;
+    padding: 0;
+    margin-bottom: -20px;
+    opacity: 0;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;

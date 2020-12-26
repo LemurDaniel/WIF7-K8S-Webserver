@@ -9,6 +9,15 @@ var sending = false;
 function setup(){}
 $(window).on('load', function() {
 
+    // Suppress chars ä, ö and ü
+    $('input').keypress(function(e){
+        switch(e.which){
+            case 252: return false;
+            case 246: return false;
+            case 228: return false;
+        }
+    });
+
     //initial switch to Log in
     switch_state();
     // call state_switch when top button is pressed

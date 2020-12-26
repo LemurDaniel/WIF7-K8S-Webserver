@@ -5,7 +5,7 @@ const https = require('https');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// load custom moduless
+// load custom modules
 const sql = require('./modules_private/sql_calls');
 const { auth, verify_token, auth_routes } = require('./modules_private/user_auth');
 const { image_routes, helper } = require('./modules_private/image_data');
@@ -15,7 +15,6 @@ const HTML = helper.HTML;
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
 const SSL_KEY = process.env.SSL_KEY || process.env['ssl.key.pem'];
 const SSL_CERT = process.env.SSL_CERT || process.env['ssl.cert.pem'];
-console.log('HTTPS: '+HTTPS_ENABLE);
 
 // Initialize DB
 setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
@@ -59,7 +58,7 @@ const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8');
 app.get('/user', (req,res) => {
     
     // if not verifed direct to login page
-    if(!verify_token(req)) return res.sendFile(HTML('authorize'));
+    if(!verify_token(req) || true) return res.sendFile(HTML('authorize'));
 
     // if loggend in, show some info
     let html = authorized_html.replace('%0', req.body.user.username_display);

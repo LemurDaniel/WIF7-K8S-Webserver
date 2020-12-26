@@ -2,6 +2,7 @@ body {
     background-image: url("../../assets/doodles-background-seamless.jpg");
     background-color: #cccccc;
     background-size: 540px;
+    height: 100%;
 }
 
 @font-face { font-family: ZukaDoodle1; src: url('../../assets/ZukaDoodle-Kz7y.ttf'); } 
@@ -15,7 +16,7 @@ body {
     text-decoration: none;
 
     border-radius: 10px;
-    border-width: 1px;
+    border-width: 2px;
     border-color:#3498db;
     border-style: none;
 }
@@ -30,14 +31,18 @@ canvas {
     display: none;
 }
 
-input, .mark_on_hover {
-    display: inline-block;
-    background-color: transparent;
-
+input, button, .button {
     margin: 0.4em;
     padding: 0.4em;
     padding-bottom: 0.2em;
     padding-top: 0.2em;
+}
+
+input, .mark_on_hover {
+    display: inline-block;
+    background-color: white;
+    border-style: solid;
+    opacity: 1;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -47,8 +52,9 @@ input, .mark_on_hover {
 
 
 input:hover, .mark_on_hover:hover {
-    background-color: lightgrey;
+    background-color: rgb(201, 238, 250);
     font-weight: bold;
+    opacity: 1;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -69,6 +75,15 @@ input:hover, .mark_on_hover:hover {
     margin: 0;
     position: absolute;
     top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.center_up {
+    margin: 0;
+    position: absolute;
+    top: 20%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -115,6 +130,10 @@ input:hover, .mark_on_hover:hover {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition:all 0.5s;
+}
+
+.not_displayed {
+    display: none!;
 }
 
 /* hide element visually, but still accessible in DOM */
@@ -171,8 +190,8 @@ input:hover, .mark_on_hover:hover {
     border: 4px solid #f3f3f3; /* Light grey */
     border-top: 4px solid #3498db; /* Blue */
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 
     -webkit-transition: 0.2s, width 0.2s;
@@ -189,18 +208,16 @@ input:hover, .mark_on_hover:hover {
 
 
 .container {
-    display: inline;
-    border: black;
-    border-width: 2px;
-    border-style: dashed;
+    display: inline-block;
+    max-width: 90%;
+    max-height: 80%;
 }
 
 .link_button {
-    background-color: transparent;
+    background-color: white;
     color: #3498db;
     border-color:#3498db;
     border-style: solid;
-    border-width: 1px;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;

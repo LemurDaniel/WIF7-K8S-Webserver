@@ -19,20 +19,38 @@ const translation_url =  domain+'/translation';
 //const classifier_model = "Darknet-reference";
 //const classifier_model = "MobileNet";
 const classifier_model = "DoodleNet";
-const classifier = ml5.imageClassifier(classifier_model, () => modelLoaded = true);
+const classifier = ml5.imageClassifier(classifier_model, () => { 
+    modelLoaded = true;
+    $('.loader_small').remove();
+    classifier.classify(p5canvas2, ml5_gotResults);
+});
 
 var modelLoaded;
 var p5canvas;
 var p5canvas2;
 
-var p5_1;
-var p5_2;
-var p5_2;
+var p5_1;  // main canvas
+var p5_2;  // hidden canvas
+var p5_3;  // showcase
 
 var ml5_predictions;
 var server_path = '';
 
 var translation;
+
+
+ // Define input elements
+ var input_weight;
+ var clearBtn;
+ var downloadBtn;
+ var uploadBtn;
+ var postBtn;
+ var input_color;
+ var input_name;
+ var input_file;
+ var rubber_switch;
+ var rubber_state = 0;
+ 
 
 
 // ML5 Functions
@@ -47,11 +65,11 @@ function ml5_gotResults(err, results) {
 
     Translate_Data();
 
-    $(html_id + ' div ').remove();
-    $(html_id).append('<div></div>');
+    $(html_id + ' ol ').remove();
+    $(html_id).append('<ol></ol>');
     results.forEach(element => {
         let conf = Math.round(element.confidence*100);
-        $(html_id + ' div ').append('<li>('+conf+'%) '+element.label+'</li>');
+        $(html_id + ' ol ').append('<li>('+conf+'%) '+element.label+'</li>');
     });
     
 }
@@ -70,20 +88,10 @@ function Translate_Data(){
     Additionally, if the color gets to bright DoodleNet can't distinguish the Doodle from the white Background.
 
     To still support colored doodles, the browser creates two canvases.
-    One with color wich the user can see and second hidden one,
+    One with color wich the user can see and a second hidden one,
     which draws the same picture parallel with only a black stroke.
 */
 p5_2 = function (sketch) {
-
-    // src => https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-    function hexToRgb(hex) {
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
-        } : null;
-      }
 
     sketch.setup = function () {
         p5canvas2 = sketch.createCanvas(canvas_size, canvas_size);
@@ -91,90 +99,64 @@ p5_2 = function (sketch) {
         sketch.strokeWeight(stroke_weight);
         sketch.background(255); 
     }
-
-    sketch.replicate = function(mX, mY, pmX, pmY) {
-        sketch.line(mX, mY, pmX, pmY);
-    }
-
-    // Can be removed if canvas remains hidden
-    sketch.setStroke = function(hex) {
-        //if(!grayscale) return;
-        let rgb = hexToRgb(hex);
-        //let grey = ((rgb.r + rgb.g + rgb.b)/3)*0.75;
-        let trsh = 250; //treshold
-        console.log(rgb);
-        if(rgb.r >= trsh && rgb.g >= trsh && rgb.b >= trsh) sketch.stroke(255);
-        else sketch.stroke(0);
-        //sketch.stroke(grey);
-    }
 }
 
 
- // Define input elements
- var input_weight;
- var clearBtn;
- var downloadBtn;
- var uploadBtn;
- var postBtn;
- var input_color;
- var input_name;
- var input_file;
+// Showcase for strokesize and color
+p5_3 = function (sketch) {
 
-// P5 MAIN CANVAS
-p5_1 = function (sketch) {
-    // Showcase for strokesize and color
-    let showcase = function(sketch){
+    let sh_size = 35;
 
-        let sh_size = 35;
-       
-        sketch.setup = function(){
-            sketch.createCanvas(sh_size, sh_size).parent("weight_showcase"); 
-            sketch.background(255); 
-            sketch.fill(255);
-            sketch.noStroke();
-            sketch.frameRate(0);
+    sketch.setup = function () {
+        sketch.createCanvas(sh_size, sh_size).parent("weight_showcase");
+        sketch.background(255, 255, 255, 0);
+        sketch.fill(255);
+        sketch.noStroke();
+        sketch.frameRate(0);
 
-            input_weight[0].value = stroke_weight;
-            input_weight.on('mousedown', () => sketch.frameRate(FRAME_RATE_SHOWCASE));
-            input_weight.on('mouseleave', () => sketch.frameRate(0));                
-            input_weight.on('change', () => {
-                const val = input_weight[0].value;
-                p5_1.strokeWeight(val); 
-                p5_2.strokeWeight(val);
-                sketch.draw();
-            })
-
-            input_color.on("click", () => sketch.frameRate(FRAME_RATE_SHOWCASE));
-            input_color.on('change', () => { 
-                p5_1.stroke(input_color[0].value); 
-                p5_2.setStroke(input_color[0].value);
-                sketch.frameRate(0)
-            });
-      
-
+        input_weight[0].value = stroke_weight;
+        input_weight.on('mousedown', () => sketch.frameRate(FRAME_RATE_SHOWCASE));
+        input_weight.on('mouseleave', () => sketch.frameRate(0));
+        input_weight.on('change', () => {
+            const val = input_weight[0].value;
+            p5_1.strokeWeight(val);
+            p5_2.strokeWeight(val);
             sketch.draw();
-        }
+        })
 
-        sketch.draw = function(){
-            // Set size relative to strokesize
-            sketch.background(255);
-            sketch.fill(input_color[0].value);
-            // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
-            const size = s.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size-5);
-            sketch.circle(sh_size/2, sh_size/2, size);
-        }
+        input_color.on("click", () => sketch.frameRate(FRAME_RATE_SHOWCASE));
+        input_color.on('change', () => {
+            p5_1.stroke(input_color[0].value);
+            sketch.frameRate(0)
+        });
+
+
+        sketch.draw();
     }
+
+    sketch.draw = function () {
+        sketch.clear();
+        sketch.background(255, 255, 255, 0);
+        sketch.fill(input_color[0].value);
+        // Set size relative to strokesize
+        // maps range(1,25) to (1, showcasesize) || 25 is maxval of slider
+        const size = sketch.map(input_weight[0].value, input_weight[0].min, input_weight[0].max, 2, sh_size - 5);
+        sketch.circle(sh_size / 2, sh_size / 2, size);
+    }
+}
     // showcase END
 
 
-    // Actual Canvas
+// P5 MAIN CANVAS
+p5_1 = function (sketch) {
+
     let s = sketch;
     
     sketch.setup = function () {
 
         // Initialize showcase
-        p5_3 = new p5(showcase);
-        // Create hiddencanvas
+        p5_3 = new p5(p5_3);
+        // Initialize hiddencanvas
         p5_2 = new p5(p5_2);
         p5_2.frameRate(FRAME_RATE);
         sketch.frameRate(FRAME_RATE);
@@ -184,18 +166,13 @@ p5_1 = function (sketch) {
         p5canvas.parent("p5_canvas");   
         sketch.background(255);
         sketch.strokeWeight(stroke_weight);
-
-    
-        // Button Functionality
-        clearBtn.on('click', () => {s.background(255); p5_2.background(255)});
-        postBtn.on('click', () => HTTP_Post_Data());
-        downloadBtn.on('click', () => s.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
     }
   
     sketch.draw = function () {
         if (s.mouseIsPressed) {
         s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
-            p5_2.replicate(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+            // Replicate doodle to second b/w canvas
+            p5_2.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             //deml_gotResults(doodleNet_classify(), "#DoodleNet");
             if(modelLoaded && s.frameCount % predict_interval === 0) classifier.classify(p5canvas2, ml5_gotResults);
         }
@@ -251,23 +228,49 @@ $(window).on('load', function() {
     uploadBtn = $('#btn_upload');
     postBtn = $('#btn_post');
     input_name =  $('#input_name');
+    rubber_switch = $('.switch');
 
+    // Suppress chars ä,ö and ü
     input_name.keypress(function(e){
-        
         switch(e.which){
-            case 252: console.log('test'); return false;
+            case 252: return false;
             case 246: return false;
             case 228: return false;
         }
-      });
+    });
+
+    var rubber_clicked = false;
+    rubber_switch.on('click', () => rubber_clicked = true);
+    rubber_switch.on('mouseenter', () => $('.switch img').toggle());
+    rubber_switch.on('mouseleave', () => {
+        if(rubber_clicked) {
+            $('.switch').toggleClass('active inactive');
+            rubber_state = (rubber_state+1) % 2;
+            rubber_clicked = false;
+
+            if(rubber_state) {
+                // If rubber active, set stroke color to white
+                p5_1.stroke(255);
+                p5_2.stroke(255);
+            } else {
+                // Set stroke to color
+                p5_1.stroke(input_color[0].value);
+                p5_2.stroke(input_color[0].value);
+            }
+        }
+        else $('.switch img').toggle()
+    });
+
+
 
     //Initialize Sketches
     p5_1 = new p5(p5_1);
     //Get translation
     p5_1.httpGet(translation_url, 'json', (data) => translation = data);
 
-    //TEST
-    p5_1.loadImage(domain+'/assets/doodles/mona-lisa-73451083.png', img => 
-        p5_1.image(img, 0, 0, 280, 280));
+    // Button Functionality
+    postBtn.on('click', () => HTTP_Post_Data());
+    clearBtn.on('click', () => {p5_1.background(255); p5_2.background(255), classifier.classify(p5canvas2, ml5_gotResults)});
+    downloadBtn.on('click', () => p5_1.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
 
 });

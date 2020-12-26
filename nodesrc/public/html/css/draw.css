@@ -1,27 +1,89 @@
-.box * {
-    display: block;
-    overflow: hidden;
-    margin: auto;
+.container_canvas {
+    width: 420px;
+    height: 320px;
 }
 
-.box img{
-   max-width: 50%;
-   max-height: auto;
+#predictions {
+    position: absolute;
 }
 
 .box {
-    width: 35%;
-    height: 35%;
-    opacity: 0.85;
-}  
+    width: fit-content;
+    height: fit-content;
+    margin-right: 1%;
+    margin-left: 1%;
+}
 
-.box:hover {
-    font-size: 1.4em;
-    background-color: transparent;
-    opacity: 1;
+ol, ol li {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-weight: bold;
+}
 
-    -webkit-transition: font-size 1s;
-    -moz-transition: font-size 1s;
-    -o-transition: font-size 1s;
-    transition: font-size 1s;
+.loader_small {
+    position: relative;
+    margin: auto;
+    margin-top: 200%;
+}
+
+
+.weight_showcase_container {
+    width: 80%;
+}
+
+.weight_showcase_container * {
+    display: inline-block;
+    margin-top: 2%;
+    border: none;
+    border-color:#3498db;
+}
+
+
+/* color switch */
+.switch, #weight_showcase {
+    overflow: hidden;
+    border-style: solid;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 1%;
+}
+
+/* overly invisible colorpicker on stroke showcase */
+#input_color {
+    opacity: 0;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* rubber switch */
+.switch img {
+    max-height: 30px;
+    margin-top: 5%;
+}
+ 
+.switch.active:hover, .switch.inactive {
+    background-color: white;
+    border-color:#3498db;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
+}
+
+.switch.active, .switch.inactive:hover {
+    background-color: #3498db;
+    border-color: white;
+    
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition:all 0.5s;
 }
