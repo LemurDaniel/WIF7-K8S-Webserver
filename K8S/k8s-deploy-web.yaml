@@ -21,15 +21,17 @@ spec:
             cpu: "100m"
         ports:
         - containerPort: 3000
+        envFrom:
+          - secretRef: { name: sql.pass.data }  # Password and Rootpassword
+          - secretRef: { name: ssl.cert.data }  # SSL certificates
+          - secretRef: { name: jwt.rsa.data }   # JWT keys for signing
+          - secretRef: { name: jwt.enc.conf }   # JWT keys and configuration for encryption
+          - configMapRef: { name: node.webserver.config }
         env:
-          - { name: SQL_PASSWORD, value: "geheimesPWDuser"}
-          - { name: SQL_DATABASE, value: "node_wp"}
-          - { name: SQL_USER, value: "node_user"}
-          - { name: SQL_HOST, value: "db-server"}
-          - { name: SQL_PORT, value: "3306"}
-          - { name: SQL_ENABLE, value: "true"}
+          - name: SQL_PASSWORD # Password to access sql database
+            valueFrom: { secretKeyRef: { key: MYSQL_PASSWORD, name: sql.pass.data  }}
         volumeMounts:
-        - mountPath: "/var/project/src/assets/doodles"
+        - mountPath: "/var/project/src/public/assets/doodles"
           name: image-data
       volumes:
       - name: image-data

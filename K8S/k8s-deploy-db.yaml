@@ -21,12 +21,16 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 3306
+        envFrom:
+          - secretRef:
+              name: sql.pass.data # Password and Rootpassword
         env:
-          - { name: MYSQL_ROOT_PASSWORD, value: "geheimesPWD"}
-          - { name: MYSQL_PASSWORD, value: "geheimesPWDuser"}
-          - { name: MYSQL_DATABASE, value: "node_wp"}
-          - { name: MYSQL_USER, value: "node_user"}
-          - { name: MYSQL_PORT, value: "3306"}
+          - name: MYSQL_DATABASE
+            valueFrom: { configMapKeyRef: { key: SQL_DATABASE, name: node.webserver.config }}
+          - name: MYSQL_USER
+            valueFrom: { configMapKeyRef: { key: SQL_USER, name: node.webserver.config }}
+          - name: MYSQL_PORT
+            valueFrom: { configMapKeyRef: { key: SQL_PORT, name: node.webserver.config }}
         volumeMounts:
         - mountPath: "/var/lib/mysql"
           name: db-data

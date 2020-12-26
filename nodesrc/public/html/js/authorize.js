@@ -88,7 +88,7 @@ function handle_error (message) {
          // hide error message again after some time passed
         $('#error_display').removeClass('shown');
         $('#error_display').addClass('hidden');
-    }, 2000);
+    }, 4000);
 }
 
 

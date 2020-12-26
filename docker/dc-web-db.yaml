@@ -12,11 +12,11 @@ services:
         volumes:
             - ".././nodesrc:/var/project/src"
         ports:
-            - "5001:3000"
+            - "5000:3000"
         environment:
             SQL_HOST: db
             SQL_PORT: 3306
-            SQL_DATABASE: node_wp
+            SQL_DATABASE: node_db
             SQL_TABLE_NAME: doodle
             SQL_USER: node-webserver
             SQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`
@@ -34,12 +34,12 @@ services:
         volumes:
             - "./mysql_data:/var/lib/mysql"
         ports:
-            - "5002:3306"
+            - "5001:3306"
         environment:
             MYSQL_ROOT_PASSWORD: ZG6p)VD3gj{C])eM66_)KMc)K46eZ5LW_UZKLjhDG<g[948I
             MYSQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`
             MYSQL_USER: node-webserver
-            MYSQL_DATABASE: node_wp
+            MYSQL_DATABASE: node_db
 volumes:
     src_data:
     db_data:

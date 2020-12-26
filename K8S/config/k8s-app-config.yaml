@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node.webserver.config
+data:
+
+  # dns and port of the Database
+  SQL_HOST: db
+  SQL_PORT: '3306'
+
+  SQL_DATABASE: node_wp
+  SQL_TABLE_NAME: doodle
+
+  # user / pw to access database
+  SQL_USER: node-webserver
+
+  # Enables https
+  HTTPS_ENABLE: 'true'
+  # Enables encryption of the JWT-tokens
+  JWT_ENCRYPTION_ENABLE: 'true'

@@ -10,8 +10,8 @@ const schema = require('./joi_models');
 
 // Constants
 const JWT_LIFESPAN = process.env.JWT_LIFESPAN; // hours
-const SIGNING_KEY = process.env.JWT_SIGNING_KEY;
-const VERIFY_KEY = process.env.JWT_VERIFY_KEY;
+const SIGNING_KEY = process.env.JWT_SIGNING_KEY || process.env['jwt.private.pem'];;
+const VERIFY_KEY = process.env.JWT_VERIFY_KEY || process.env['jwt.public.pem'];
 const SIGNING_ALGO = process.env.JWT_SIGING_ALGO;
 const ENCRYPTION_KEY = process.env.JWT_ENCRYPTION_KEY;
 const ENCRYPTION_IV = process.env.JWT_ENCRYPTION_IV;

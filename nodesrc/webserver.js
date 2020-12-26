@@ -11,17 +11,14 @@ const { auth, verify_token, auth_routes } = require('./modules_private/user_auth
 const { image_routes, helper } = require('./modules_private/image_data');
 const HTML = helper.HTML;
 
-
 // Get environment variables
-const SQL_ENABLE = (process.env.SQL_ENABLE == 'true' ? true:false); 
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
-const SSL_KEY = process.env.SSL_KEY;
-const SSL_CERT = process.env.SSL_CERT;
-console.log('SQL: '+SQL_ENABLE);
+const SSL_KEY = process.env.SSL_KEY || process.env['ssl.key.pem'];
+const SSL_CERT = process.env.SSL_CERT || process.env['ssl.cert.pem'];
 console.log('HTTPS: '+HTTPS_ENABLE);
 
 // Initialize DB
-if(SQL_ENABLE) setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
+setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
 
 
 //Create Server//
@@ -54,6 +51,7 @@ app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
 app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 
+// Only for testing //
 app.get('/web', auth, (req,res) => res.sendFile(helper.WEB));
 app.get('/info', (req,res) =>  res.json(process.env) );
 
