@@ -15,9 +15,7 @@ const HTML = helper.HTML;
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
 const SSL_KEY = process.env.SSL_KEY || process.env['ssl.key.pem'];
 const SSL_CERT = process.env.SSL_CERT || process.env['ssl.cert.pem'];
-
-// Initialize DB
-setTimeout(() => sql.init_Database(helper.DOODLES), 3000);
+const PORT = process.env.PORT || (HTTPS_ENABLE ? 443:80);
 
 
 //Create Server//
@@ -41,7 +39,27 @@ if(HTTPS_ENABLE){
     }, app);
 }else
     server = http.createServer(app);
-server.listen(3000);
+
+// Initialize DB
+var tries = 0;
+const MAX_TRIES = 30;
+function check_for_connection() {
+    sql.init_Database(helper.DOODLES, err => {
+        if(tries >= MAX_TRIES) return console.log('Couldn\'t connect to database')
+
+        tries++;
+        console.log('Waiting for database connection | Trie: '+tries+'/'+MAX_TRIES+'  - CODE: '+err.code);
+        // if no connection keep checking every second;
+        setTimeout(() => check_for_connection(), 1000);
+
+        
+        // if successfull start listening
+    }, () => {
+        server.listen(PORT);
+        console.log('Connection Successfull, listening now on Port: '+PORT);
+    });
+}
+check_for_connection();
 
 // GET //
 app.get('/', auth, (req,res) => res.sendFile(HTML('index')));

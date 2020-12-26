@@ -21,7 +21,7 @@ const translation_url =  domain+'/translation';
 const classifier_model = "DoodleNet";
 const classifier = ml5.imageClassifier(classifier_model, () => { 
     modelLoaded = true;
-    $('.loader_small').remove();
+    $('#predictions_loader').remove();
     classifier.classify(p5canvas2, ml5_gotResults);
 });
 
@@ -191,9 +191,20 @@ function HTTP_Post_Data(){
         ml5_bestfit: ml5_predictions[0],
         ml5: ml5_predictions
     }
-
     if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
-    p5_1.httpPost(url_save, 'json', data, (result) => server_path = result.img_path); 
+
+    $('#http_loader').removeClass('loaderhidden');
+    //$('.draw_container').addClass('opaque');
+    postBtn.prop("disabled",true);
+
+    p5_1.httpPost(url_save, 'json', data, (result) => {
+        if(!server_path) display_message('Image has been saved on server');
+        else display_message('Image on server has been updated');
+        server_path = result.img_path;
+    }, (err) => {
+        display_message('Something went wrong', true);
+        console.log(err);
+    }); 
 }
 
 function HTTP_Search_Images(){
@@ -274,3 +285,31 @@ $(window).on('load', function() {
     downloadBtn.on('click', () => p5_1.saveCanvas(p5canvas, (!input_name[0].value ? img_name_default : input_name[0].value), 'jpg'));
 
 });
+
+
+
+
+var timeout;
+function display_message (message, err) {
+
+    // replace error message
+    $('#info_display p').remove();
+    if(err) $('#info_display').append('<p class="red">'+message+'</p>');
+    else    $('#info_display').append('<p class="green">'+message+'</p>');
+    // show error
+    $('#info_display').removeClass('hidden');
+    $('#info_display').addClass('shown');
+    // hide loader
+    $('#http_loader').addClass('loaderhidden');
+    $('.draw_container').removeClass('opaque');
+    postBtn.prop("disabled",false);
+
+
+    // if error changed, don't engage old timer anymore
+    if(timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+         // hide error message again after some time passed
+        $('#info_display').removeClass('shown');
+        $('#info_display').addClass('hidden');
+    }, 1000);
+}

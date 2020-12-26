@@ -105,9 +105,9 @@ func.handle_new_image = (con, body,res) => {
 func.handle_update_img = (con, body, res) => {  
     sql.update_img(con, body, (err, result) => {
                        
-        if(err) return res.status(400).send('NOT OK');;
+        if(err) return res.status(400).send({ err: 'Something went wrong' });;
         func.write_img_to_file(body, (err) => {
-            res.status(200).send('OK');
+            res.status(200).json({ img_path: body.img_path });
         });
     });
 }

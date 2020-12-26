@@ -24,7 +24,7 @@
         <div id="logout_button" class="link_button button">logout</div>
     </div>
 
-    <div class="container center">
+    <div class="container center draw_container">
 
         <div class="container">
             <input id="input_name" type="text" placeholder="Name your drawing">
@@ -49,7 +49,7 @@
 
             <!-- Predictions -->
             <div id="predictions" class="box right">
-                <div class="loader_small"></div>
+                <div id="predictions_loader" class="loader_small"></div>
                 <div id="ml5_DoodleNet"></div>
             </div>
         </div>
@@ -61,5 +61,11 @@
         </div>
     </div>
  
+    <div class="container center info_container">
+        <div id="http_loader" class="loader loader_small loaderhidden"></div>
+        <div id="info_display">
+            <p></p>
+        </div>
+    </div>
 </body>
 </html>

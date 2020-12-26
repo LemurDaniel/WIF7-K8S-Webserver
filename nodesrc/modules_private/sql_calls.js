@@ -195,28 +195,33 @@ func = {};
     }
 
     
-    func.init_Database = function (doodles_path) {
+    func.init_Database = function (doodles_path, error_callback, callback) {
     
-        // Check for file indicating initialization
-        let file;
-        try{ 
-            file = fs.readFileSync(doodles_path+TABLE_IMG+'_EXISTS.info');
-        } catch(ex){}
-        // If file exists then return
-        if(file) return;
-        // else create table
         let con = func.getCon();
         con.connect((err) => {
+            if(err) return error_callback(err);
+
+            // Todo check for databases via SQL and create if not existent
+            // Check for file indicating initialization
+            let file;
+            try{ 
+                file = fs.readFileSync(doodles_path+TABLE_IMG+'_EXISTS.info');
+            } catch(ex){}
+            // If file exists then return
+            if(file) return  callback();
+
             let i=0;
             const statements = [SQL_CREATE_USER, SQL_CREATE_IMG, SQL_CREATE_ML5];
             const func = (con, i) => {
                 con.query(statements[i],(error, result) => {
                     if(error) return console.log(error);
-                    if(i++ < 2) func(con, i);
-                    else fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {});
+                    if(i++ < 2) return func(con, i);
+
+                    fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {});
+                    callback();
                 })
             }
-                func(con, i);
+            func(con, i);
         });
     }
 
