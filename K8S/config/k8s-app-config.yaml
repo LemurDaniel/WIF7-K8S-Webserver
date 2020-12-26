@@ -5,7 +5,7 @@ metadata:
 data:
 
   # dns and port of the Database
-  SQL_HOST: db
+  SQL_HOST: db-server.default.svc.cluster.local
   SQL_PORT: '3306'
 
   SQL_DATABASE: node_wp

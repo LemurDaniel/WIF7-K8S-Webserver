@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: daniellandau1998/node-webserver:dev4
+        image:  daniellandau1998/node-webserver:k8s
         resources:
           limits:
             memory: "256Mi"
@@ -53,5 +53,11 @@ spec:
     targetPort: 3000
     nodePort: 30123
 
-#doesn't work on docker for desktop, use port-forward for testing
-#kubectl port-forward svc/webserver 6000:3000
+# doesn't work on docker for desktop, use port-forward for testing
+# kubectl port-forward svc/webserver 6000:3000
+
+# if on Chrome: port 443 has to be used for https => kubectl port-forward svc/webserver 443:3000 
+
+# OR explicitly allow port 6000 top be open
+# Press: win + r
+# Enter: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --explicitly-allowed-ports=6000

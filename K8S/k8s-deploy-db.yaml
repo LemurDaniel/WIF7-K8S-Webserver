@@ -54,5 +54,5 @@ spec:
     targetPort: 3306
     nodePort: 30124
 
-#doesn't work on docker for desktop, use port-forward for testing
-#kubectl port-forward svc/db-server 6001:3306
+# doesn't work on docker for desktop, use port-forward for testing
+# kubectl port-forward svc/db-server 6001:3306

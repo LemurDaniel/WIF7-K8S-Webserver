@@ -5,22 +5,22 @@ services:
     webserver:
         depends_on: 
             - db
-        image: node-webserver:dev
+        image: daniellandau1998/node-webserver:dev
         command: node webserver.js
-        container_name: test
+        container_name: nodejs
         restart: always
         volumes:
             - ".././nodesrc:/var/project/src"
         ports:
             - "5000:3000"
-        environment:
+        environment: 
+            PORT: 3000
             SQL_HOST: db
             SQL_PORT: 3306
             SQL_DATABASE: node_db
             SQL_TABLE_NAME: doodle
             SQL_USER: node-webserver
             SQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`
-            SQL_ENABLE: 'true'
             HTTPS_ENABLE: 'true'
             JWT_ENCRYPTION_ENABLE: 'true'
         env_file:
