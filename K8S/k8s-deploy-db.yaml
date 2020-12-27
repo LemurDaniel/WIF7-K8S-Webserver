@@ -1,16 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: database
+  name: doodles-database
+  namespace: doodles-ns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: database
+      app: doodles-webservice
+      tier: backend-database
   template:
     metadata:
       labels:
-        app: database
+        app: doodles-webservice
+        tier: backend-database
     spec:
       containers:
       - name: database
@@ -44,10 +47,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: db-server
+  name: doodles-database-svc
+  namespace: doodles-ns
 spec:
   selector:
-    app: database
+    app: doodles-webservice
+    tier: backend-database
   type: NodePort
   ports:
   - port: 3306

@@ -2,10 +2,15 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: node.webserver.config
+  namespace: doodles-ns
 data:
 
+  # Port on which webserver listen
+  # no value defaults to 80 or 443
+  # PORT: 
+
   # dns and port of the Database
-  SQL_HOST: db-server.default.svc.cluster.local
+  SQL_HOST: doodles-database-svc.doodles-ns.svc.cluster.local
   SQL_PORT: '3306'
 
   SQL_DATABASE: node_wp

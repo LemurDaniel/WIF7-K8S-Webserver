@@ -17,6 +17,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: image-data-claim
+  namespace: doodles-ns
 spec:
   accessModes: 
   - ReadWriteMany

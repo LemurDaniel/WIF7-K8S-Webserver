@@ -1,16 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webserver
+  name: doodles-webserver
+  namespace: doodles-ns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webserver
+      app: doodles-webservice
+      tier: frontend-webserver
   template:
     metadata:
       labels:
-        app: webserver
+        app: doodles-webservice
+        tier: frontend-webserver
     spec:
       containers:
       - name: webserver
@@ -43,20 +46,23 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: webserver
+  name: doodles-webserver-svc
+  namespace: doodles-ns
 spec:
   selector:
-    app: webserver
+    app: doodles-webservice
+    tier: frontend-webserver
   type: NodePort
   ports:
-  - port: 3000
-    targetPort: 3000
+  - port: 443
+    targetPort: 443
     nodePort: 30123
 
 # doesn't work on docker for desktop, use port-forward for testing
-# kubectl port-forward svc/webserver 6000:3000
+# kubectl port-forward svc/doodles-webserver-svc 6000:3000
 
-# if on Chrome: port 443 has to be used for https => kubectl port-forward svc/webserver 443:3000 
+# if on Chrome: port 443 has to be used for https 
+# => kubectl port-forward svc/doodles-webserver-svc 443:3000 
 
 # OR explicitly allow port 6000 top be open
 # Press: win + r
