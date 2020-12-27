@@ -2,7 +2,6 @@
 
 $(window).on('load', function() {
 
-    // call state_switch when top button is pressed
     $('#logout_button').on('click', () => {
         const bool = confirm("Are you sure you want to logout?");
         if (bool == false) return;

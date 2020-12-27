@@ -109,7 +109,7 @@ input:hover, .mark_on_hover:hover {
     display: block;
     float: left;
     margin-top: 20px;
-    margin-right: 40px;
+    margin-left: 40px;
 }
 
 /* hide an show elements */
@@ -210,7 +210,7 @@ input:hover, .mark_on_hover:hover {
 .container {
     display: inline-block;
     max-width: 90%;
-    max-height: 80%;
+    max-height: 90%;
 }
 
 .link_button {
@@ -234,4 +234,22 @@ input:hover, .mark_on_hover:hover {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition:all 0.5s;
+}
+
+.link_button.back_button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border-style: none;
+}
+
+.link_button.back_button img {
+    width: 100%;
+    height: 100%;
+    content:url("/assets/back-button-3498db.png");
+}
+
+.link_button.back_button:hover img {
+    content:url("/assets/back-button-white.png");
 }

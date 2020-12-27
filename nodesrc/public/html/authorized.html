@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +10,27 @@
     <link rel="stylesheet" href="html/css/authorize.css">
 
     <script src="html/js/logout.js"></script>
-    
-<style>
-    .header b {
-        background-color: white;
-        border-style: solid;
-        border-radius: 5px;
-        border-width: 2px;
-        padding: 5px;
-    }
-</style>
+
+    <style>
+        .header b {
+            background-color: white;
+            border-style: solid;
+            border-radius: 5px;
+            border-width: 2px;
+            padding: 5px;
+        }
+    </style>
 
 </head>
+
 <body>
+    <div class="container left">
+        <a href="/">
+            <div class="link_button back_button button">
+                <img src="/assets/back-button" alt="">
+            </div>
+        </a>
+    </div>
     <div class="container right">
         <a href="/credits">
             <div class="link_button button"> credits</div>
@@ -29,19 +38,19 @@
         <div id="logout_button" class="link_button button">logout</div>
     </div>
 
-    <div>
-        <div class="container, center">
-            <div class="header_container">
-                <h3 class="header">You are logged in as <br> <br>
-                    <b>%0</b>
-                </h3>
-                <h4 class="header">You are being served from Host<br><br>
-                    <b>%1</b><br><br>
-                    With NodeJs-Version<br><br> 
-                    <b>%2</b>
-                </h4>
-            </div>
+
+    <div class="container, center_down">
+        <div class="header_container">
+            <h3 class="header">You are logged in as <br> <br>
+                <b>%0</b>
+            </h3>
+            <h4 class="header">You are being served from Host<br><br>
+                <b>%1</b><br><br>
+                With NodeJs-Version<br><br>
+                <b>%2</b>
+            </h4>
         </div>
     </div>
 </body>
+
 </html>

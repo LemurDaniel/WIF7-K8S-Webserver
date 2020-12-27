@@ -1,6 +1,7 @@
 .box * {
     display: block;
     overflow: hidden;
+    color: #3498db;
 
     margin: 0;
     padding: 0;
