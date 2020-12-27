@@ -397,5 +397,62 @@
             "iat": 1609082622,
             "exp": 1609125822
         }
+    },
+    "638055a44656cbed.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "638055a44656cbed.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "1364caf6d867ede9",
+            "username_display": "Daniel Landau",
+            "iat": 1609091947,
+            "exp": 1609135147
+        }
     }
 }

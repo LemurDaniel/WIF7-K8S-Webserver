@@ -90,7 +90,7 @@ func.handle_new_image = (con, body,res) => {
         if(err) {
             // if entry already exists just retry. It's so rare it will practically never happen
             if(err && err.code == 'ER_DUB_ENTRY') return func.handle_new_image(con, body, res);
-            else res.status(400).send('Something went wrong');
+            else return res.status(400).send('Something went wrong');
         }
         
         sql.insert_into_ml5(con, result.insertId, body.ml5);

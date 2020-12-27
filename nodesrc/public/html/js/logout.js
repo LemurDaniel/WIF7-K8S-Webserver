@@ -22,7 +22,7 @@ var timeout;
 function display_message (message, err) {
 
     // replace error message
-    $('#info_display p').remove();
+    $('#info_display').empty();
     if(err) $('#info_display').append('<p class="red">'+message+'</p>');
     else    $('#info_display').append('<p class="green">'+message+'</p>');
     // show error

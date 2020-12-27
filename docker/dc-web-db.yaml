@@ -12,7 +12,7 @@ services:
         volumes:
             - ".././nodesrc:/var/project/src"
         ports:
-            - "5000:3000"
+            - "3000:3000"
         environment: 
             PORT: 3000
             SQL_HOST: db

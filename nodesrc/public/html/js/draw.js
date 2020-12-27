@@ -224,7 +224,11 @@ $(window).on('load', function() {
     postBtn = $('#btn_post');
     input_name =  $('#input_name');
     rubber_switch = $('.switch');
+    createNewBtn = $('#btn_new_doodle');
     //$('.info_container').hide();
+
+    // reload page to draw new image
+    createNewBtn.on('click', () => window.location.reload());
 
     // Suppress chars ä,ö and ü
     input_name.keypress(function(e){

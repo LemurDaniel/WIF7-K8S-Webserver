@@ -33,10 +33,15 @@
 
     <div class="container center draw_container">
 
-        <div class="container">
-            <input id="input_name" type="text" placeholder="Name your drawing">
-        </div>
+        
+        <button id="btn_new_doodle" type="button" class="link_button">Create a new doodle</button>        
+
         <br>
+
+        <input id="input_name" type="text" placeholder="Name your drawing">
+
+        <br>
+
         <div class="container weight_showcase_container">
             <div class="switch box inactive">
                 <img src="/assets/rubber.png" alt="" class="">
@@ -48,7 +53,9 @@
             </div>
             <input type="range" min="1" max="25" value="20" id="input_weight" class="box">
         </div>
+
         <br>
+
         <div class="container container_canvas">
             <div id="p5_canvas" class="box left">
                 <div id="p5_canvas_hidden" class="hidden_visually"></div>
@@ -60,7 +67,9 @@
                 <div id="ml5_DoodleNet"></div>
             </div>
         </div>
+
         <br>
+        
         <div class="container">
             <button type="button" id="btn_clear" class="link_button">Clear</button>
             <button type="button" id="btn_post"  class="link_button">Post</button>

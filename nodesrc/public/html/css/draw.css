@@ -13,12 +13,12 @@ body{
     height: 320px;
 }
 
-.opaque {
-    opacity: 0.60;
-} 
-
 #predictions {
     position: absolute;
+}
+
+.center.info_container {
+    left: 42%;
 }
 
 .box {
@@ -35,7 +35,7 @@ ol, ol li {
     font-weight: bold;
 }
 
-.loader_small {
+#predictions_loader.loader_small {
     position: relative;
     margin: auto;
     margin-top: 200%;
