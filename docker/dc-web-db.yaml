@@ -14,6 +14,9 @@ services:
         ports:
             - "3000:3000"
         environment: 
+            AUTH2_ID: 1364caf6d867ede9
+            AUTH2_USER: 'Daniel Landau'
+            AUTH2_PASS: 7376fbc46827c5d878a7c9b302d420e6cdc3fa437f9559fbcc1ac173c5c47658
             PORT: 3000
             SQL_HOST: db
             SQL_PORT: 3306
@@ -34,7 +37,7 @@ services:
         volumes:
             - "./mysql_data:/var/lib/mysql"
         ports:
-            - "5001:3306"
+            - "3001:3306"
         environment:
             MYSQL_ROOT_PASSWORD: ZG6p)VD3gj{C])eM66_)KMc)K46eZ5LW_UZKLjhDG<g[948I
             MYSQL_PASSWORD: .Mvl/AueZ|#zCa?/Sq#r)>D68Z^L:ip`

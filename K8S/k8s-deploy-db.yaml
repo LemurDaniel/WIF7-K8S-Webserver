@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: doodles-database
   namespace: doodles-ns
+  labels:
+    app: doodles-webservice
+    tier: backend-database
 spec:
   replicas: 1
   selector:
@@ -49,6 +52,9 @@ kind: Service
 metadata:
   name: doodles-database-svc
   namespace: doodles-ns
+  labels:
+    app: doodles-webservice
+    tier: backend-database
 spec:
   selector:
     app: doodles-webservice

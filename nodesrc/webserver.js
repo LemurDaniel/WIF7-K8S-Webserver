@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // load custom modules
 const sql = require('./modules_private/sql_calls');
-const { auth, verify_token, auth_routes } = require('./modules_private/user_auth');
+const { auth, auth2, verify_token, auth_routes } = require('./modules_private/user_auth');
 const { image_routes, helper } = require('./modules_private/image_data');
 const HTML = helper.HTML;
 
@@ -51,8 +51,7 @@ function check_for_connection() {
         console.log('Waiting for database connection | Trie: '+tries+'/'+MAX_TRIES+'  - CODE: '+err.code);
         // if no connection keep checking every second;
         setTimeout(() => check_for_connection(), 1000);
-
-        
+    
         // if successfull start listening
     }, () => {
         server.listen(PORT);
@@ -71,8 +70,8 @@ app.get('/draw/gallery', auth, (req, res) => res.sendFile(HTML('gallery')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 
 // Only for testing //
-app.get('/web', auth, (req,res) => res.sendFile(helper.WEB));
-app.get('/info', (req,res) =>  res.json(process.env) );
+app.get('/web', auth2, (req,res) => res.sendFile(helper.WEB));
+app.get('/info', auth2, (req,res) =>  res.json(process.env) );
 
 const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8'); 
 app.get('/user', (req,res) => {
@@ -85,7 +84,6 @@ app.get('/user', (req,res) => {
     html = html.replace('%1', process.env.HOSTNAME);
     html = html.replace('%2', process.env.NODE_VERSION);
     res.send(html);
-    
 });
 
 // Catch 404 and send 404 page //

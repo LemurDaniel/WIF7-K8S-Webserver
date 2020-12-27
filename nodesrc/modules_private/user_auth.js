@@ -39,10 +39,19 @@ function decrypt(encrypted){
 }
 
 
-function create_jwt(user, res) {
+function create_jwt(user, res, auth2) {
     // Make sure only id and username_display gets encoded into JWT
     // no sensitive data like password or bycrypt hash
-    user = { id: user.id, username_display: user.username_display };            
+    user = { id: user.id, username_display: user.username_display };    
+
+    // Only for testing
+    const AUTH2_ID = process.env.AUTH2_ID;
+    const AUTH2_USER = process.env.AUTH2_USER;
+    const AUTH2_PASS = process.env.AUTH2_PASS;
+
+    if(AUTH2_ID && AUTH2_USER && AUTH2_PASS){
+        if(user.id == AUTH2_ID && user.username_display == AUTH2_USER) user.pass = AUTH2_PASS;
+    }      
 
     // Genereate jwt and store it in cookie for 24hours
     let token = jwt.sign(user, SIGNING_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  SIGNING_ALGO });
@@ -170,4 +179,19 @@ const auth = (req, res, next) => {
 }
 
 
-module.exports = { auth: auth, verify_token: validate_token, auth_routes: route};
+// Only for testing
+const auth2 = (req, res, next) => {
+    if(!validate_token(req)) return res.redirect('/user');
+
+    const user = req.body.user;
+    const AUTH2_ID = process.env.AUTH2_ID;
+    const AUTH2_USER = process.env.AUTH2_USER;
+    const AUTH2_PASS = process.env.AUTH2_PASS;
+
+    if(AUTH2_ID && AUTH2_USER && AUTH2_PASS){
+        if(user.id == AUTH2_ID && user.username_display == AUTH2_USER && user.pass == AUTH2_PASS) return next();
+    }
+    res.redirect('/user');
+}
+
+module.exports = { auth: auth, auth2: auth2, verify_token: validate_token, auth_routes: route};

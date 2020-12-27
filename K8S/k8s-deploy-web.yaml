@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: doodles-webserver
   namespace: doodles-ns
+  labels:
+    app: doodles-webservice
+    tier: frontend-webserver
 spec:
   replicas: 1
   selector:

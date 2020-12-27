@@ -53,15 +53,3 @@ kubectl delete -f ./k8s/config/k8s-app-config.yaml
 #5. Create config-map: node.webserver.config
 
     kubectl apply -f ./k8s/config/k8s-app-config.yaml
-
-
-
-#6. View secret
-#
-#    kubectl get secret ssl.cert.data
-#    or
-#    kubectl get secret ssl.cert.data -o yaml
-#
-#7. (OPTIONAL) Save YAML to file:
-#
-#    kubectl get secret ssl.cert.data -o yaml| Out-File -FilePath .\K8S\k8s-ssl-cert-data.yaml
