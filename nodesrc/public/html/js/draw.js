@@ -194,6 +194,7 @@ function HTTP_Post_Data(){
     if (!data.img_name || data.img_name.length === 0) data.img_name = img_name_default; 
 
     $('#http_loader').removeClass('loaderhidden');
+    //$('.info_container').show();
     //$('.draw_container').addClass('opaque');
     postBtn.prop("disabled",true);
 
@@ -207,31 +208,10 @@ function HTTP_Post_Data(){
     }); 
 }
 
-function HTTP_Search_Images(){
-    const params = {
-        img_name: "",
-        user_searched: "",
-        ml5_bestfit: "",
-        ml5_bestfit_conf: ""
-    }
-
-    p5_1.httpPost(url_search, 'json', params, (result) => console.log(result)); 
-}
-
-function HTTP_Get_ImageData(){
-    const params = {
-        img_path: "mona-lisa-updated-1605368304.png",
-    }
-
-    p5_1.httpPost(url_getData, 'json', params, (result) => $('body').append('<img src="'+result.img_data+'" >')); 
-}
-
-
-
 
 $(window).on('load', function() {
 
-        // Define input elements
+    // Define input elements
     input_color = $('#input_color');
     input_weight =  $('#input_weight');
     clearBtn = $('#btn_clear');
@@ -240,6 +220,7 @@ $(window).on('load', function() {
     postBtn = $('#btn_post');
     input_name =  $('#input_name');
     rubber_switch = $('.switch');
+    //$('.info_container').hide();
 
     // Suppress chars ä,ö and ü
     input_name.keypress(function(e){

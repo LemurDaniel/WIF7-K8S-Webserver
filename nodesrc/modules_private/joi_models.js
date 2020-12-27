@@ -33,8 +33,8 @@ schemas.user_register = joi.object({
 
 schemas.user = joi.object({
 
-    id: joi.number()
-        .integer()
+    id: joi.string()
+        .pattern(new RegExp('^[0-9a-f]{16}$'))
         .required(),
 
     username_display: joi.string()
@@ -56,7 +56,7 @@ schemas.image = joi.object({
         .required(),
 
     img_path: joi.string()
-        .max(20)
+        .pattern(new RegExp('^[0-9a-f]{16}[.]png$'))
         .allow('')
         .lowercase()
         .required(),

@@ -14,7 +14,7 @@ const TABLE_USER = TABLE_IMG+'_user';
 const MIN_CONF = 0.05;
 
 const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
-                            'user_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
+                            'user_id nchar(16) PRIMARY KEY,'+
                             'username nvarchar(50) NOT NULL unique,'+
                             'username_display nvarchar(50) NOT NULL unique,'+
                             'bcrypt BINARY(60) NOT NULL ) ';
@@ -23,7 +23,7 @@ const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
                             'img_path nchar(20) NOT NULL unique,'+
                             'img_name nvarchar(50),'+
-                            'user_id int NOT NULL,'+
+                            'user_id nchar(16) NOT NULL,'+
                             'user_display nvarchar(50) NOT NULL,'+
                             'ml5_bestfit nvarchar(25),'+
                             'ml5_bestfit_conf Decimal(20,19),'+
@@ -45,7 +45,7 @@ const SQL_INSERT_IMG =      'Insert Into  '+TABLE_IMG+
 
 const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
                             'img_name = ?, ml5_bestfit = ?, ml5_bestfit_conf = ?, ml5 = ?'+
-                            ' Where img_path = ?';
+                            ' Where img_path = ? AND user_id = ?';
 
 const SQL_GET_IMG       =   'Select img_path, user_display, ml5_bestfit, ml5_bestfit_conf '+
                             ' from '+TABLE_IMG+' where '+
@@ -59,8 +59,8 @@ const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
                             ' Values ( ?, ?, ? )';
 
 const SQL_INSERT_USER    =  'Insert Into '+TABLE_USER+
-                            ' (username, username_display, bcrypt) '+
-                            ' Values ( ?, ?, ? )';
+                            ' (user_id, username, username_display, bcrypt) '+
+                            ' Values ( ?, ?, ?, ? )';
 
 const SQL_GET_HASH    =     'select user_id, username_display, bcrypt from '+TABLE_USER+
                             ' where username = ?';
@@ -108,7 +108,8 @@ func = {};
             body.ml5_bestfit.label,
             body.ml5_bestfit.confidence,
             JSON.stringify(body.ml5),
-            body.img_path], 
+            body.img_path,
+            body.user.id], 
             callback);
     }
 
@@ -172,11 +173,11 @@ func = {};
     func.insert_user = (con, user, callback) => {
 
         con.query(SQL_INSERT_USER, [
+            user.id,
             user.username,
             user.username_display,
             user.bcrypt
         ], (err, res) => {
-            if(!err) user.id = res.insertId;
             callback(err, user);
         });
     }

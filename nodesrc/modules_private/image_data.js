@@ -117,7 +117,10 @@ func.handle_update_img = (con, body, res) => {
 // POSTS //
 routes.post('/images/search', (req,res) => {
     sql.call((con) => {
-        sql.get_img(con, req.body, (err, result) => res.json(result));
+        sql.get_img(con, req.body, (err, result) => {
+            if(err) return res.json({ err: 'Something went wrong' });
+            res.json(result)
+        });
     });
 });
 

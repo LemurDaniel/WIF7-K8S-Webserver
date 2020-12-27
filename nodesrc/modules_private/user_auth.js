@@ -58,23 +58,25 @@ function create_jwt(user, res) {
 }
 
 
-route.post('/user/register', (req, res) => {
-
-    const user = req.body;
-    const validated = schema.user_register.validate(user);
-    if(validated.error) return res.json(schema.error(validated.error));
+function register_user (user, res) {
 
     sql.call( (con) => {
         // make password hash
         bcrypt.hash(user.password, 10, (err, hash) => {
             delete user.password;
             user.bcrypt = hash;
+            user.id = crypto.randomBytes(8).toString('hex');
 
             // Insert new user
             sql.insert_user(con, user, (err) => {
                 if(err) {
                     // if user already exists send error back
-                    if(err.code == 'ER_DUP_ENTRY') return res.json({code: 10, err: 'User already exists'});
+                    console.log(err);
+                    if(err.code == 'ER_DUP_ENTRY') {
+                        // if user_id duplicate, retry with different id. 2^62 possibilities, rare case
+                        if(err.sqlMessage.includes("key 'PRIMARY'")) return register_user(user, res);
+                        else return res.json({code: 10, err: 'User already exists'});
+                    }
                     else return res.json({code: 20, err: err});
                 }
                 
@@ -84,6 +86,15 @@ route.post('/user/register', (req, res) => {
             });
         });
     })
+}
+
+route.post('/user/register', (req, res) => {
+
+    const user = req.body;
+    const validated = schema.user_register.validate(user);
+    if(validated.error) return res.json(schema.error(validated.error));
+
+    register_user(user, res);
 });
 
 
