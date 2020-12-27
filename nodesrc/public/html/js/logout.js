@@ -16,3 +16,25 @@ $(window).on('load', function() {
     });
 
 });
+
+
+var timeout;
+function display_message (message, err) {
+
+    // replace error message
+    $('#info_display p').remove();
+    if(err) $('#info_display').append('<p class="red">'+message+'</p>');
+    else    $('#info_display').append('<p class="green">'+message+'</p>');
+    // show error
+    $('#info_display').removeClass('hidden');
+    $('#info_display').addClass('shown');
+
+
+    // if error changed, don't engage old timer anymore
+    if(timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+         // hide error message again after some time passed
+        $('#info_display').removeClass('shown');
+        $('#info_display').addClass('hidden');
+    }, 1000);
+}

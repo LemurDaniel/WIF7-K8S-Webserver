@@ -21,10 +21,9 @@ const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
 
 const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
+                            'user_id nchar(16) NOT NULL,'+
                             'img_path nchar(20) NOT NULL unique,'+
                             'img_name nvarchar(50),'+
-                            'user_id nchar(16) NOT NULL,'+
-                            'user_display nvarchar(50) NOT NULL,'+
                             'ml5_bestfit nvarchar(25),'+
                             'ml5_bestfit_conf Decimal(20,19),'+
                             'ml5 text, '+
@@ -40,18 +39,20 @@ const SQL_CREATE_ML5 =      'create table '+TABLE_ML5+' ( '+
 const SQL_IS_UNIQUE =       'Select img_id From '+TABLE_IMG+' where img_path = ?';
 
 const SQL_INSERT_IMG =      'Insert Into  '+TABLE_IMG+
-                            ' (img_path, img_name, user_id, user_display, ml5_bestfit, ml5_bestfit_conf, ml5) '+
-                            ' Values (?, ?, ?, ?, ?, ?, ? )';
+                            ' (img_path, img_name, user_id, ml5_bestfit, ml5_bestfit_conf, ml5) '+
+                            ' Values (?, ?, ?, ?, ?, ? )';
 
 const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
                             'img_name = ?, ml5_bestfit = ?, ml5_bestfit_conf = ?, ml5 = ?'+
                             ' Where img_path = ? AND user_id = ?';
 
-const SQL_GET_IMG       =   'Select img_path, user_display, ml5_bestfit, ml5_bestfit_conf '+
-                            ' from '+TABLE_IMG+' where '+
+const SQL_GET_IMG       =   'Select img_path, du.username_display, ml5_bestfit, ml5_bestfit_conf '+
+                            ' from '+TABLE_IMG+
+                            ' join doodle_user as du on doodle.user_id = du.user_id'+
+                            ' where '+
                             ' ml5_bestfit like ? And' +
                             ' img_name like ? And'+
-                            ' user_display like ? '+
+                            ' du.username_display like ? '+
                             ' Order By ml5_bestfit_conf desc';
 
 const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
@@ -93,7 +94,6 @@ func = {};
             [body.img_path, 
             body.img_name,
             body.user.id,
-            body.user.username_display, 
             body.ml5_bestfit.label,
             body.ml5_bestfit.confidence,
             JSON.stringify(body.ml5)], 
@@ -124,9 +124,9 @@ func = {};
     
     func.get_img = (con, params, callback) => {
 
-        let img_name = params.img_name;
-        let user_display = params.user_searched;
-        let ml5_bestfit = params.ml5_bestfit;
+        let img_name = params.img_name+'%';
+        let user_display = params.user_searched+'%';
+        let ml5_bestfit = params.ml5_bestfit+'%';
 
         if(!ml5_bestfit) ml5_bestfit = '%';
         if(!img_name) img_name = '%';
@@ -144,7 +144,7 @@ func = {};
                     result.push({
                         img_path: row.img_path,
                         img_name: row.img_name,
-                        user_display: row.user_display,
+                        user_display: row.username_display,
                         ml5_bestfit: {
                             label: row.ml5_bestfit,
                             confidence: row.ml5_bestfit_conf

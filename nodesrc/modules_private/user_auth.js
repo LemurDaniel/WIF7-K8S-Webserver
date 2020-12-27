@@ -122,7 +122,7 @@ route.post('/user/login', (req, res) => {
 /* FOR Testing, to be removed */
 route.get('/user/testuser', (req, res) => { 
 
-    create_jwt({ id: 2, username_display: 'testuser'}, res);
+    create_jwt({ id: '0edd5529de325a61', username_display: 'Testuser'}, res);
     res.status(200).send('OK');
 });
 

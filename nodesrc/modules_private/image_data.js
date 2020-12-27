@@ -9,7 +9,7 @@ const { auth } = require('./user_auth');
 // Constants
 const PATH = '/var/project/src/public/';
 const DOODLES = PATH+'assets/doodles/';
-const WEB_JSON = PATH+'assets/doodles/web.json';
+const WEB_JSON = PATH+'assets/other/web.json';
 const TRANSLATION = PATH+'assets/other/translation.json';
 const TRANSLATION_ENG = PATH+'assets/other/class_names.txt';
 const TRANSLATION_DE = PATH+'assets/other/class_names_german.txt';
@@ -119,7 +119,8 @@ routes.post('/images/search', (req,res) => {
     sql.call((con) => {
         sql.get_img(con, req.body, (err, result) => {
             if(err) return res.json({ err: 'Something went wrong' });
-            res.json(result)
+            const hex = crypto.randomBytes(8).toString('hex');
+            res.json( { key: hex, images: result } );
         });
     });
 });

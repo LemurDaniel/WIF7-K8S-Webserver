@@ -64,8 +64,10 @@ check_for_connection();
 // GET //
 app.get('/', auth, (req,res) => res.sendFile(HTML('index')));
 app.get('/draw', auth, (req,res) => res.sendFile(HTML('draw')));
+app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
 app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
 app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
+app.get('/draw/gallery', auth, (req, res) => res.sendFile(HTML('gallery')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 
 // Only for testing //
@@ -76,7 +78,7 @@ const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8');
 app.get('/user', (req,res) => {
     
     // if not verifed direct to login page
-    if(!verify_token(req) || true) return res.sendFile(HTML('authorize'));
+    if(!verify_token(req)) return res.sendFile(HTML('authorize'));
 
     // if loggend in, show some info
     let html = authorized_html.replace('%0', req.body.user.username_display);
@@ -86,12 +88,5 @@ app.get('/user', (req,res) => {
     
 });
 
-app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
-app.get('/404', (req,res) => res.sendFile(HTML('codepen_template/404')));
-
-
-// Catch 404 and forward to 404 page //
-app.use((req, res, next) => {
-    if(req.accepts('html'))
-        res.status(404).redirect('/404');
-});
+// Catch 404 and send 404 page //
+app.use((req, res, next) => res.status(404).sendFile(HTML('codepen_template/404')));

@@ -75,7 +75,7 @@ input:hover, .mark_on_hover:hover {
     margin: 0;
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: 45%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
@@ -252,4 +252,35 @@ input:hover, .mark_on_hover:hover {
 
 .link_button.back_button:hover img {
     content:url("/assets/back-button-white.png");
+}
+
+
+
+/* info display */
+.info_container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 47%;
+    top: 40%;
+}
+
+.info_container * {
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    padding: 0;
+}
+
+#info_display * {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#info_display p.red {
+    color: darkred;
+}
+
+#info_display p.green {
+    color: green;
 }

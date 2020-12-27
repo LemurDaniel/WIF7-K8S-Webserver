@@ -1,0 +1,9 @@
+canvas{
+    display: none;
+}
+
+
+div.display img {
+    margin: auto;
+    max-width: 50px;
+}
