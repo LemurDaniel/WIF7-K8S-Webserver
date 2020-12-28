@@ -5,6 +5,7 @@ metadata:
   labels:
     app: doodles-webservice
     tier: frontend-webserver
+    typ: local
 spec:
   storageClassName: ""
   capacity:
@@ -28,6 +29,7 @@ spec:
     matchLabels:
       app: doodles-webservice
       tier: frontend-webserver
+      typ: local
   accessModes: 
   - ReadWriteMany
   resources:

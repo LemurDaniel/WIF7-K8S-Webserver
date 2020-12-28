@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doodles-database
+  namespace: doodles-azure-ns
+  labels:
+    app: doodles-webservice
+    tier: frontend-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doodles-webservice
+      tier: backend-database
+  template:
+    metadata:
+      labels:
+        app: doodles-webservice
+        tier: backend-database
+    spec:
+      containers:
+      - name: database
+        image: mysql:5.7
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
+        envFrom:
+          - secretRef:
+              name: sql.pass.data # Password and Rootpassword
+        env:
+          - name: MYSQL_DATABASE
+            valueFrom: { configMapKeyRef: { key: SQL_DATABASE, name: node.webserver.config }}
+          - name: MYSQL_USER
+            valueFrom: { configMapKeyRef: { key: SQL_USER, name: node.webserver.config }}
+          - name: MYSQL_PORT
+            valueFrom: { configMapKeyRef: { key: SQL_PORT, name: node.webserver.config }}
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: db-data
+      volumes:
+      - name: db-data
+        persistentVolumeClaim:
+          claimName: db-data-azure-file-claim
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: doodles-database-svc
+  namespace: doodles-azure-ns
+  labels:
+    app: doodles-webservice
+    tier: frontend-webserver
+spec:
+  selector:
+    app: doodles-webservice
+    tier: backend-database
+  type: NodePort
+  ports:
+  - port: 3306
+    targetPort: 3306
+    nodePort: 30124
+
+# doesn't work on docker for desktop, use port-forward for testing
+# kubectl port-forward svc/db-server 6001:3306

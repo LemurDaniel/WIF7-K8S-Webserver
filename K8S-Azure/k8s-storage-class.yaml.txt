@@ -1,0 +1,14 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-storage
+  labels:
+    app: doodles-webservice
+    typ: azure 
+provisioner: kubernetes.io/azure-file
+parameters:
+  skuName: Standard_LRS
+  location: germanywestcentral
+  storageAccount: wif7xk8sxprojectxdaniel
+  secretName:  azure.storage.data
+  secretNamespace: doodles-azure-ns

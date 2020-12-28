@@ -2,3 +2,4 @@ mysql_data/
 doodles/
 gimp/
 dokumentation/
+k8s-azure/config/k8s-stg-config.env

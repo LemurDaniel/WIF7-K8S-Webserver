@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node.webserver.config
+  namespace: doodles-azure-ns
+data:
+
+  # Port on which webserver listen
+  # no value defaults to 80 or 443
+  # PORT: 
+
+  # dns and port of the Database
+  SQL_HOST: doodles-database-svc.doodles-azure-ns.svc.cluster.local
+  SQL_PORT: '3306'
+
+  SQL_DATABASE: node_wp
+  SQL_TABLE_NAME: doodle
+
+  # user / pw to access database
+  SQL_USER: node-webserver
+
+  # Enables https
+  HTTPS_ENABLE: 'true'
+  # Enables encryption of the JWT-tokens
+  JWT_ENCRYPTION_ENABLE: 'true'
+
+  # Testing only
+  AUTH2_ID: 31e7da330e8dce28
+  AUTH2_USER: 'Daniel Landau'
+  AUTH2_PASS: 7376fbc46827c5d878a7c9b302d420e6cdc3fa437f9559fbcc1ac173c5c47658

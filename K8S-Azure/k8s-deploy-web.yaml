@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doodles-webserver
+  namespace: doodles-azure-ns
+  labels:
+    app: doodles-webservice
+    tier: frontend-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doodles-webservice
+      tier: frontend-webserver
+  template:
+    metadata:
+      labels:
+        app: doodles-webservice
+        tier: frontend-webserver
+    spec:
+      containers:
+      - name: webserver
+        image:  daniellandau1998/node-webserver:k8s
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3000
+        envFrom:
+          - secretRef: { name: sql.pass.data }  # Password and Rootpassword
+          - secretRef: { name: ssl.cert.data }  # SSL certificates
+          - secretRef: { name: jwt.rsa.data }   # JWT keys for signing
+          - secretRef: { name: jwt.enc.conf }   # JWT keys and configuration for encryption
+          - configMapRef: { name: node.webserver.config }
+        env:
+          - name: SQL_PASSWORD # Password to access sql database
+            valueFrom: { secretKeyRef: { key: MYSQL_PASSWORD, name: sql.pass.data  }}
+        volumeMounts:
+        - mountPath: "/var/project/src/public/assets/doodles"
+          name: image-data
+      volumes:
+      - name: image-data
+        persistentVolumeClaim:
+          claimName: image-data-azure-file-claim
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: doodles-webserver-svc
+  namespace: doodles-azure-ns
+  labels:
+    app: doodles-webservice
+    tier: frontend-webserver
+spec:
+  selector:
+    app: doodles-webservice
+    tier: frontend-webserver
+  type: NodePort
+  ports:
+  - port: 443
+    targetPort: 443
+    nodePort: 30123
+
+# doesn't work on docker for desktop, use port-forward for testing
+# kubectl port-forward svc/doodles-webserver-svc 6000:3000
+
+# if on Chrome: port 443 has to be used for https 
+# => kubectl port-forward svc/doodles-webserver-svc 443:3000 
+
+# OR explicitly allow port 6000 top be open
+# Press: win + r
+# Enter: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --explicitly-allowed-ports=6000
