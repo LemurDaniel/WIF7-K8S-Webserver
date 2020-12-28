@@ -11,13 +11,12 @@
 .box {
     display: inline-block;
     background-color: transparent;
-    overflow: hidden;
     border: none;
     width: 40%;
     max-height: 230px;
     opacity: 0.85;
     padding: 1%;
-    margin: 2%;
+    margin: 3%;
 
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;

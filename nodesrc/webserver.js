@@ -32,13 +32,14 @@ app.set('json spaces', 2)
 
 // Create http or https server depending on environment Variable
 var server;
-if(HTTPS_ENABLE){
+if(!HTTPS_ENABLE)
+    server = http.createServer(app);
+else {
     server = https.createServer({
         key: SSL_KEY,
         cert: SSL_CERT
     }, app);
-}else
-    server = http.createServer(app);
+}
 
 // Initialize DB
 var tries = 0;
@@ -86,5 +87,23 @@ app.get('/user', (req,res) => {
     res.send(html);
 });
 
+
 // Catch 404 and send 404 page //
 app.use((req, res, next) => res.status(404).sendFile(HTML('codepen_template/404')));
+
+
+// if https enabled, create a second http server that automatically redirects all traffic to https //
+if(HTTPS_ENABLE) {
+    const app_http = express();
+    const http_server = http.createServer(app_http);
+    http_server.listen(80);
+
+    app_http.use((req, res, next) => {
+        if(HTTPS_ENABLE) {
+            if (res.secure) return next();
+            else if(PORT == 443) return res.redirect('https://' + req.headers.host + req.url);
+            else return res.redirect('https://' + req.headers.host + ':'+ PORT + req.url);
+        } else next();
+    })
+}
+

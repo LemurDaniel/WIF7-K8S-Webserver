@@ -21,12 +21,14 @@ spec:
       containers:
       - name: webserver
         image:  daniellandau1998/node-webserver:k8s
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "256Mi"
             cpu: "100m"
         ports:
-        - containerPort: 3000
+        - containerPort: 443
+        - containerPort: 80
         envFrom:
           - secretRef: { name: sql.pass.data }  # Password and Rootpassword
           - secretRef: { name: ssl.cert.data }  # SSL certificates
@@ -60,6 +62,5 @@ spec:
     tier: frontend-webserver
   type: LoadBalancer
   ports:
-  - port: 443
-    targetPort: 443
-    nodePort: 30123
+  - { name: https, port: 443, targetPort: 443 }
+  - { name: http, port: 80, targetPort: 80 }

@@ -127,13 +127,6 @@ route.post('/user/login', (req, res) => {
     })
 })
 
-/* FOR Testing, to be removed */
-route.get('/user/testuser', (req, res) => { 
-
-    create_jwt({ id: '0edd5529de325a61', username_display: 'Testuser'}, res);
-    res.status(200).send('OK');
-});
-
 route.get('/user/logout', (req, res) => { 
     if(HTTPS_ENABLE) res.setHeader('Set-Cookie', 'doodle_token=nix; path=/; HttpOnly; secure; max-age=0');
     else res.setHeader('Set-Cookie', 'doodle_token=nix; path=/; HttpOnly; max-age=0');
