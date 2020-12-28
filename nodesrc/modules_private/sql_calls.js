@@ -46,7 +46,7 @@ const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
                             'img_name = ?, ml5_bestfit = ?, ml5_bestfit_conf = ?, ml5 = ?'+
                             ' Where img_path = ? AND user_id = ?';
 
-const SQL_GET_IMG       =   'Select img_path, du.username_display, ml5_bestfit, ml5_bestfit_conf '+
+const SQL_GET_IMG       =   'Select img_path, du.username_display, img_name, ml5_bestfit, ml5_bestfit_conf '+
                             ' from '+TABLE_IMG+
                             ' join doodle_user as du on doodle.user_id = du.user_id'+
                             ' where '+

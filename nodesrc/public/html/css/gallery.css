@@ -7,3 +7,7 @@ div.display img {
     margin: auto;
     max-width: 50px;
 }
+
+#image_gallery #image_container .display {
+    display: inline;
+}

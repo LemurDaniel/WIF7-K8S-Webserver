@@ -53,7 +53,7 @@ async function load_images(){
         // if already a newer search has been done, stop loading old pictures
         if(key != images_found.key) return;
 
-        const src = url_images + images[0].img_path;
+        const src = url_images + images[i].img_path;
         img_container.append('<div class="display"> <img src="'+src+'"> </div>');
     }
 

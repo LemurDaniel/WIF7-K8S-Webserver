@@ -20,7 +20,8 @@ schemas.user_register = joi.object({
         .required(),
 
     password: joi.string()
-        .pattern(new RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])([a-zA-Z0-9]{7,30})$'))
+        //.pattern(new RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])([a-zA-Z0-9]{7,30})$'))
+        .pattern(new RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(.{7,30})$'))
         .required(),
         /*
             Muss eine Zahl haben: (?=.*[0-9])
