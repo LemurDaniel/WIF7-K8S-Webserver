@@ -1,7 +1,16 @@
 # WIF7-K8S-Webserver-Project
 
+Website deployed by Kubernetes Cluster:
+
+  https://doodles.daniel-testing.cloud/
+
+SSL-Certificate created via:
+
+  https://letsencrypt.org/
+
 
 Read Access on Azure resources:
 
-  username: Read-access@daniellandau.onmicrosoft.com
+  azure: https://portal.azure.com/ <br>
+  username: Read-access@daniellandau.onmicrosoft.com <br>
   password: (eA9(4{{p8Hhs77hVOfAX>Z03BGdI0jNd-m}oVl_{5mU38G_
