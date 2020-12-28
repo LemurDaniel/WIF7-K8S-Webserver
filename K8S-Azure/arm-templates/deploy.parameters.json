@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "value": "wif7xprojectxk8sxdaniel"
+        },
+        "accountType": {
+            "value": "Standard_LRS"
+        },
+        "image_fileshare": {
+            "value": "image-data-fileshare"
+        },
+        "image_fs_quota_GB": {
+            "value": 1
+        },
+        "db_disk_name": {
+            "value": "db-data-disk"
+        },
+        "db_disk_sku": {
+            "value": "Premium_LRS"
+        },
+        "diskSizeGb": {
+            "value": 4
+        },
+        "diskAccessName": {
+            "value": "db-data-disk-accesss"
+        }
+    }
+}

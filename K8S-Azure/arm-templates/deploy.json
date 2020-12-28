@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "String"
+        },
+        "accountType": {
+            "type": "String"
+        },
+        "image_fileshare": {
+            "type": "string"
+        },
+        "image_fs_quota_GB": {
+            "type": "int"
+        },
+        "db_disk_name": {
+            "type": "string"
+        },
+         "db_disk_sku": {
+            "type": "string"
+        },
+        "diskSizeGb": {
+            "type": "int"
+        },
+        "diskAccessName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('storageAccountName')]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "dependsOn": [],
+            "tags": {},
+            "sku": {
+                "name": "[parameters('accountType')]"
+            },
+            "properties": {
+                "accessTier": "Hot"
+            }
+        },
+
+        {
+            "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
+            "apiVersion": "2019-06-01",
+            "name": "[concat(parameters('storageAccountName'), '/default/', parameters('image_fileshare'))]",
+            "properties": {
+                "shareQuota": "[parameters('image_fs_quota_GB')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+            ]
+        },
+
+        {
+            "apiVersion": "2019-07-01",
+            "type": "Microsoft.Compute/disks",
+            "name": "[parameters('db_disk_name')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "creationData": {
+                    "createOption": "empty"
+                },
+                "diskSizeGB": "[parameters('diskSizeGb')]",
+                "osType": "Linux",
+                "networkAccessPolicy": "AllowPrivate",
+                "diskAccessId": "[resourceId('Microsoft.Compute/diskAccesses', parameters('diskAccessName'))]"
+            },
+            "sku": {
+                "name": "[parameters('db_disk_sku')]"
+            },
+            "tags": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/diskAccesses', parameters('diskAccessName'))]"
+            ]
+        }
+    ],
+    "outputs": {}
+}
