@@ -3,6 +3,8 @@
 Website deployed by Kubernetes Cluster:
 
   https://doodles.daniel-testing.cloud/
+  <br> or <br>
+  www.daniel-testing.cloud
 
 SSL-Certificate created via:
 
