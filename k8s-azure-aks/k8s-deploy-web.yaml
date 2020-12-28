@@ -58,18 +58,8 @@ spec:
   selector:
     app: doodles-webservice
     tier: frontend-webserver
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 443
     targetPort: 443
     nodePort: 30123
-
-# doesn't work on docker for desktop, use port-forward for testing
-# kubectl port-forward svc/doodles-webserver-svc 6000:3000
-
-# if on Chrome: port 443 has to be used for https 
-# => kubectl port-forward svc/doodles-webserver-svc 443:3000 
-
-# OR explicitly allow port 6000 top be open
-# Press: win + r
-# Enter: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --explicitly-allowed-ports=6000

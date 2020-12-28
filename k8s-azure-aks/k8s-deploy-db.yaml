@@ -59,11 +59,10 @@ spec:
   selector:
     app: doodles-webservice
     tier: backend-database
-  type: NodePort
+  type: ClusterIP
   ports:
   - port: 3306
     targetPort: 3306
-    nodePort: 30124
 
 # doesn't work on docker for desktop, use port-forward for testing
 # kubectl port-forward svc/db-server 6001:3306
