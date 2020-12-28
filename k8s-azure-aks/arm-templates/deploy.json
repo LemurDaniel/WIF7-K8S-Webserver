@@ -140,9 +140,5 @@
         }
     ],
     "outputs": {
-        "controlPlaneFQDN": {
-            "type": "string",
-            "value": "[reference(concat('Microsoft.ContainerService/managedClusters/', parameters('k8s_cluster_name'))).privateFQDN]"
-        }
     }
 }

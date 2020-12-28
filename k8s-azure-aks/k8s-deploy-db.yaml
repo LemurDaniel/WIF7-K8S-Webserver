@@ -5,7 +5,7 @@ metadata:
   namespace: doodles-azure-ns
   labels:
     app: doodles-webservice
-    tier: frontend-webserver
+    tier: backend-database
 spec:
   replicas: 1
   selector:
@@ -23,7 +23,7 @@ spec:
         image: mysql:5.7
         resources:
           limits:
-            memory: "1024"
+            memory: "1024Mi"
             cpu: "1000m"
         ports:
         - containerPort: 3306
@@ -54,7 +54,7 @@ metadata:
   namespace: doodles-azure-ns
   labels:
     app: doodles-webservice
-    tier: frontend-webserver
+    tier: backend-database
 spec:
   selector:
     app: doodles-webservice
