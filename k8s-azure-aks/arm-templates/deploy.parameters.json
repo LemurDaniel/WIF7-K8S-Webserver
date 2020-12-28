@@ -21,7 +21,7 @@
             "value": "Premium_LRS"
         },
         "diskSizeGb": {
-            "value": 4
+            "value": 256
         },
         "k8s_cluster_name": {
             "value": "doodles-cluster"
