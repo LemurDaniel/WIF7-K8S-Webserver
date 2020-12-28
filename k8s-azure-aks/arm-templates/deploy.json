@@ -14,12 +14,27 @@
         "image_fs_quota_GB": {
             "type": "int"
         },
+        "db_disk_name": {
+            "type": "string"
+        },
+         "db_disk_sku": {
+            "type": "string"
+        },
+        "diskSizeGb": {
+            "type": "int"
+        },
         "k8s_cluster_name": {
             "type": "string"
         },
         "k8s_version": {
             "type": "string",
             "defaultValue": "1.18.10"
+        },
+        "servicePrincipalClientId": {
+            "type": "string"
+        },
+        "servicePrincipalClientSecret": {
+            "type": "string"
         },
         "osDiskSizeGB": {
             "type": "int",
@@ -62,6 +77,23 @@
         },
 
         {
+            "apiVersion": "2019-07-01",
+            "type": "Microsoft.Compute/disks",
+            "name": "[parameters('db_disk_name')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "creationData": {
+                    "createOption": "empty"
+                },
+                "diskSizeGB": "[parameters('diskSizeGb')]",
+                "osType": "Linux"
+            },
+            "sku": {
+                "name": "[parameters('db_disk_sku')]"
+            }
+        },
+
+        {
             "apiVersion": "2020-09-01",
             "dependsOn": [],
             "type": "Microsoft.ContainerService/managedClusters",
@@ -89,6 +121,10 @@
                     "loadBalancerSku": "standard",
                     "networkPlugin": "kubenet"
                 },
+                "servicePrincipalProfile": {
+                    "ClientId": "[parameters('servicePrincipalClientId')]",
+                    "Secret": "[parameters('servicePrincipalClientSecret')]"
+                },
                 "apiServerAccessProfile": {
                     "enablePrivateCluster": false
                 },
@@ -100,9 +136,6 @@
                         "enabled": false
                     }
                 }
-            },
-            "identity": {
-                "type": "SystemAssigned"
             }
         }
     ],

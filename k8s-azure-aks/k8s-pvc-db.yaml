@@ -1,12 +1,39 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-data-azure-file
+  labels:
+    app: doodles-webservice
+    tier: backend-database
+    typ: azure
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes: 
+  - ReadWriteOnce
+  azureDisk:
+    kind: Managed
+    diskURI: /subscriptions/aa6fbba6-788b-4b8d-8151-b16b62ac33ba/resourcegroups/wif7-project-k8s/providers/Microsoft.Compute/disks/db-data-disk
+    diskName: db-data-disk
+
+---
+
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: db-data-azure-file-claim
   namespace: doodles-azure-ns
 spec:
-  storageClassName: "default"
+  storageClassName: ""
+  selector:
+    matchLabels:
+      app: doodles-webservice
+      tier: backend-database
+      typ: azure
   accessModes: 
   - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
+      storage: 1Gi
