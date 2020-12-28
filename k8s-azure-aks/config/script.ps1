@@ -8,7 +8,7 @@ kubectl delete secret jwt.enc.conf  --namespace=$doodles_namespace
 kubectl delete secret sql.pass.data --namespace=$doodles_namespace
 kubectl delete secret azure.storage.data --namespace=$doodles_namespace
 
-kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
+kubectl delete -f ./k8s-azure-aks/config/k8s-app-config.yaml
 
 # 	 /// Generate secrets and configMap///
 #
@@ -17,8 +17,8 @@ kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
 #   / cert and key from file /
 
     kubectl create secret generic ssl.cert.data `
-             --from-file=./k8s-azure/config/certs/ssl.cert.pem `
-             --from-file=./k8s-azure/config/certs/ssl.key.pem `
+             --from-file=./k8s-azure-aks/config/certs/ssl.cert.pem `
+             --from-file=./k8s-azure-aks/config/certs/ssl.key.pem `
              --namespace=$doodles_namespace
 #
 #
@@ -27,8 +27,8 @@ kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
 #    / private + public key from file /
 
     kubectl create secret generic jwt.rsa.data `
-             --from-file=./k8s-azure/config/certs/jwt.private.pem `
-             --from-file=./k8s-azure/config/certs/jwt.public.pem `
+             --from-file=./k8s-azure-aks/config/certs/jwt.private.pem `
+             --from-file=./k8s-azure-aks/config/certs/jwt.public.pem `
              --namespace=$doodles_namespace
             
 #
@@ -38,7 +38,7 @@ kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
 #    / keys from env file /
 
     kubectl create secret generic jwt.enc.conf `
-             --from-env-file=./k8s-azure/config/k8s-jwt-config.env `
+             --from-env-file=./k8s-azure-aks/config/k8s-jwt-config.env `
              --namespace=$doodles_namespace
 
 
@@ -47,7 +47,7 @@ kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
 #    / keys from env file /
 
     kubectl create secret generic sql.pass.data `
-            --from-env-file=./k8s-azure/config/k8s-sql-config.env `
+            --from-env-file=./k8s-azure-aks/config/k8s-sql-config.env `
             --namespace=$doodles_namespace
 
 
@@ -56,10 +56,10 @@ kubectl delete -f ./k8s-azure/config/k8s-app-config.yaml
 #    / keys from env file /
 
     kubectl create secret generic azure.storage.data `
-    --from-env-file=./k8s-azure/config/k8s-stg-config.env `
+    --from-env-file=./k8s-azure-aks/config/k8s-stg-config.env `
     --namespace=$doodles_namespace
 
 
 #6. Create config-map: node.webserver.config
 
-    kubectl apply -f ./k8s-azure/config/k8s-app-config.yaml
+    kubectl apply -f ./k8s-azure-aks/config/k8s-app-config.yaml
