@@ -14,7 +14,6 @@ services:
         ports:
             - "3000:3000"
         environment: 
-            AUTH2_ID: 1364caf6d867ede9
             AUTH2_USER: 'Daniel Landau'
             AUTH2_PASS: 7376fbc46827c5d878a7c9b302d420e6cdc3fa437f9559fbcc1ac173c5c47658
             PORT: 3000

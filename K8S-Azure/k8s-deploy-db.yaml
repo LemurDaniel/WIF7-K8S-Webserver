@@ -23,8 +23,8 @@ spec:
         image: mysql:5.7
         resources:
           limits:
-            memory: "512Mi"
-            cpu: "500m"
+            memory: "1024"
+            cpu: "1000m"
         ports:
         - containerPort: 3306
         envFrom:

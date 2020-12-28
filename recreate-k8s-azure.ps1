@@ -1,16 +1,15 @@
+$resource_group = "wif7-testing"
+
+Install-AzAksKubectl
+
+./k8s-azure/arm-templates/deploy.ps1
+
+Import-AzAksCredential -ResourceGroupName $resource_group -Name "doodles-cluster"
+
 # //// recreate configMaps and secrets ////
 $doodles_namespace = 'doodles-azure-ns'
 
 ./k8s-azure/config/script.ps1 $doodles_namespace
-
-# Configurations can be found in ./k8s-azure/config/
-# Self-signed certificates for testing HTTPS can be created via ./docker/gen-certs/script.txt
-# Private / Public key pair for JWT-Signing can be created via ./docker/gen-certs/script.txt
-
-
-# //// delete existing volumes ////
-# kubectl delete -f ./k8s-azure/k8s-pv-db.yaml
-# kubectl delete -f ./k8s-azure/k8s-pv-web.yaml
 
 
 # //// create kubernetes resources ////

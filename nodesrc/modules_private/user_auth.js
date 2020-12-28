@@ -45,12 +45,11 @@ function create_jwt(user, res, auth2) {
     user = { id: user.id, username_display: user.username_display };    
 
     // Only for testing
-    const AUTH2_ID = process.env.AUTH2_ID;
     const AUTH2_USER = process.env.AUTH2_USER;
     const AUTH2_PASS = process.env.AUTH2_PASS;
 
-    if(AUTH2_ID && AUTH2_USER && AUTH2_PASS){
-        if(user.id == AUTH2_ID && user.username_display == AUTH2_USER) user.pass = AUTH2_PASS;
+    if(AUTH2_USER && AUTH2_PASS){
+        if(user.username_display == AUTH2_USER) user.pass = AUTH2_PASS;
     }      
 
     // Genereate jwt and store it in cookie for 24hours
@@ -184,12 +183,11 @@ const auth2 = (req, res, next) => {
     if(!validate_token(req)) return res.redirect('/user');
 
     const user = req.body.user;
-    const AUTH2_ID = process.env.AUTH2_ID;
     const AUTH2_USER = process.env.AUTH2_USER;
     const AUTH2_PASS = process.env.AUTH2_PASS;
 
-    if(AUTH2_ID && AUTH2_USER && AUTH2_PASS){
-        if(user.id == AUTH2_ID && user.username_display == AUTH2_USER && user.pass == AUTH2_PASS) return next();
+    if(AUTH2_USER && AUTH2_PASS){
+        if(user.username_display == AUTH2_USER && user.pass == AUTH2_PASS) return next();
     }
     res.redirect('/user');
 }

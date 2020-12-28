@@ -10,7 +10,7 @@ data:
   # PORT: 
 
   # dns and port of the Database
-  SQL_HOST: doodles-database-svc.doodles-azure-ns.svc.cluster.local
+  SQL_HOST: doodles-database-svc.doodles-azure-ns.svc
   SQL_PORT: '3306'
 
   SQL_DATABASE: node_wp
@@ -25,6 +25,5 @@ data:
   JWT_ENCRYPTION_ENABLE: 'true'
 
   # Testing only
-  AUTH2_ID: 31e7da330e8dce28
   AUTH2_USER: 'Daniel Landau'
   AUTH2_PASS: 7376fbc46827c5d878a7c9b302d420e6cdc3fa437f9559fbcc1ac173c5c47658
