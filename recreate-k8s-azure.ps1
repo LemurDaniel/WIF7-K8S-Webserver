@@ -1,19 +1,11 @@
-$resource_group = "wif7-testing"
-
-Install-AzAksKubectl
-
-./k8s-azure/arm-templates/deploy.ps1
-
-Import-AzAksCredential -ResourceGroupName $resource_group -Name "doodles-cluster"
-
 # //// recreate configMaps and secrets ////
 $doodles_namespace = 'doodles-azure-ns'
 
-./k8s-azure/config/script.ps1 $doodles_namespace
+./k8s-azure-aks/config/script.ps1 $doodles_namespace
 
 
 # //// create kubernetes resources ////
-kubectl apply -f ./k8s-azure/
+kubectl apply -f ./k8s-azure-aks/
 
 
 # // Change current context to new namespace //
