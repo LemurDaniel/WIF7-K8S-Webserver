@@ -4,6 +4,10 @@ Website deployed by Kubernetes Cluster:
 
   https://doodles.daniel-testing.cloud/
 
+SSL-Certificate created via:
+
+  https://letsencrypt.org/
+
 
 Read Access on Azure resources:
 
