@@ -12,7 +12,7 @@ SSL-Certificate created via:
 
 Info:
 
-  Of course, all passwords and certificates saved in ./k8s-azure/ have been replaced by <b> new ones </b> in the live system on www.daniel-testing.com
+  Of course, all passwords and certificates saved in ./k8s-azure/config have been replaced by <b> new ones </b> in the live system on www.daniel-testing.cloud
   
 
 Read Access on Azure resources:
