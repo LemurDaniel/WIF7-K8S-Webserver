@@ -5,7 +5,7 @@ const stroke_weight = 15;
 const FRAME_RATE = 60;
 const FRAME_RATE_SHOWCASE = 20;
 
-const img_name_default = "My-Drawing";
+const img_name_default = "My Drawing";
 const grayscale = false;
 const predict_interval = 5; //One Prediction in <number> frames when drawing
 
@@ -126,7 +126,7 @@ p5_3 = function (sketch) {
 
         input_color.on("click", () => sketch.frameRate(FRAME_RATE_SHOWCASE));
         input_color.on('change', () => {
-            p5_1.stroke(input_color[0].value);
+            if(!rubber_state) p5_1.stroke(input_color[0].value);
             sketch.frameRate(0)
         });
 
@@ -168,9 +168,31 @@ p5_1 = function (sketch) {
         sketch.strokeWeight(stroke_weight);
     }
   
-    sketch.draw = function () {
+    sketch.mouseReleased = () => {
+        if(s.mouseButton === s.RIGHT ) {
+            $('.switch').toggleClass('active inactive');
+            $('.switch img').toggle();
+        }
+    }
+
+    sketch.mousePressed = () => {
+        if(s.mouseButton === s.RIGHT ) { 
+            $('.switch').toggleClass('active inactive');
+            $('.switch img').toggle();
+        }
+    }
+
+    sketch.draw = () => {
         if (s.mouseIsPressed) {
-        s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
+            if(rubber_state || s.mouseButton === s.RIGHT){
+                p5_1.stroke(255);
+                p5_2.stroke(255);
+            } else {
+                p5_1.stroke(input_color[0].value);
+                p5_2.stroke(input_color[0].value);
+            }
+
+            s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             // Replicate doodle to second b/w canvas
             p5_2.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
             //deml_gotResults(doodleNet_classify(), "#DoodleNet");
@@ -247,20 +269,10 @@ $(window).on('load', function() {
             $('.switch').toggleClass('active inactive');
             rubber_state = (rubber_state+1) % 2;
             rubber_clicked = false;
-
-            if(rubber_state) {
-                // If rubber active, set stroke color to white
-                p5_1.stroke(255);
-                p5_2.stroke(255);
-            } else {
-                // Set stroke to color
-                p5_1.stroke(input_color[0].value);
-                p5_2.stroke(input_color[0].value);
-            }
+        } else {
+            $('.switch img').toggle();
         }
-        else $('.switch img').toggle()
     });
-
 
 
     //Initialize Sketches

@@ -149,8 +149,8 @@ Löffel
 Laptop
 Tasse
 Flaschendeckel
-Chinesische_Mauer
-Mona_Lisa
+Chinesische Mauer
+Mona Lisa
 Smileygesicht
 Wasserrutsche
 Brille
@@ -191,7 +191,7 @@ Posaune
 Schafe
 Zwiebel
 Kirche
-Flip_Flops
+Flip Flops
 Tabelle
 Birne
 Uhr
@@ -301,7 +301,7 @@ Kühler
 Wippe
 Klavier
 Kamin
-Eis_am_Stiel
+Eis am Stiel
 Hantel
 Mailbox
 Scheune

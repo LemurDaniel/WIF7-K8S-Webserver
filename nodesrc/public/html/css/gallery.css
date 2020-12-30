@@ -3,11 +3,46 @@ canvas{
 }
 
 
-div.display img {
-    margin: auto;
-    max-width: 50px;
+#image_gallery {
+    position: absolute;
+    width: 110%;
+    top: 30%;
+    left: 5%;
 }
 
-#image_gallery #image_container .display {
+#image_container {
     display: inline;
+    margin: auto;
+}
+
+#image_container div.display {
+    display: inline-block;
+    margin: 0.25%;
+    padding: 0.5%;
+
+    border: solid;
+    border-width: 0px;
+    border-color: #3498db;
+    background-color:white;
+}
+
+#image_container div.display * {
+    display: block;
+    font-weight: bold;
+    line-height: 1.05;
+    margin: auto;
+}
+
+.display img {
+    max-width: 95px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.display p {
+    font-size: 1em;
+}
+
+.display p.user, .display p.label, .display p.conf {
+    font-size: 0.7em;
 }

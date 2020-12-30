@@ -31,7 +31,7 @@
         <div id="logout_button" class="link_button button">logout</div>
     </div>
 
-    <div class="container center draw_container">
+    <div class="container center_down draw_container">
 
         
         <button id="btn_new_doodle" type="button" class="link_button">Create a new doodle</button>        
@@ -56,7 +56,7 @@
 
         <br>
 
-        <div class="container container_canvas">
+        <div class="container container_canvas" oncontextmenu="return false;">
             <div id="p5_canvas" class="box left">
                 <div id="p5_canvas_hidden" class="hidden_visually"></div>
             </div>
@@ -71,13 +71,23 @@
         <br>
         
         <div class="container">
-            <button type="button" id="btn_clear" class="link_button">Clear</button>
-            <button type="button" id="btn_post"  class="link_button">Post</button>
-            <button type="button" id="btn_download" class="link_button">Download</button>
+            <!--<button type="button" id="btn_clear" class="link_button">Clear Canvas</button>-->
+            <button type="button" id="btn_post"  class="link_button">Save Image to Server</button>
+            <button type="button" id="btn_download" class="link_button">Download Image</button>
+        </div>
+
+        <br>
+
+        <div id="instructions">
+            <p>Instructions:</p>
+            <p>Draw: Press LMB</p>
+            <p>Erase: Press RMB or click Eraser Button</p>
+            <p>Change Size: Move Slider</p>
+            <p>Change Color: Click stroke-size-shocase</p>
         </div>
     </div>
  
-    <div class="container center info_container">
+    <div class="container center info_container" oncontextmenu="return false;">
         <div id="http_loader" class="loader loader_small loaderhidden"></div>
         <div id="info_display">
             <p></p>

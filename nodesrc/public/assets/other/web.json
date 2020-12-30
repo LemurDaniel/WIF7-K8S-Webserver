@@ -454,5 +454,5933 @@
             "iat": 1609091947,
             "exp": 1609135147
         }
+    },
+    "cc02bd99df76de4b.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "cc02bd99df76de4b.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "1b876e75eb9d5d53.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "1b876e75eb9d5d53.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "b9ee04b3b34f5cd1.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "b9ee04b3b34f5cd1.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "4cb08bd3d31f3eeb.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "4cb08bd3d31f3eeb.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "71a47dddb0dead20.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "71a47dddb0dead20.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "a49968028518ddf7.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "a49968028518ddf7.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "2eaf98118cf1724f.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "2eaf98118cf1724f.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "73d8e5aead52241a.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "73d8e5aead52241a.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "9da7f0d7bdefbcea.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "9da7f0d7bdefbcea.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "389b5a1acdaa7a91.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "389b5a1acdaa7a91.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "7055dc40b72be62f.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "7055dc40b72be62f.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "75055d5ecaadee1e.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "75055d5ecaadee1e.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7aae0e16ce3c7165.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7aae0e16ce3c7165.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f3a6e0a8b803ba38.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f3a6e0a8b803ba38.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "96d8ca52e1f162f5.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "96d8ca52e1f162f5.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "5bfa89130423c618.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "5bfa89130423c618.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "4a816bd765d21bd0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "4a816bd765d21bd0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7493208d767dd01d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7493208d767dd01d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "29c01efd9b86c0d6.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "29c01efd9b86c0d6.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "1f2569bee8248725.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "1f2569bee8248725.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f1d1c37f421c60c0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f1d1c37f421c60c0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "895044f62e8ee54d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "895044f62e8ee54d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "2d276037ae1d5bf7.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "2d276037ae1d5bf7.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "d1aded28a4e01a75.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "d1aded28a4e01a75.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "ab8656d474ec2270.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "ab8656d474ec2270.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "fd843c60ac063351.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "fd843c60ac063351.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "e5d1926d12886718.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "e5d1926d12886718.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "355cd9b040a8e2e5.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "355cd9b040a8e2e5.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "efd511e627ec8f4d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "efd511e627ec8f4d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "577682b54c203741.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "577682b54c203741.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "4556f23266859ac4.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "4556f23266859ac4.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "edf7022364646623.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "edf7022364646623.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7210e95dfe166da4.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7210e95dfe166da4.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "39810b98355dfe57.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "39810b98355dfe57.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "ca47fc4a3a4f9fb7.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "ca47fc4a3a4f9fb7.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "b9ce48c89103ac63.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "b9ce48c89103ac63.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "160c33afddc98f48.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "160c33afddc98f48.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "c44f4e6e49e53ea0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "c44f4e6e49e53ea0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "9ca94d68bd7824f5.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "9ca94d68bd7824f5.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "15f50b362331ceb2.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "15f50b362331ceb2.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "2c02ab44a6485f84.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "2c02ab44a6485f84.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "faa887cbf90d5614.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "faa887cbf90d5614.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "2b9f6f0628f995f1.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "2b9f6f0628f995f1.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f6f3fc55782b65b0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f6f3fc55782b65b0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "30cab36f48bba2ca.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "30cab36f48bba2ca.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7190c362e92bd8d6.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7190c362e92bd8d6.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "5fb151ced1f81c72.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "5fb151ced1f81c72.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "430701236d96cdc6.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "430701236d96cdc6.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "87a9bf7536815bdc.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "87a9bf7536815bdc.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "d09fb03967a8f86b.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "d09fb03967a8f86b.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "a340900b19a66b13.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "a340900b19a66b13.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "2bed49dd9ccc8619.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "2bed49dd9ccc8619.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7daed5e49865f5cd.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7daed5e49865f5cd.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "3286da3a13c41346.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "3286da3a13c41346.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "dfeef86395c1b75d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "dfeef86395c1b75d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "20b6ac8317005bcc.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "20b6ac8317005bcc.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "001bcf58fe9fdec0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "001bcf58fe9fdec0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "187ac2273cf00a5b.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "187ac2273cf00a5b.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "64b347e217b5b4c2.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "64b347e217b5b4c2.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "a422132184fb679d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "a422132184fb679d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "85a0474f3a804ade.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "85a0474f3a804ade.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "b6fdc9a3ce606d79.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "b6fdc9a3ce606d79.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "bec27a8b9247fd19.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "bec27a8b9247fd19.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "268e94cab1f0361e.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "268e94cab1f0361e.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "3dbf6ff3e535296e.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "3dbf6ff3e535296e.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "414f6a3cb69b24ad.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "414f6a3cb69b24ad.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7e6ed083fc8e3f90.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "7e6ed083fc8e3f90.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "8d4964f485d62677.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "8d4964f485d62677.png",
+        "ml5_bestfit": {
+            "label": "Mona Lisa",
+            "confidence": 0.9322576522827148
+        },
+        "ml5": [
+            {
+                "label": "Mona Lisa",
+                "confidence": 0.9322576522827148
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.021724747493863106
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.009880967438220978
+            },
+            {
+                "label": "Fotorahmen",
+                "confidence": 0.004042442888021469
+            },
+            {
+                "label": "Engel",
+                "confidence": 0.003993350081145763
+            },
+            {
+                "label": "Ofen",
+                "confidence": 0.0027709153946489096
+            },
+            {
+                "label": "Kirche",
+                "confidence": 0.002418540185317397
+            },
+            {
+                "label": "Karte",
+                "confidence": 0.002264401176944375
+            },
+            {
+                "label": "Kamera",
+                "confidence": 0.002111612819135189
+            },
+            {
+                "label": "Herd",
+                "confidence": 0.0019138194620609283
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
+    },
+    "036c9a16108ee748.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "036c9a16108ee748.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "b17e687fcde6404c.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "b17e687fcde6404c.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "d88f591e0ee36f01.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "d88f591e0ee36f01.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "9f86db92f2ecb83a.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "9f86db92f2ecb83a.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "13b86cff84677630.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "13b86cff84677630.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "21af5ffa20fb1d61.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "21af5ffa20fb1d61.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "a82fbdc508343b88.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "a82fbdc508343b88.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "3ee74f1c87b697bd.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "3ee74f1c87b697bd.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "0c5dc19d26eba4d0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "0c5dc19d26eba4d0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "192d0e46ccc454c7.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "192d0e46ccc454c7.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "4d59c3df02830d2c.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "4d59c3df02830d2c.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "24d0f13513e46d5a.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "24d0f13513e46d5a.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "de4a62acaeca517d.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "de4a62acaeca517d.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "6734ebdf705806c5.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "6734ebdf705806c5.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "fd489655b0bb8ea9.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "fd489655b0bb8ea9.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "2d494f00086fdca4.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "2d494f00086fdca4.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "aaf4ddc6b53eb702.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "aaf4ddc6b53eb702.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "90b83b72a4040e91.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "90b83b72a4040e91.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f1becd2d8ba0e829.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f1becd2d8ba0e829.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "7e3a5f96dc670c8a.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "7e3a5f96dc670c8a.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "9f81a0e382abf409.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "9f81a0e382abf409.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "89e9efcdef0d3b78.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "89e9efcdef0d3b78.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f70c3232f8847715.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f70c3232f8847715.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "fcc96553041dbef9.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "fcc96553041dbef9.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "71562859ea431141.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "71562859ea431141.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "05703fe1928fa3b0.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "05703fe1928fa3b0.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "f4c5e5da17fcf31b.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "f4c5e5da17fcf31b.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "175fb2f21b6460b2.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "175fb2f21b6460b2.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "27c1ada9dac4c957.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "27c1ada9dac4c957.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "5bd1233bdff5b44a.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "5bd1233bdff5b44a.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "66bb921666a3b0b3.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "66bb921666a3b0b3.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "b3e3dbee4836f273.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "b3e3dbee4836f273.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "9c2e8bc44266c340.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "9c2e8bc44266c340.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "393fff2246698ac3.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "393fff2246698ac3.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "e8fe59791f5fe2a3.png": {
+        "img_data": "",
+        "img_name": "Mona Lisa",
+        "img_path": "e8fe59791f5fe2a3.png",
+        "ml5_bestfit": {
+            "label": "Mona_Lisa",
+            "confidence": 0.9772739410400391
+        },
+        "ml5": [
+            {
+                "label": "Mona_Lisa",
+                "confidence": 0.9772739410400391
+            },
+            {
+                "label": "Kommode",
+                "confidence": 0.005375720094889402
+            },
+            {
+                "label": "Eule",
+                "confidence": 0.002738814102485776
+            },
+            {
+                "label": "Tarnung",
+                "confidence": 0.0022942202631384134
+            },
+            {
+                "label": "Pullover",
+                "confidence": 0.0011353222653269768
+            },
+            {
+                "label": "Wolkenkratzer",
+                "confidence": 0.0011329142143949866
+            },
+            {
+                "label": "Kamin",
+                "confidence": 0.0010690263006836176
+            },
+            {
+                "label": "Jacke",
+                "confidence": 0.0006844614399597049
+            },
+            {
+                "label": "Unterwäsche",
+                "confidence": 0.0005997282569296658
+            },
+            {
+                "label": "Chinesische_Mauer",
+                "confidence": 0.0005635494599118829
+            }
+        ],
+        "user": {
+            "id": "f2f7af460d525901",
+            "username_display": "Test user2",
+            "iat": 1609289260,
+            "exp": 1609332460
+        }
+    },
+    "8985b45a642cffd9.png": {
+        "img_data": "",
+        "img_name": "My-Drawing",
+        "img_path": "8985b45a642cffd9.png",
+        "ml5_bestfit": {
+            "label": "Linie",
+            "confidence": 0.3498631417751312
+        },
+        "ml5": [
+            {
+                "label": "Linie",
+                "confidence": 0.3498631417751312
+            },
+            {
+                "label": "Schneemann",
+                "confidence": 0.01881665363907814
+            },
+            {
+                "label": "Brechbohne",
+                "confidence": 0.014416499063372612
+            },
+            {
+                "label": "Rad",
+                "confidence": 0.014233953319489956
+            },
+            {
+                "label": "Donut",
+                "confidence": 0.013438539579510689
+            },
+            {
+                "label": "Helm",
+                "confidence": 0.012444557622075081
+            },
+            {
+                "label": "Eimer",
+                "confidence": 0.012223819270730019
+            },
+            {
+                "label": "Wassermelone",
+                "confidence": 0.01039237342774868
+            },
+            {
+                "label": "Birne",
+                "confidence": 0.008926820009946823
+            },
+            {
+                "label": "Bein",
+                "confidence": 0.008924571797251701
+            }
+        ],
+        "user": {
+            "id": "8cbf8df510040dd7",
+            "username_display": "Daniel L",
+            "iat": 1609287189,
+            "exp": 1609330389
+        }
     }
 }

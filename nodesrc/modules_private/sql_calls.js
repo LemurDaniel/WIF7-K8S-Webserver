@@ -48,12 +48,14 @@ const SQL_UPDATE_IMG =      'Update '+TABLE_IMG+' Set '+
 
 const SQL_GET_IMG       =   'Select img_path, du.username_display, img_name, ml5_bestfit, ml5_bestfit_conf '+
                             ' from '+TABLE_IMG+
-                            ' join doodle_user as du on doodle.user_id = du.user_id'+
+                            ' join '+TABLE_USER+' as du on '+TABLE_IMG+'.user_id = du.user_id'+
                             ' where '+
                             ' ml5_bestfit like ? And' +
                             ' img_name like ? And'+
                             ' du.username_display like ? '+
                             ' Order By ml5_bestfit_conf desc';
+
+const SQL_DELETE_IMG     =   'Delete From '+TABLE_IMG+' where img_path = ?';
 
 const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
                             ' (img_id, ml5, ml5_confidence) '+
@@ -87,6 +89,7 @@ func = {};
         });
     }
 
+    func.delete_img = (con, img_path, callback) => con.query(SQL_DELETE_IMG, [img_path], callback);
 
     func.insert_img = (con, body, callback) => {
 
@@ -154,7 +157,6 @@ func = {};
                 callback(err, result);
             });
     }
-
 
     func.insert_into_ml5 = (con, img_id, ml5) => {
 

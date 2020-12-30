@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const routes =  require('express').Router();
 const sql = require('./sql_calls');
 const schema = require('./joi_models');
-const { auth } = require('./user_auth');
+const { auth, auth2 } = require('./user_auth');
 
 
 // Constants
@@ -140,7 +140,6 @@ routes.post('/images/save', auth, (req,res) => {
 
 });
 
-
 /* Obsolete */
 routes.post('/images/data', auth, (req,res) => {
 
@@ -152,5 +151,21 @@ routes.post('/images/data', auth, (req,res) => {
         res.status(200).json({img_data: data});
     })
 });
+
+/* Testing */
+routes.post('/images/delete', auth2, (req, res) => {
+    sql.call( con => {
+        sql.delete_img(con, req.body.img_path, (err, result) => {
+            if(err) return res.json(err);
+            else {
+                fs.unlink(DOODLES+req.body.img_path, (err) => {
+                    return res.json({ sql: result, fs: err});
+                });
+            }
+        
+        })
+    });
+})
+
 
 module.exports = { helper: func, image_routes: routes }

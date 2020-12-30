@@ -173,7 +173,7 @@ const auth = (req, res, next) => {
 
 // Only for testing
 const auth2 = (req, res, next) => {
-    if(!validate_token(req)) return res.redirect('/user');
+    if(!validate_token(req)) return res.redirect('/404');
 
     const user = req.body.user;
     const AUTH2_USER = process.env.AUTH2_USER;
@@ -182,7 +182,7 @@ const auth2 = (req, res, next) => {
     if(AUTH2_USER && AUTH2_PASS){
         if(user.username_display == AUTH2_USER && user.pass == AUTH2_PASS) return next();
     }
-    res.redirect('/user');
+    res.redirect('/404');
 }
 
 module.exports = { auth: auth, auth2: auth2, verify_token: validate_token, auth_routes: route};

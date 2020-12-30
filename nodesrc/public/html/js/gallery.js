@@ -13,8 +13,8 @@ $(window).on('load', function() {
 
 function HTTP_Search_Images(){
     const params = {
-        img_name: $('#input_user')[0].value,
-        user_searched: $('#input_img_name')[0].value,
+        img_name: $('#input_img_name')[0].value,
+        user_searched: $('#input_user')[0].value,
         ml5_bestfit: $('#input_ml5_bestfit')[0].value,
         ml5_bestfit_conf: ""
     }
@@ -53,8 +53,24 @@ async function load_images(){
         // if already a newer search has been done, stop loading old pictures
         if(key != images_found.key) return;
 
-        const src = url_images + images[i].img_path;
-        img_container.append('<div class="display"> <img src="'+src+'"> </div>');
+        img_container.append(create_Display_Object(images[i]));
     }
 
+}
+
+function create_Display_Object(img_obj){
+
+    let div = '<div class="display">';
+    div += '<p class="imgName">'+img_obj.img_name+'</p>';
+    div += '<p class="user">'+ img_obj.user_display +'</p>'; 
+    div += '<img src="'+ (url_images+img_obj.img_path) +'">';
+
+    let conf = Math.round(img_obj.ml5_bestfit.confidence*10000)/100 + '%';
+    if(conf.length == 4) conf = '0'+conf;
+
+    div += '<p class="conf">' + conf + '</p>';
+    div += '<p class="label">'+ img_obj.ml5_bestfit.label +'</p>';
+    
+    
+    return div + '</div>';
 }
