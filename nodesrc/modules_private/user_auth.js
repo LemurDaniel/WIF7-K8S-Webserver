@@ -25,12 +25,12 @@ function encrypt(plain){
     let encrypted = cipher.update(plain); 
     encrypted = Buffer.concat([encrypted, cipher.final()]); 
      
-    return encrypted.toString('hex'); 
+    return encrypted.toString('base64'); 
 }
 
 function decrypt(encrypted){
 
-    const encrypted_text = Buffer.from(encrypted, 'hex'); 
+    const encrypted_text = Buffer.from(encrypted, 'base64'); 
     const decipher = crypto.createDecipheriv(ENCRYPTION_ALGO, Buffer.from(ENCRYPTION_KEY, 'hex'), Buffer.from(ENCRYPTION_IV, 'hex')); 
     let decrypted = decipher.update(encrypted_text); 
     decrypted = Buffer.concat([decrypted, decipher.final()]); 
@@ -102,6 +102,8 @@ route.post('/user/register', (req, res) => {
     const validated = schema.user_register.validate(user);
     if(validated.error) return res.json(schema.error(validated.error));
 
+    user.username = user.username.toLowerCase();
+    
     register_user(user, res);
 });
 

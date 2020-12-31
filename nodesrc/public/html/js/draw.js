@@ -169,14 +169,14 @@ p5_1 = function (sketch) {
     }
   
     sketch.mouseReleased = () => {
-        if(s.mouseButton === s.RIGHT ) {
+        if(!rubber_state && s.mouseButton === s.RIGHT ) {
             $('.switch').toggleClass('active inactive');
             $('.switch img').toggle();
         }
     }
 
     sketch.mousePressed = () => {
-        if(s.mouseButton === s.RIGHT ) { 
+        if(!rubber_state && s.mouseButton === s.RIGHT ) { 
             $('.switch').toggleClass('active inactive');
             $('.switch img').toggle();
         }

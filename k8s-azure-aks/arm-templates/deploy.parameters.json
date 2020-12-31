@@ -18,10 +18,10 @@
             "value": "db-data-disk"
         },
         "db_disk_sku": {
-            "value": "Premium_LRS"
+            "value": "Standard_LRS"
         },
         "diskSizeGb": {
-            "value": 256
+            "value": 4
         },
         "k8s_cluster_name": {
             "value": "doodles-cluster"

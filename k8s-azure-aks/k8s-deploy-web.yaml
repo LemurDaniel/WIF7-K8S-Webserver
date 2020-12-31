@@ -30,7 +30,6 @@ spec:
         - containerPort: 443
         - containerPort: 80
         envFrom:
-          - secretRef: { name: sql.pass.data }  # Password and Rootpassword
           - secretRef: { name: ssl.cert.data }  # SSL certificates
           - secretRef: { name: jwt.rsa.data }   # JWT keys for signing
           - secretRef: { name: jwt.enc.conf }   # JWT keys and configuration for encryption

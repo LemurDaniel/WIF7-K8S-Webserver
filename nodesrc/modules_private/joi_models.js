@@ -11,12 +11,11 @@ schemas.user_register = joi.object({
         .required(),
 
     username: joi.string()
-        .pattern(new RegExp('^[0-9a-zA-Z-_.]+$'))
+        .pattern(new RegExp('^[0-9a-zA-Z\-_\.]+$'))
         .min(2)
         .max(50)
         .lowercase()
         .trim()
-        .replace(' ', '-')
         .required(),
 
     password: joi.string()
@@ -44,6 +43,8 @@ schemas.user = joi.object({
         .max(50)
         .trim()
         .required(),
+
+    pass: joi.string(),
 
     iat: joi.number(),
     exp: joi.number()

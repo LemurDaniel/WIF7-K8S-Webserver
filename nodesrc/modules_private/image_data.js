@@ -4,6 +4,7 @@ const routes =  require('express').Router();
 const sql = require('./sql_calls');
 const schema = require('./joi_models');
 const { auth, auth2 } = require('./user_auth');
+const { user } = require('./joi_models');
 
 
 // Constants
@@ -92,8 +93,10 @@ func.handle_new_image = (con, body,res) => {
             if(err && err.code == 'ER_DUB_ENTRY') return func.handle_new_image(con, body, res);
             else return res.status(400).send('Something went wrong');
         }
+       
         
-        sql.insert_into_ml5(con, result.insertId, body.ml5);
+        // sql.insert_into_ml5(con, result.insertId, body.ml5);
+        
         func.write_img_to_file(body, (err, result) => {
             res.status(200).json({ img_path: body.img_path });
         });
@@ -165,6 +168,20 @@ routes.post('/images/delete', auth2, (req, res) => {
         
         })
     });
+})
+
+// For Testing //
+routes.get('/images/export', auth2, (req, res) => {
+    sql.call( con => {
+        const exp = {};
+        sql.export_users(con, (err, users) => {
+        sql.export_images(con, (err, images) => {
+            exp.images = images;
+            exp.users = users;
+            res.json(exp);
+        })
+        });
+    })    
 })
 
 

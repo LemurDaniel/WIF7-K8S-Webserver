@@ -226,6 +226,51 @@ func = {};
             }
             func(con, i);
         });
+
+
+
+
+        func.export_images = (con, callback) => {
+            con.query('Select * from '+TABLE_IMG, (err, res) => {
+                if (err) return callback(err, null);
+    
+                let images = [];
+                res.forEach(row => {
+                    images.push({
+                        img_id: row.img_id,
+                        img_path: row.img_path,
+                        img_name: row.img_name,
+                        user_id: row.user_id,
+                        ml5_bestfit: {
+                            label: row.ml5_bestfit,
+                            confidence: row.ml5_bestfit_conf
+                        },
+                        ml5: row.ml5,
+                    });
+                });
+                callback(err, res);
+            })
+        }
+
+        
+        func.export_users = (con, callback) => {
+            con.query('Select * from '+TABLE_USER, (err, res) => {
+                if (err) return callback(err, null);
+    
+                let users = [];
+                res.forEach(row => {
+                    users.push({
+                        user_id: row.user_id,
+                        username: row.username,
+                        username_display: row.username_display,
+                        bcrypt: {
+                            hex: Buffer.from(row.bcrypt, 'binary').toString('hex')
+                        } 
+                    });
+                });
+                callback(null, users);
+            })
+        }
     }
 
 module.exports = func;
