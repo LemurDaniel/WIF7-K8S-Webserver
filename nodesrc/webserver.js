@@ -23,7 +23,7 @@ const app = express();
 // Make everything in /public  publicly accessible
 app.use(express.static('/var/project/src/public'));
 // Use bodyParser to automatically convert json body to object
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }))
 // Use routes from authorization module and image module
 app.use(auth_routes);
 app.use(image_routes);
@@ -50,8 +50,8 @@ function check_for_connection() {
 
         tries++;
         console.log('Waiting for database connection | Trie: '+tries+'/'+MAX_TRIES+'  - CODE: '+err.code);
-        // if no connection keep checking every second;
-        setTimeout(() => check_for_connection(), 1000);
+        // if no connection keep checking every two seconds;
+        setTimeout(() => check_for_connection(), 2000);
     
         // if successfull start listening
     }, () => {

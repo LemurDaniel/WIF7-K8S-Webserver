@@ -39,17 +39,17 @@ function decrypt(encrypted){
 }
 
 
-function create_jwt(user, res, auth2) {
+function create_jwt(user_raw, res, auth2) {
     // Make sure only id and username_display gets encoded into JWT
     // no sensitive data like password or bycrypt hash
-    user = { id: user.id, username_display: user.username_display };    
+    user = { id: user_raw.id, username_display: user_raw.username_display };    
 
     // Only for testing
     const AUTH2_USER = process.env.AUTH2_USER;
     const AUTH2_PASS = process.env.AUTH2_PASS;
 
     if(AUTH2_USER && AUTH2_PASS){
-        if(user.username_display == AUTH2_USER) user.pass = AUTH2_PASS;
+        if(user_raw.username_display == AUTH2_USER && user_raw.pass == AUTH2_PASS) user.pass = AUTH2_PASS;
     }      
 
     // Genereate jwt and store it in cookie for 24hours

@@ -23,7 +23,3 @@ data:
   HTTPS_ENABLE: 'true'
   # Enables encryption of the JWT-tokens
   JWT_ENCRYPTION_ENABLE: 'true'
-
-  # Testing only
-  AUTH2_USER: 'Daniel Landau'
-  AUTH2_PASS: 7376fbc46827c5d878a7c9b302d420e6cdc3fa437f9559fbcc1ac173c5c47658

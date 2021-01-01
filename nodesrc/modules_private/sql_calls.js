@@ -263,14 +263,55 @@ func = {};
                         user_id: row.user_id,
                         username: row.username,
                         username_display: row.username_display,
-                        bcrypt: {
-                            hex: Buffer.from(row.bcrypt, 'binary').toString('hex')
-                        } 
+                        bcrypt: row.bcrypt.toString()
                     });
                 });
                 callback(null, users);
             })
         }
+    }
+
+    func.import_users = (con, users, callback) => {
+
+        if (users.length == 0) return callback(null);
+        const qu = (i, info) => {
+            const user = users[i];
+            con.query('Insert into '+TABLE_USER+' Values( ?, ?, ?, ? )', [
+                user.user_id,
+                user.username,
+                user.username_display,
+                user.bcrypt],
+                (err, res) => { 
+                    if(err) info.err.push( { user: user.username, err: err } );
+                    else info.done.push(user.username);
+                    if((i+1) >= users.length) return callback(info);
+                    else qu(i+1, info);
+                });
+        }
+        qu(0, { err: [], done: []});
+    }
+
+    func.import_images = (con, images, callback) => {
+
+        if (images.length == 0) return callback(null);
+        const qu = (i, info) => {
+            const image = images[i];
+            con.query('Insert into '+TABLE_IMG+' Values( ?, ?, ?, ?, ?, ?, ? )', [
+                image.img_id,
+                image.user_id,
+                image.img_path,
+                image.img_name,
+                image.ml5_bestfit,
+                image.ml5_bestfit_conf,
+                image.ml5],
+                (err, res) => { 
+                    if(err) info.err.push( { image: image.img_path, err: err } );
+                    else info.done.push(image.img_path);
+                    if((i+1) >= images.length) return callback(info);
+                    else qu(i+1, info);
+                });
+        }
+        qu(0, { err: [], done: [] } );
     }
 
 module.exports = func;

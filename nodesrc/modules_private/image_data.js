@@ -171,7 +171,7 @@ routes.post('/images/delete', auth2, (req, res) => {
 })
 
 // For Testing //
-routes.get('/images/export', auth2, (req, res) => {
+routes.get('/images/export/db', auth2, (req, res) => {
     sql.call( con => {
         const exp = {};
         sql.export_users(con, (err, users) => {
@@ -184,5 +184,43 @@ routes.get('/images/export', auth2, (req, res) => {
     })    
 })
 
+routes.post('/images/import/db', auth2, (req, res) => {
+
+    sql.call( con => {
+        const body = req.body;
+        const info = {};
+        sql.import_users(con, body.users, (info_users) => {
+        sql.import_images(con, body.images, (info_images) => {
+            info.users = info_users;
+            info.images = info_images;
+            res.json(info);
+        })
+        });
+    })    
+})
+
+routes.get('/images/export/data', auth2, (req, res) => {
+
+    const data = [];
+    fs.readdirSync(DOODLES).forEach(file => {
+        if(file.includes('.info')) return;
+        const base64 = fs.readFileSync(DOODLES+file, 'base64');
+        data.push( { img_path: file, img_data: base64 } );
+    });
+    res.json(data);
+})
+
+routes.post('/images/import/data', auth2, (req, res) => {
+
+    const data = req.body;
+    const info = { done: [], err: [] };
+    data.forEach(file => {
+        try { 
+            fs.writeFileSync(DOODLES+file.img_path, file.img_data, 'base64');
+            info.done.push(file.img_path);
+        } catch (err) { info.err.push(err) }
+    });
+    res.json(info);
+})
 
 module.exports = { helper: func, image_routes: routes }
