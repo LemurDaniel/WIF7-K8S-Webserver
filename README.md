@@ -5,14 +5,16 @@ Website deployed by Kubernetes Cluster:
   https://doodles.daniel-testing.cloud/
   <br> or <br>
   www.daniel-testing.cloud
+  (Works optimal on normal 1920x1080 HD Screen)
 
 SSL-Certificate created via:
 
   https://letsencrypt.org/
 
+
 Info:
 
-  Of course, all passwords and certificates saved in ./k8s-azure/config have been replaced by <b> new ones </b> in the live system on www.daniel-testing.cloud
+  All passwords and certificates saved in ./k8s-azure/config have been replaced by <b> new ones </b> in the live system on www.daniel-testing.cloud
   
 
 Read Access on Azure resources:

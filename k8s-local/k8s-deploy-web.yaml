@@ -21,12 +21,13 @@ spec:
       containers:
       - name: webserver
         image:  daniellandau1998/node-webserver:k8s
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "100m"
         ports:
         - containerPort: 3000
+        - containerPort: 80
+        resources:
+          limits: { memory: "256Mi", cpu: "100m" }
+        volumeMounts:
+        - { mountPath: "/var/project/src/public/assets/doodles", name: image-data }
         envFrom:
           - secretRef: { name: sql.pass.data }  # Password and Rootpassword
           - secretRef: { name: ssl.cert.data }  # SSL certificates
@@ -36,9 +37,6 @@ spec:
         env:
           - name: SQL_PASSWORD # Password to access sql database
             valueFrom: { secretKeyRef: { key: MYSQL_PASSWORD, name: sql.pass.data  }}
-        volumeMounts:
-        - mountPath: "/var/project/src/public/assets/doodles"
-          name: image-data
       volumes:
       - name: image-data
         persistentVolumeClaim:
@@ -55,18 +53,10 @@ spec:
   selector:
     app: doodles-webservice
     tier: frontend-webserver
-  type: NodePort
+  type: ClusterIP
   ports:
-  - port: 443
-    targetPort: 443
-    nodePort: 30123
+  - { name: https, port: 443, targetPort: 443 }
+  - { name: http, port: 80, targetPort: 80 }
 
-# doesn't work on docker for desktop, use port-forward for testing
+# doesn't work on docker for desktop
 # kubectl port-forward svc/doodles-webserver-svc 6000:3000
-
-# if on Chrome: port 443 has to be used for https 
-# => kubectl port-forward svc/doodles-webserver-svc 443:3000 
-
-# OR explicitly allow port 6000 top be open
-# Press: win + r
-# Enter: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --explicitly-allowed-ports=6000

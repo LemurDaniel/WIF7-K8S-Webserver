@@ -21,12 +21,12 @@ spec:
       containers:
       - name: database
         image: mysql:5.7
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
         ports:
         - containerPort: 3306
+        resources:
+          limits: { memory: "512Mi", cpu: "500m" }
+        volumeMounts:
+        - { mountPath: "/var/lib/mysql", name: db-data }
         envFrom:
           - secretRef:
               name: sql.pass.data # Password and Rootpassword
@@ -37,9 +37,6 @@ spec:
             valueFrom: { configMapKeyRef: { key: SQL_USER, name: node.webserver.config }}
           - name: MYSQL_PORT
             valueFrom: { configMapKeyRef: { key: SQL_PORT, name: node.webserver.config }}
-        volumeMounts:
-        - mountPath: "/var/lib/mysql"
-          name: db-data
       volumes:
       - name: db-data
         persistentVolumeClaim:
@@ -65,5 +62,5 @@ spec:
     targetPort: 3306
     nodePort: 30124
 
-# doesn't work on docker for desktop, use port-forward for testing
+# doesn't work on docker for desktop
 # kubectl port-forward svc/db-server 6001:3306

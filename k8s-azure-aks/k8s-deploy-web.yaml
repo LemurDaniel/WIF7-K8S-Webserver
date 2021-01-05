@@ -22,13 +22,13 @@ spec:
       - name: webserver
         image:  daniellandau1998/node-webserver:k8s
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "100m"
         ports:
         - containerPort: 443
         - containerPort: 80
+        resources:
+          limits: { memory: "256Mi", cpu: "100m" }
+        volumeMounts:
+        - { mountPath: "/var/project/src/public/assets/doodles", name: image-data }
         envFrom:
           - secretRef: { name: ssl.cert.data }  # SSL certificates
           - secretRef: { name: jwt.rsa.data }   # JWT keys for signing
@@ -37,9 +37,6 @@ spec:
         env:
           - name: SQL_PASSWORD # Password to access sql database
             valueFrom: { secretKeyRef: { key: MYSQL_PASSWORD, name: sql.pass.data  }}
-        volumeMounts:
-        - mountPath: "/var/project/src/public/assets/doodles"
-          name: image-data
       volumes:
       - name: image-data
         persistentVolumeClaim:

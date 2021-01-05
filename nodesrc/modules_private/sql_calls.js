@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql'); //https://github.com/mysqljs/mysql#pooling-connections
 const fs = require('fs');
 
 const SQL_HOST = process.env.SQL_HOST;
@@ -6,6 +6,7 @@ const SQL_USER = process.env.SQL_USER;
 const SQL_PORT = process.env.SQL_PORT;
 const SQL_PASSWORD = process.env.SQL_PASSWORD;
 const SQL_DATABASE = process.env.SQL_DATABASE;
+const CON_LIMIT = 15;
 
 
 const TABLE_IMG = process.env.SQL_TABLE_NAME;
@@ -71,21 +72,20 @@ const SQL_GET_HASH    =     'select user_id, username_display, bcrypt from '+TAB
 
 func = {};
 
-    func.getCon = () => {
-        return mysql.createConnection({
-            host: SQL_HOST,
-            user: SQL_USER,
-            password: SQL_PASSWORD,
-            database: SQL_DATABASE
-        });
-    }
+    func.pool = mysql.createPool({
+        connectionLimit : CON_LIMIT,
+        host: SQL_HOST,
+        user: SQL_USER,
+        password: SQL_PASSWORD,
+        database: SQL_DATABASE
+      });
 
+    func.call = (err_callback, method) =>  {
+        if(err_callback == null) err_callback = (err) => console.log(err);
 
-    func.call = (method) =>  {
-        let con = func.getCon();
-        con.connect( (err) => {
-            if(err) console.log(err);
-            method(con);
+        func.pool.getConnection( (err, con) => {
+            if(err) err_callback(err);
+            else method(con, () => con.release() );
         });
     }
 
@@ -124,7 +124,6 @@ func = {};
         });
     }
 
-    
     func.get_img = (con, params, callback) => {
 
         let img_name = params.img_name+'%';
@@ -200,18 +199,12 @@ func = {};
     
     func.init_Database = function (doodles_path, error_callback, callback) {
     
-        let con = func.getCon();
-        con.connect((err) => {
-            if(err) return error_callback(err);
+        func.call(error_callback, (con, end) => {
 
             // Todo check for databases via SQL and create if not existent
             // Check for file indicating initialization
-            let file;
-            try{ 
-                file = fs.readFileSync(doodles_path+TABLE_IMG+'_EXISTS.info');
-            } catch(ex){}
-            // If file exists then return
-            if(file) return  callback();
+            if (fs.existsSync(doodles_path+TABLE_IMG+'_EXISTS.info'))
+                return callback();
 
             let i=0;
             const statements = [SQL_CREATE_USER, SQL_CREATE_IMG, SQL_CREATE_ML5];
@@ -226,54 +219,54 @@ func = {};
             }
             func(con, i);
         });
+    }
 
 
 
 
-        func.export_images = (con, callback) => {
-            con.query('Select * from '+TABLE_IMG, (err, res) => {
-                if (err) return callback(err, null);
-    
-                let images = [];
-                res.forEach(row => {
-                    images.push({
-                        img_id: row.img_id,
-                        img_path: row.img_path,
-                        img_name: row.img_name,
-                        user_id: row.user_id,
-                        ml5_bestfit: {
-                            label: row.ml5_bestfit,
-                            confidence: row.ml5_bestfit_conf
-                        },
-                        ml5: row.ml5,
-                    });
+    func.export_images = (con, callback) => {
+        con.query('Select * from ' + TABLE_IMG, (err, res) => {
+            if (err) return callback(err, null);
+
+            let images = [];
+            res.forEach(row => {
+                images.push({
+                    img_id: row.img_id,
+                    img_path: row.img_path,
+                    img_name: row.img_name,
+                    user_id: row.user_id,
+                    ml5_bestfit: {
+                        label: row.ml5_bestfit,
+                        confidence: row.ml5_bestfit_conf
+                    },
+                    ml5: row.ml5,
                 });
-                callback(err, res);
-            })
-        }
+            });
+            callback(err, res);
+        })
+    }
 
-        
-        func.export_users = (con, callback) => {
-            con.query('Select * from '+TABLE_USER, (err, res) => {
-                if (err) return callback(err, null);
-    
-                let users = [];
-                res.forEach(row => {
-                    users.push({
-                        user_id: row.user_id,
-                        username: row.username,
-                        username_display: row.username_display,
-                        bcrypt: row.bcrypt.toString()
-                    });
+
+    func.export_users = (con, callback) => {
+        con.query('Select * from ' + TABLE_USER, (err, res) => {
+            if (err) return callback(err, null);
+
+            let users = [];
+            res.forEach(row => {
+                users.push({
+                    user_id: row.user_id,
+                    username: row.username,
+                    username_display: row.username_display,
+                    bcrypt: row.bcrypt.toString()
                 });
-                callback(null, users);
-            })
-        }
+            });
+            callback(null, users);
+        })
     }
 
     func.import_users = (con, users, callback) => {
 
-        if (users.length == 0) return callback(null);
+        if (!users || users.length == 0) return callback(null);
         const qu = (i, info) => {
             const user = users[i];
             con.query('Insert into '+TABLE_USER+' Values( ?, ?, ?, ? )', [
@@ -293,7 +286,7 @@ func = {};
 
     func.import_images = (con, images, callback) => {
 
-        if (images.length == 0) return callback(null);
+        if (!images || images.length == 0) return callback(null);
         const qu = (i, info) => {
             const image = images[i];
             con.query('Insert into '+TABLE_IMG+' Values( ?, ?, ?, ?, ?, ?, ? )', [

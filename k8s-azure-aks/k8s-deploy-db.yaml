@@ -21,15 +21,14 @@ spec:
       containers:
       - name: database
         image: mysql:5.7
-        resources:
-          limits:
-            memory: "1024Mi"
-            cpu: "1000m"
         ports:
         - containerPort: 3306
+        resources:
+          limits: { memory: "1024Mi", cpu: "1000m" }
+        volumeMounts:
+        - { mountPath: "/var/lib/mysql", name: db-data }
         envFrom:
-          - secretRef:
-              name: sql.pass.data # Password and Rootpassword
+          - secretRef: { name: sql.pass.data } # Password and Rootpassword
         env:
           - name: MYSQL_DATABASE
             valueFrom: { configMapKeyRef: { key: SQL_DATABASE, name: node.webserver.config }}
@@ -37,9 +36,6 @@ spec:
             valueFrom: { configMapKeyRef: { key: SQL_USER, name: node.webserver.config }}
           - name: MYSQL_PORT
             valueFrom: { configMapKeyRef: { key: SQL_PORT, name: node.webserver.config }}
-        volumeMounts:
-        - mountPath: "/var/lib/mysql"
-          name: db-data
       volumes:
       - name: db-data
         persistentVolumeClaim:

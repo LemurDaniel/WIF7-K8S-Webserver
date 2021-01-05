@@ -6,7 +6,7 @@ metadata:
 data:
 
   # Port on which webserver listen
-  # no value defaults to 80 or 443
+  # no value defaults to 80 or 443k
   # PORT: 
 
   # dns and port of the Database

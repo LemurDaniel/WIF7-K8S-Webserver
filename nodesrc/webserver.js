@@ -71,7 +71,6 @@ app.get('/draw/gallery', auth, (req, res) => res.sendFile(HTML('gallery')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 
 // Only for testing //
-app.get('/web', auth2, (req,res) => res.sendFile(helper.WEB));
 app.get('/info', auth2, (req,res) =>  res.json(process.env) );
 
 const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8'); 

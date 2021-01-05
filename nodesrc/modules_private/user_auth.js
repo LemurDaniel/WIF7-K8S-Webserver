@@ -18,6 +18,9 @@ const ENCRYPTION_IV = process.env.JWT_ENCRYPTION_IV;
 const ENCRYPTION_ALGO = process.env.JWT_ENCRYPTION_ALGO;
 const ENCRYPTION_ENABLE = (process.env.JWT_ENCRYPTION_ENABLE == 'true' ? true:false);
 const HTTPS_ENABLE = (process.env.HTTPS_ENABLE == 'true' ? true:false);
+// For testing
+const AUTH2_USER = process.env.AUTH2_USER;
+const AUTH2_PASS = process.env.AUTH2_PASS;
 
 function encrypt(plain){
 
@@ -44,12 +47,8 @@ function create_jwt(user_raw, res, auth2) {
     // no sensitive data like password or bycrypt hash
     user = { id: user_raw.id, username_display: user_raw.username_display };    
 
-    // Only for testing
-    const AUTH2_USER = process.env.AUTH2_USER;
-    const AUTH2_PASS = process.env.AUTH2_PASS;
-
     if(AUTH2_USER && AUTH2_PASS){
-        if(user_raw.username_display == AUTH2_USER && user_raw.pass == AUTH2_PASS) user.pass = AUTH2_PASS;
+        if(AUTH2_USER.includes(user_raw.username)) user.pass = AUTH2_PASS;
     }      
 
     // Genereate jwt and store it in cookie for 24hours
@@ -68,30 +67,25 @@ function create_jwt(user_raw, res, auth2) {
 
 function register_user (user, res) {
 
-    sql.call( (con) => {
-        // make password hash
-        bcrypt.hash(user.password, 10, (err, hash) => {
-            delete user.password;
-            user.bcrypt = hash;
-            user.id = crypto.randomBytes(8).toString('hex');
+    // make password hash
+    bcrypt.hash(user.password, 10, (err, hash) => {
+        delete user.password;
+        user.bcrypt = hash;
+        user.id = crypto.randomBytes(8).toString('hex');
 
-            // Insert new user
-            sql.insert_user(con, user, (err) => {
-                if(err) {
-                    // if user already exists send error back
-                    console.log(err);
-                    if(err.code == 'ER_DUP_ENTRY') {
-                        // if user_id duplicate, retry with different id. 2^62 possibilities, rare case
-                        if(err.sqlMessage.includes("key 'PRIMARY'")) return register_user(user, res);
-                        else return res.json({code: 10, err: 'User already exists'});
-                    }
-                    else return res.json({code: 20, err: err});
+        // Insert new user
+        sql.insert_user(sql.pool, user, (err) => {
+            if(err) {
+                if(err.code == 'ER_DUP_ENTRY') {
+                    // if user_id duplicate, retry with different id. 2^62 possibilities, rare case
+                    if(err.sqlMessage.includes("key 'PRIMARY'")) return register_user(user, res);
+                    else return res.json({err: 'User already exists'});
                 }
+                else return res.json({err: err});
+            }
                 
-                create_jwt(user, res).status(200).setHeader('Location', '/');
-                //res.redirect('/');
-                res.json({req: 'done'});
-            });
+            create_jwt(user, res).status(200).setHeader('Location', '/');
+            res.json({req: 'done'});
         });
     })
 }
@@ -112,19 +106,16 @@ route.post('/user/login', (req, res) => {
 
     const user = req.body;
 
-    sql.call( (con) => {
-        // Search database for user
-        sql.get_password_hash(con, user, (err, user) =>{
+    // Search database for user
+    sql.get_password_hash(sql.pool, user, (err, user) =>{
+        if(!user.id) return res.json({err: 'User doesn\'t exist'});
 
-            if(!user.id) return res.json({code: 11, err: 'User doesn\'t exist'});
+        // compare passwords sent and in database
+        bcrypt.compare(user.password, user.bcrypt, (err, result) => {
+            if(!result) return res.send({err: 'Invalid Passwort'});
 
-            // compare passwords sent and in database
-            bcrypt.compare(user.password, user.bcrypt, (err, result) => {
-                if(!result) return res.send({code: 11, err: 'Invalid Passwort'});
-
-                create_jwt(user, res).status(200).setHeader('Location', '/');
-                res.json({req: 'done'});
-            });
+            create_jwt(user, res).status(200).setHeader('Location', '/');
+            res.json({req: 'done'});
         });
     })
 })
@@ -159,8 +150,7 @@ const validate_token = (req) => {
         if(ENCRYPTION_ENABLE) token = decrypt(token);
 
         // if jwt verified, grant access
-        req.body.user = jwt.verify(token, VERIFY_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  [SIGNING_ALGO] });
-        return true;
+        return req.body.user = jwt.verify(token, VERIFY_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  [SIGNING_ALGO] });
     } catch (ex) {
         // if jwt invalid, deny access
         return false;
@@ -175,16 +165,10 @@ const auth = (req, res, next) => {
 
 // Only for testing
 const auth2 = (req, res, next) => {
-    if(!validate_token(req)) return res.redirect('/404');
-
-    const user = req.body.user;
-    const AUTH2_USER = process.env.AUTH2_USER;
-    const AUTH2_PASS = process.env.AUTH2_PASS;
-
-    if(AUTH2_USER && AUTH2_PASS){
-        if(user.username_display == AUTH2_USER && user.pass == AUTH2_PASS) return next();
-    }
-    res.redirect('/404');
+    if( !(AUTH2_USER && AUTH2_PASS) || 
+            !validate_token(req) ||
+            req.body.user.pass != AUTH2_PASS) return res.redirect('/404');
+    else return next();
 }
 
 module.exports = { auth: auth, auth2: auth2, verify_token: validate_token, auth_routes: route};
