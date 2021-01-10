@@ -18,7 +18,7 @@
             "value": "db-data-disk"
         },
         "db_disk_sku": {
-            "value": "Standard_LRS"
+            "value": "StandardSSD_LRS"
         },
         "diskSizeGb": {
             "value": 4
