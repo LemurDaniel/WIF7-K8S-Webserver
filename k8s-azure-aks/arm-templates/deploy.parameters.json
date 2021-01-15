@@ -26,6 +26,11 @@
         "k8s_cluster_name": {
             "value": "doodles-cluster"
         },
+        "adminGroupObjectIDs": {
+            "value": [
+                "111c7ec0-1196-49bb-96ee-3fd33fe320e6"
+            ]
+        }
         "servicePrincipalClientId": {
             "value": "" // TODO: Fill in parameter value
         },

@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: custom-reader-role
+rules:
+- apiGroups: ["*"]
+  resources: ["configmaps", "pods", "services", "namespaces", "deployments", "replicasets", "persistentvolumeclaims", "persistentvolumes", "replicationcontrollers", "daemonsets", "statefulsets", "jobs", "cronjobs", "batch", "horizontalpodautoscalers"]
+  verbs: ["get", "watch", "list"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: custom-reader-global
+subjects:
+- kind: User
+  name: Read-access@daniellandau.onmicrosoft.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: custom-reader-role
+  apiGroup: rbac.authorization.k8s.io

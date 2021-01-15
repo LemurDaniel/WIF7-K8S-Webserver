@@ -6,5 +6,6 @@ Install-AzAksKubectl
 ./k8s-azure-aks/arm-templates/deploy.ps1 $resource_group
 
 # Import credentials to $HOME/.kube/config
-Import-AzAksCredential -ResourceGroupName $resource_group -Name "doodles-cluster"
+Import-AzAksCredential -ResourceGroupName $resource_group -Name "doodles-cluster" -Admin
 
+# Change diskURI and storagekeys in ./k8s-azure/config

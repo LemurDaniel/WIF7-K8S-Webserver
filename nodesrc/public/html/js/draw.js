@@ -189,7 +189,7 @@ p5_1 = function (sketch) {
                 p5_2.stroke(255);
             } else {
                 p5_1.stroke(input_color[0].value);
-                p5_2.stroke(input_color[0].value);
+                p5_2.stroke(0);
             }
 
             s.line(s.mouseX, s.mouseY, s.pmouseX, s.pmouseY);
