@@ -3,6 +3,7 @@ const url_search = domain+'/images/search';
 const url_images = domain+'/assets/doodles/';
 var img_container;
 var images_found;
+var current_key;
 
 function setup(){}
 $(window).on('load', function() {
@@ -21,16 +22,14 @@ function HTTP_Search_Images(){
 
     $('#http_loader').removeClass('loaderhidden');
     $('#btn_search').prop("disabled",true);
-    img_container.empty();
 
     httpPost(url_search, 'json', params, (result) => {
         $('#http_loader').addClass('loaderhidden');
         $('#btn_search').prop("disabled",false);
 
         images_found = result;
-        if(images_found.images.length == 0) return display_message('No Images found');
-        
-        display_message(images_found.images.length + ' Images found');
+        if(images_found.images.length == 0) display_message('No Images found');    
+        else display_message(images_found.images.length + ' Images found');
         load_images();
 
     },(err) => {
@@ -44,15 +43,19 @@ function HTTP_Search_Images(){
 
  
 
-async function load_images(){
+async function load_images() {
 
     const images = images_found.images;
     const key = images_found.key;
 
+    console.log(current_key + ' ' + key);
+    if(current_key && current_key == key) return;
+    current_key = key;
+    img_container.empty();
+
     for(let i=0; i<images.length; i++){
         // if already a newer search has been done, stop loading old pictures
         if(key != images_found.key) return;
-
         img_container.append(create_Display_Object(images[i]));
     }
 

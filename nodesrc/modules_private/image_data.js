@@ -11,15 +11,39 @@ const user_auth = require('./user_auth');
 // Constants
 const PATH = '/var/project/src/public/';
 const DOODLES = PATH+'assets/doodles/';
-const WEB_JSON = PATH+'assets/other/web.json';
 const TRANSLATION = PATH+'assets/other/translation.json';
 const TRANSLATION_ENG = PATH+'assets/other/class_names.txt';
 const TRANSLATION_DE = PATH+'assets/other/class_names_german.txt';
 
-fs.readFile(WEB_JSON, 'utf8', (err, data) => {
-    if(err === null) return;
-    fs.writeFile(WEB_JSON, '', () => {});
-});
+const CACHE = PATH+'assets/doodles/cache/';
+const TTL = process.env.CACHE_TTL || 15; //seconds
+if(!fs.existsSync(CACHE)) fs.mkdirSync(CACHE);
+
+function read_cache(func, arguments) {
+    param = (Object.values(arguments).join(''));
+    key = CACHE+func + '-' + param + '.json';
+
+    if(fs.existsSync(key)) {
+        try{
+            cached_val = JSON.parse(fs.readFileSync(key));
+            if (cached_val && cached_val.exp > Date.now()) return cached_val.content;
+        }catch(err){}
+    } 
+    return null;
+}
+
+function write_cache(func, arguments, data) {
+    param = (Object.values(arguments).join(''));
+    key = CACHE+func + '-' + param + '.json';
+
+    const hash = crypto.createHash('md5').update(JSON.stringify(data)).digest('base64'); // identifies changes in result
+    const object = { hash: hash, data: data };
+    const cached_val = JSON.stringify({ exp: Date.now()+(TTL*1000), content: object }, null, 4);
+    fs.writeFile(key, cached_val, (err) => {});
+
+    console.log("Params: "+param + " ResultHash: " + hash);
+    return object;
+}
 
 /* Create Translation File  */
 fs.readFile(TRANSLATION, 'utf8', (err, data) => {
@@ -43,8 +67,6 @@ fs.readFile(TRANSLATION, 'utf8', (err, data) => {
 
 var func = {};
 
-func.WEB = WEB_JSON;
-
 func.TRANSLATION = TRANSLATION;
 
 func.DOODLES = DOODLES;
@@ -56,11 +78,14 @@ func.HTML = (str) => PATH+'html/'+str+'.html';
 
 // POSTS //
 routes.post('/images/search', (req,res) => {
+    const cached = read_cache('search', req.body);
+    if (cached) return res.json( { key: cached.hash, images: cached.data } );
+
     sql.get_img(sql.pool, req.body, (err, result) => {
         if(err) return res.json({ err: 'Something went wrong' });
 
-        const hex = crypto.randomBytes(8).toString('hex');
-        res.json( { key: hex, images: result } );
+        const val = write_cache('search', req.body, result);
+        res.json( { key: val.hash, images: val.data } );
     });
 });
 

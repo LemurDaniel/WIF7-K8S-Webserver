@@ -7,7 +7,7 @@ metadata:
     app: doodles-webservice
     tier: frontend-webserver
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: doodles-webservice
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image:  daniellandau1998/node-webserver:k8s
+        image:  daniellandau1998/node-webserver:local-k8s
         ports:
         - containerPort: 3000
         - containerPort: 80
