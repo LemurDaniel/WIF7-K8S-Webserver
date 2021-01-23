@@ -51,7 +51,7 @@ function create_jwt(user_raw, res, auth2) {
         if(AUTH2_USER.includes(user_raw.username)) user.pass = AUTH2_PASS;
     }      
 
-    // Genereate jwt and store it in cookie for 24hours
+    // Genereate jwt
     let token = jwt.sign(user, SIGNING_KEY, { expiresIn: JWT_LIFESPAN+'h', algorithm:  SIGNING_ALGO });
 
     // Encrypt token
@@ -77,7 +77,7 @@ function register_user (user, res) {
         sql.insert_user(sql.pool, user, (err) => {
             if(err) {
                 if(err.code == 'ER_DUP_ENTRY') {
-                    // if user_id duplicate, retry with different id. 2^62 possibilities, rare case
+                    // if user_id duplicate, retry with different id. 2^64 or 16^16 possibilities, rare case
                     if(err.sqlMessage.includes("key 'PRIMARY'")) return register_user(user, res);
                     else return res.json({err: 'User already exists'});
                 }
