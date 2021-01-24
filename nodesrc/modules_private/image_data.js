@@ -16,11 +16,11 @@ const TRANSLATION_ENG = PATH+'assets/other/class_names.txt';
 const TRANSLATION_DE = PATH+'assets/other/class_names_german.txt';
 
 const CACHE = PATH+'assets/doodles/cache/';
-const TTL = process.env.CACHE_TTL || 15; //seconds
+const TTL = process.env.CACHE_TTL || 10; //seconds
 if(!fs.existsSync(CACHE)) fs.mkdirSync(CACHE);
 
 function read_cache(func, arguments) {
-    param = (Object.values(arguments).join(''));
+    param = Object.values(arguments).join('').toLowerCase();
     key = CACHE+func + '-' + param + '.json';
 
     if(fs.existsSync(key)) {
@@ -33,7 +33,7 @@ function read_cache(func, arguments) {
 }
 
 function write_cache(func, arguments, data) {
-    param = (Object.values(arguments).join(''));
+    param = Object.values(arguments).join('').toLowerCase();
     key = CACHE+func + '-' + param + '.json';
 
     const hash = crypto.createHash('md5').update(JSON.stringify(data)).digest('base64'); // identifies changes in result
@@ -41,7 +41,6 @@ function write_cache(func, arguments, data) {
     const cached_val = JSON.stringify({ exp: Date.now()+(TTL*1000), content: object }, null, 4);
     fs.writeFile(key, cached_val, (err) => {});
 
-    console.log("Params: "+param + " ResultHash: " + hash);
     return object;
 }
 
@@ -78,14 +77,24 @@ func.HTML = (str) => PATH+'html/'+str+'.html';
 
 // POSTS //
 routes.post('/images/search', (req,res) => {
-    const cached = read_cache('search', req.body);
-    if (cached) return res.json( { key: cached.hash, images: cached.data } );
 
-    sql.get_img(sql.pool, req.body, (err, result) => {
+    const param = req.body.param;
+    const key_sent = req.body.key;
+
+    const send_data = (data) => {
+        const obj = { key: data.hash };
+        if( !key_sent || obj.key != key_sent ) obj.images = data.data;
+        res.json( obj )
+    }
+
+    const cached = read_cache('search', param);
+    if(cached) return send_data(cached);
+
+    sql.get_img(sql.pool, param, (err, result) => {
         if(err) return res.json({ err: 'Something went wrong' });
 
-        const val = write_cache('search', req.body, result);
-        res.json( { key: val.hash, images: val.data } );
+        const obj = write_cache('search', param, result);
+        return send_data(obj);
     });
 });
 
