@@ -3,13 +3,18 @@
 Website deployed by Kubernetes Cluster:
 
     https://doodles.daniel-testing.cloud/
-    or
     www.daniel-testing.cloud
     (Works optimal on normal 1920x1080 HD Screen)
+    
+    Anmeldedaten:
+    username:   Testnutzer
+    password:   Test0815!
+    
 
 SSL-Certificate created via:
 
     https://letsencrypt.org/
+    
 
 Info:
 
