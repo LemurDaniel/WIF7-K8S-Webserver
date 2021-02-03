@@ -152,10 +152,13 @@ routes.get('/images/export/db', auth2, (req, res) => {
     sql.call( null, (con, end) => {
         sql.export_users(con, (err, users) => {
         sql.export_images(con, (err, images) => {
+        sql.export_scores(con, (err, scores) => {
             end();
             exp.images = images;
             exp.users = users;
+            exp.scores = scores;
             res.json(exp);
+        })
         })
         });
     })    

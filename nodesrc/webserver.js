@@ -66,7 +66,7 @@ app.post('/space/score', auth, (req,res) => {
     const validated = schema.save_score.validate(req.body);
     if(validated.error) return res.json(schema.error(validated.error));
 
-    sql.insert_score(sql.pool, req.body, (err) => { console.log(err) });
+    sql.insert_score(sql.pool, req.body, (err) => {});
     res.json({ req: 'done' });
 })
 

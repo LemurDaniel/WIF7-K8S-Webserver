@@ -282,6 +282,23 @@ func = {};
         })
     }
 
+    func.export_scores = (con, callback) => {
+        con.query('Select * from ' + TABLE_SCORE, (err, res) => {
+            if (err) return callback(err, null);
+
+            let scores = [];
+            res.forEach(row => {
+                scores.push({
+                    user_id: row.user_id,
+                    gamename: row.gamename,
+                    timestamp: row.timestamp,
+                    score: row.score
+                });
+            });
+            callback(null, scores);
+        })
+    }
+
     func.import_users = (con, users, callback) => {
 
         if (!users || users.length == 0) return callback(null);
