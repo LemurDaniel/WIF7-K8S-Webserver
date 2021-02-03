@@ -26,7 +26,7 @@ function setup() {
   delete asteroids;
 
   ship = new Ship(size/2, size/2, radians(-90));
-  asteroids = new Asteriods(10);
+  asteroids = new Asteriods(20);
   gamestate = 'RUNNING';
   score = 0;
 
@@ -263,8 +263,11 @@ function Asteriods(amount) {
     ast = {
       pos: pos,
       direction: direction.setMag(random(this.dmmin, this.dmmax)),
-      vectors: vectors, // offset for drawn vertices
+      angle: 0,
+
       collision_rad: 40, // collision radius from origin of asteroid
+      vectors: vectors, // offset for drawn vertices
+
       array_index: this.freeSpaces.pop(), // current index in asteriods[] array
       alive: 1,  // if dead ==> no collision checking
       garbage: 0, // if gargabe ==> asteroid doesn't get drawn and have free index in array to be replaced by newly spawned asteroid
@@ -311,7 +314,7 @@ function Asteriods(amount) {
         
         push();   
         translate(ast.pos);
-        //rotate(ast.direction.heading());
+        rotate(ast.angle);
         
         noFill();
         stroke(255);
@@ -340,7 +343,8 @@ function Asteriods(amount) {
         
         // move position of asteroid by adding velocity to position vector
         ast.pos.add(ast.direction);
- 
+        ast.angle += ast.direction.heading()*0.005;
+
         // teleport asteroids to other side of screen, when moved OutOfBound
         if(ast.pos.x < -80) ast.pos.x = size+40;
         if(ast.pos.y < -80) ast.pos.y = size+40;
