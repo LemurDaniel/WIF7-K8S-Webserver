@@ -30,7 +30,6 @@ schemas.user_register = joi.object({
         */
 })
 
-
 schemas.user = joi.object({
 
     id: joi.string()
@@ -49,6 +48,12 @@ schemas.user = joi.object({
     iat: joi.number(),
     exp: joi.number()
 
+})
+
+schemas.save_score = joi.object({ 
+    
+    user: schemas.user,
+    score: joi.number()
 })
 
 schemas.image = joi.object({

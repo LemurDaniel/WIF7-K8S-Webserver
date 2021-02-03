@@ -12,13 +12,24 @@ const CON_LIMIT = 15;
 const TABLE_IMG = process.env.SQL_TABLE_NAME;
 const TABLE_ML5 = TABLE_IMG+'_ml5';
 const TABLE_USER = TABLE_IMG+'_user';
+const TABLE_SCORE = TABLE_IMG+'_score';
 const MIN_CONF = 0.05;
+
+const game1 = 'ASTO';
 
 const SQL_CREATE_USER =     'create table '+TABLE_USER+' ( '+
                             'user_id nchar(16) PRIMARY KEY,'+
                             'username nvarchar(50) NOT NULL unique,'+
                             'username_display nvarchar(50) NOT NULL unique,'+
                             'bcrypt BINARY(60) NOT NULL ) ';
+
+const SQL_CREATE_SCORE =    'create table '+TABLE_SCORE+' ( '+
+                            'user_id nchar(16) NOT NULL,'+
+                            'score int NOT NULL, '+
+                            'timestamp nvarchar(64) NOT NULL, '+
+                            'gamename nchar(4) NOT NULL, '+
+                            'FOREIGN KEY(user_id) REFERENCES '+TABLE_USER+'(user_id) ,'+
+                            'CONSTRAINT pk_score PRIMARY KEY (user_id,timestamp) )';
 
 const SQL_CREATE_IMG =      'create table '+TABLE_IMG+' ( '+
                             'img_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,'+
@@ -58,6 +69,10 @@ const SQL_GET_IMG       =   'Select img_path, du.username_display, img_name, ml5
 
 const SQL_DELETE_IMG     =   'Delete From '+TABLE_IMG+' where img_path = ?';
 
+const SQL_INSERT_SCORE  =   'Insert Into '+TABLE_SCORE+
+                            ' (user_id, timestamp, score, gamename) '+
+                            ' Values ( ?, ?, ?, ? )';
+
 const SQL_INSERT_ML5    =   'Insert Into '+TABLE_ML5+
                             ' (img_id, ml5, ml5_confidence) '+
                             ' Values ( ?, ?, ? )';
@@ -88,6 +103,8 @@ func = {};
             else method(con, () => con.release() );
         });
     }
+
+    func.insert_score = (con, body, callback) => con.query(SQL_INSERT_SCORE, [body.user.id, Date.now(), body.score, game1], callback);
 
     func.delete_img = (con, img_path, callback) => con.query(SQL_DELETE_IMG, [img_path], callback);
 
@@ -207,13 +224,14 @@ func = {};
                 return callback();
 
             let i=0;
-            const statements = [SQL_CREATE_USER, SQL_CREATE_IMG, SQL_CREATE_ML5];
+            const statements = [SQL_CREATE_USER, SQL_CREATE_SCORE, SQL_CREATE_IMG, SQL_CREATE_ML5];
             const func = (con, i) => {
                 con.query(statements[i],(error, result) => {
+                    console.log(error)
                     if(error && error.errno != 1050) return console.log(error);
-                    else if(!error && i++ < 2) return func(con, i);
+                    else if( (!error || error.errno == 1050) && i++ < 3) return func(con, i);
 
-                    fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {});
+                    fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {console.log()});
                     callback();
                 })
             }

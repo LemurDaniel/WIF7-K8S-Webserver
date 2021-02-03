@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 // load custom modules
 const sql = require('./modules_private/sql_calls');
+const schema = require('./modules_private/joi_models');
 const { auth, auth2, verify_token, auth_routes } = require('./modules_private/user_auth');
 const { image_routes, helper } = require('./modules_private/image_data');
 const HTML = helper.HTML;
@@ -61,9 +62,18 @@ function check_for_connection() {
 }
 check_for_connection();
 
+app.post('/space/score', auth, (req,res) => {
+    const validated = schema.save_score.validate(req.body);
+    if(validated.error) return res.json(schema.error(validated.error));
+
+    sql.insert_score(sql.pool, req.body, (err) => { console.log(err) });
+    res.json({ req: 'done' });
+})
+
 // GET //
 app.get('/', auth, (req,res) => res.sendFile(HTML('index')));
 app.get('/draw', auth, (req,res) => res.sendFile(HTML('draw')));
+app.get('/space', auth, (req,res) => res.sendFile(HTML('asteriods_game')));
 app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
 app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
 app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
