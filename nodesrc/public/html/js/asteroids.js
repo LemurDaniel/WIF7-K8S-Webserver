@@ -241,9 +241,9 @@ function Asteriods(amount) {
     const vectors = [];
     const radius = random(15, 35);
     for(let angle=0; angle <TWO_PI; angle += TWO_PI/16){
-      const rand = random(0.85, 1.15)
-      const x =  rand * radius * sin(angle);
-      const y = rand * radius * cos(angle);
+      const rand = random(0.8, 1.2)
+      const x =  rand * radius * cos(angle);
+      const y = rand * radius * sin(angle);
       vectors.push(createVector(x, y))
     }
      
