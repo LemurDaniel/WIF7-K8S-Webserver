@@ -26,7 +26,7 @@ function setup() {
   delete asteroids;
 
   ship = new Ship(size/2, size/2, radians(-90));
-  asteroids = new Asteriods(20);
+  asteroids = new Asteriods(50);
   gamestate = 'RUNNING';
   score = 0;
 
@@ -100,6 +100,7 @@ function Ship(x, y, angle) {
   this.pos = createVector(x,y);
   this.magnitude = 5;
   
+
   this.move = function () {
   
     // Steer left and right
@@ -224,6 +225,7 @@ function Asteriods(amount) {
   
   this.asteriods = [];
   this.amount = amount;
+  this.ast_count = 5;
   this.freeSpaces = new Buffer(amount); // stores free indexes in asteriods[]
   
   // Max/Min velocity of asteroids
@@ -231,30 +233,30 @@ function Asteriods(amount) {
   this.dmmin = 0.5;
 
   // enter all indexes of empty asteroids[]
-  for(let i=0; i<amount; i++) { this.freeSpaces.push(i); }
-  
-  // Create a random postion outside of screen
-  this.randomPos = function () {
-    const rand = floor(random(0,4));
-    if(rand == 0) return createVector(random(-50,-20), random(0, size));
-    else if(rand == 1) return createVector(random(size,size+50), random(0, size));
-    else if(rand == 2) return createVector(random(0, size), random(-50,-20));
-    else if(rand == 3) return createVector(random(0, size), random(size,size+50));
-  }
+  for(let i=0; i<this.ast_count; i++) { this.freeSpaces.push(i); }
   
   // Create an asteroid
   this.createAsteroids = function() {
 
-    // generate random offsets for each vertex of one asteroid for slightly differing looks
     const vectors = [];
-    for(let i=0; i <7; i++){
-        vectors.push(p5.Vector.random2D().setMag(random(4,8)));
+    const radius = random(15, 35);
+    for(let angle=0; angle <TWO_PI; angle += TWO_PI/16){
+      const rand = random(0.85, 1.15)
+      const x =  rand * radius * sin(angle);
+      const y = rand * radius * cos(angle);
+      vectors.push(createVector(x, y))
     }
      
-    
-    const pos = this.randomPos(); // get random position vector
+    // create vector at center of screen
+    const pos = createVector(size/2, size/2);
+    // move it at an random angle outside of screen
+    let mag = size/2;
+    while( !vectorOOB(pos, 10) )
+      pos.add( p5.Vector.fromAngle(random(0, TWO_PI)).setMag(mag++)  ); 
+
     // create a velocity vector, that points directly at the current position of the ship
-    const vector_to_ship = ship.pos.copy().sub(pos);
+    const vector_to_ship = p5.Vector.sub(ship.pos, pos);
+    
     // slightly change the previous velocity vetor by an angle, so that all asteriods
     // fly generally into the direction around the ship
     const direction = p5.Vector.fromAngle(vector_to_ship.heading()+ radians(random(-30, 30)) );
@@ -265,7 +267,8 @@ function Asteriods(amount) {
       direction: direction.setMag(random(this.dmmin, this.dmmax)),
       angle: 0,
 
-      collision_rad: 40, // collision radius from origin of asteroid
+      mass: radius*radius*PI,
+      collision_rad: radius, // collision radius from origin of asteroid
       vectors: vectors, // offset for drawn vertices
 
       array_index: this.freeSpaces.pop(), // current index in asteriods[] array
@@ -278,8 +281,9 @@ function Asteriods(amount) {
       wait: 10,
       wait_amount: 10,
       
-      // random modifier for points received by shooting asteroid
-      points_multiplier: random(0.7, 1.4)
+      applyForce: function(force){
+        this.direction.add(force.div(this.mass));
+      }
     }
     
     // add newly created asteroid to asteriods[] array
@@ -318,40 +322,36 @@ function Asteriods(amount) {
         
         noFill();
         stroke(255);
+        strokeWeight(4);
         let v = ast.vectors;
         if(!ast.alive) this.die_anim(ast);
         
-        // draw standard asteroids and apply random offset for differing looks
         beginShape();
-        vertex(-30+v[6].x, -20+v[6].y);
-        vertex(-5+v[0].x, -30+v[0].y);
-        vertex(20+v[1].x, -25+v[1].y);
-        vertex(25+v[2].x, 0+v[2].y);
-        vertex(15+v[3].x, 20+v[3].y);
-        vertex(-5+v[4].x, 25+v[4].y);
-        vertex(-20+v[5].x, 5+v[5].y);
-        vertex(-30+v[6].x, -20+v[6].y);
-        endShape();
+        ast.vectors.forEach(vec => vertex(vec.x, vec.y));
+        endShape(CLOSE);
         
          //draw collision Bounds // for testing
         //circle(0,0, ast.collision_rad) 
         pop();
-        
-        // sometimes asteroids clump togehter an stop moving
-        // if asteroid doesn't move, increase his velocity vector
-        if(ast.direction.mag() < this.dmmin) ast.direction.setMag(this.dmmin, this.dmmax);
+    
         
         // move position of asteroid by adding velocity to position vector
         ast.pos.add(ast.direction);
         ast.angle += ast.direction.heading()*0.005;
 
         // teleport asteroids to other side of screen, when moved OutOfBound
-        if(ast.pos.x < -80) ast.pos.x = size+40;
-        if(ast.pos.y < -80) ast.pos.y = size+40;
-        if(ast.pos.x > size+80) ast.pos.x = -40;
-        if(ast.pos.y > size+80) ast.pos.y = -40;
+        const m = 10;
+        if(ast.pos.x < -ast.collision_rad-m) ast.pos.x = size+ast.collision_rad+m;
+        if(ast.pos.y < -ast.collision_rad-m) ast.pos.y = size+ast.collision_rad+m;
+        if(ast.pos.x > size+ast.collision_rad+m) ast.pos.x = -ast.collision_rad-m;
+        if(ast.pos.y > size+ast.collision_rad+m) ast.pos.y = -ast.collision_rad-m;
       }
     
+      // increase maximum asteroids with icreasing score
+      if(this.ast_count < this.amount && score > this.ast_count * 100) {
+        this.freeSpaces.push(++this.ast_count); 
+      }
+
       // Check if their are freeSpaces in array and create a new asteroid every second
       // only create a new one every second, so that not all new ones get created instantly
       if(!this.freeSpaces.isEmpty() && frameCount % 60 == 0) 
@@ -398,7 +398,7 @@ function Asteriods(amount) {
           // mark asteroid an bullet as dead and increase highscore
           ast.alive = 0;
           bullet.alive = 0;
-          score += round(shot_points*ast.points_multiplier);
+          score += round(shot_points*ast.collision_rad*0.15);
         }
       }
   }
@@ -415,17 +415,25 @@ function Asteriods(amount) {
       // skip invalid entries, dead asteroids and collision testing of asteroid against itself
       if( i == ast.array_index ) continue; 
       if(!ast2 || ast2 == 0 || !ast2.alive) continue;  
-        
-      // calculate distance between asteroid1 and asteroid2
-      const dist = ast.pos.dist(ast2.pos);
       
       // if distance is smaller thant collision radius then asteroids have collided
-      if(dist < ast.collision_rad*1.1) {
-        // switch slightly modifed velocity vectory of both asteroids
-        const temp = ast.direction.copy().setMag(ast.direction.mag()*0.9);
-        const temp2 = ast2.direction.copy().setMag(ast2.direction.mag()*0.9);
-        ast.direction.set(temp2);
-        ast2.direction.set(temp);
+      if(ast.pos.dist(ast2.pos) < ast.collision_rad + ast2.collision_rad) {
+        const temp = ast.direction.copy();
+        const temp2 = ast2.direction.copy();
+        ast.direction.set(0);
+        ast2.direction.set(0)
+        ast.applyForce( temp2.mult(ast2.mass).mult(0.9) );
+        ast2.applyForce( temp.mult(ast.mass).mult(0.9) );
+        
+        //move by one frame
+        ast2.pos.add(ast2.direction);
+        ast.pos.add(ast.direction);
+        
+        // if still colliding create two vectors opposite to each other
+        if(ast.pos.dist(ast2.pos) < ast.collision_rad + ast2.collision_rad) {
+          ast.direction = p5.Vector.random2D().setMag(random(this.dmmin, this.dmmax));
+          ast2.direction = ast.direction.copy().mult(-1);
+        }
           
       }
     }
