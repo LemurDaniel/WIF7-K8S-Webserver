@@ -250,16 +250,18 @@ function Asteriods(amount) {
     // create vector at center of screen
     const pos = createVector(size/2, size/2);
     // move it at an random angle outside of screen
-    let mag = size/2;
-    while( !vectorOOB(pos, 10) )
-      pos.add( p5.Vector.fromAngle(random(0, TWO_PI)).setMag(mag++)  ); 
+    const rand_vec = p5.Vector.fromAngle(random(0, TWO_PI));
+    let mag = size / 2;
+    while( !vectorOOB(p5.Vector.add(pos, rand_vec), radius) ) 
+      rand_vec.setMag(mag++);
+    pos.add(rand_vec);
 
     // create a velocity vector, that points directly at the current position of the ship
     const vector_to_ship = p5.Vector.sub(ship.pos, pos);
     
     // slightly change the previous velocity vetor by an angle, so that all asteriods
     // fly generally into the direction around the ship
-    const direction = p5.Vector.fromAngle(vector_to_ship.heading()+ radians(random(-30, 30)) );
+    const direction = p5.Vector.fromAngle(vector_to_ship.heading()+ radians(random(-5, 5)) );
 
     // create an asteroid object
     ast = {
@@ -348,7 +350,7 @@ function Asteriods(amount) {
       }
     
       // increase maximum asteroids with icreasing score
-      if(this.ast_count < this.amount && score > this.ast_count * 100) {
+      if(this.ast_count < this.amount && score > this.ast_count * 200) {
         this.freeSpaces.push(++this.ast_count); 
       }
 
