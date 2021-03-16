@@ -55,19 +55,29 @@ var translation;
 
 // ML5 Functions
 function ml5_gotResults(err, results) {
-    if(err){
-        $('body').append(err);
-        return;
+
+    if(err) {
+        ml5_predictions = [ 
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: '-', confidence: 0.9999 },
+        { label: 'Classifier is', confidence: 0.9999 },
+        { label: 'currently', confidence: 0.9999 },
+        { label: 'unavailable', confidence: 0.9999 } 
+        ]
+    }else {
+        ml5_predictions = results;
+        Translate_Data();
     }
 
-    ml5_predictions = results;
-    let html_id = '#ml5_DoodleNet';
-
-    Translate_Data();
-
+    const html_id = '#ml5_DoodleNet';
     $(html_id + ' ol ').remove();
     $(html_id).append('<ol></ol>');
-    results.forEach(element => {
+    ml5_predictions.forEach(element => {
         let conf = Math.round(element.confidence*100);
         $(html_id + ' ol ').append('<li>('+conf+'%) '+element.label+'</li>');
     });
