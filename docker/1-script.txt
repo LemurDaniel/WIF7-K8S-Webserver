@@ -1,6 +1,22 @@
 
-   //// Generate Self-signed SSL /////
+     ///// Build dockerfile /////
 
+1. Build from Parentdirectory: ./ or else dockerfile can't copy content of Parentdirectory
+
+    docker build -t node-webserver:dev -f ./docker/df-webserver .
+    docker build -t node-webserver:dev-bsync -f ./docker/df-bsync .
+
+    docker build -t daniellandau1998/node-webserver:dev -f ./docker/df-webserver .
+    docker build -t daniellandau1998/node-webserver:k8s -f ./docker/df-webserver-k8s . 
+
+2. Run docker-compose:
+  
+     docker-compose -f ./docker/dc-web-db.yaml up
+
+
+
+
+   //// Generate Self-signed SSL /////
 
 1. Create docker image with openssl installed 
 

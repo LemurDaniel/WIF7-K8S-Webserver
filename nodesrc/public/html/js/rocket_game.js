@@ -1,4 +1,6 @@
-
+//    Based on this free Tutorial: https://phaser.io/tutorials/making-your-first-phaser-3-game/part1
+//    Rocket-sprite: https://www.kindpng.com/imgv/hwimxwh_cartoon-rocket-png-cartoon-transparent-transparent-background-rocket/
+//    Not Finished
 
 var config = {
     type: Phaser.AUTO,
@@ -20,16 +22,13 @@ var config = {
 };
 
 var player;
-var weapon;
-
 var stars;
-var bombs;
-var platforms;
 var cursors;
+
 var score = 0;
-var gameOver = false;
 var scoreText;
 var heightText;
+var gameOver = false;
 
 var background;
 
@@ -50,46 +49,35 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('sky', 'assets/game/sky.png');
-    this.load.image('ground', 'assets/game/platform.png');
     this.load.image('star', 'assets/game/star.png');
-    this.load.image('bomb', 'assets/game/bomb.png');
     this.load.spritesheet('rocket', 'assets/game/rocket.png', { frameWidth: 57, frameHeight: 120 });
-    this.load.image('segment1', 'assets/game/segment1.jpg');
-    this.load.image('segment2', 'assets/game/segment2.jpg');
-    this.load.image('segment3', 'assets/game/segment3.jpg');
+    this.load.image('background', 'assets/game/background.jpg');
 }
 
 function create ()
 {
-    //  A simple background for our game --4700 - 4100  - 6800
-    background = this.add.image(0, -5770, 'segment1');
+    //  --4700 - 4100  - 6800
+    background = this.add.image(0, -5770, 'background');
    
-    bombs = this.physics.add.group();
     stars = this.physics.add.group();
-
     player = this.physics.add.sprite(config.width/2, config.height, 'rocket', 0);
     player.body.allowGravity = false
-    //weapon = game.add.weapon;
-
-    //  Player physics properties. Give the little guy a slight bounce.
-    player.setBounce(0.01);
     player.setCollideWorldBounds(true);
+    player.setBounce(0.01);
+
+    this.physics.add.overlap(player, stars, collectStar, null, this);
 
     cursors = this.input.keyboard.createCursorKeys();
     scoreText = this.add.text(16, 16, 'Score:  ' + score + ' Points', { fontSize: '32px', fill: '#ffffff' });
     heightText = this.add.text(16, 48, 'Height: 0 Km', { fontSize: '32px', fill: '#ffffff' });
-    this.physics.add.collider(player, bombs, hitBomb, null, this);
-    this.physics.add.overlap(player, stars, collectStar, null, this);
-    //anims
+
+
     this.anims.create({
       key: 'launch',
       frames: this.anims.generateFrameNumbers('rocket', { start: 0, end: 1 }),
       frameRate: 15,
       repeat: 6
     });
-
-
 }
 
 var isLaunched = false;
@@ -116,7 +104,6 @@ function ground ()
           isFlying = true;
         }
     } 
-    //generateStars(1);
 }
 
 function flying () {
@@ -137,8 +124,6 @@ function flying () {
 
   if(height >= 0 && Phaser.Math.Between(0, chanceOfStar) == chanceOfStar) generateStars(1);
 
-
-  //if(Phaser.Math.Between(0, 200) == 50) generateStars(1);
   if(height % KmPerPoint == 0) score += pointsPerKm;
   heightText.setText('Height: ' + height + ' km');
   scoreText.setText('Score:  ' + score + ' Points');
@@ -168,35 +153,4 @@ function collectStar (player, star)
 {
     star.disableBody(true, true);
     score += (pointsPerStar * star.scaleInfo);
-    
-    return;
-    if (stars.countActive(true) === 0)
-    {
-        //  A new batch of stars to collect
-        stars.children.iterate(function (child) {
-
-            child.enableBody(true, child.x, 0, true, true);
-
-        });
-
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-        var bomb = bombs.create(x, 16, 'bomb');
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = false;
-
-    }
-}
-
-function hitBomb (player, bomb)
-{
-    this.physics.pause();
-
-    player.setTint(0xff0000);
-
-    //player.anims.play('turn');
-
-    gameOver = true;
 }
