@@ -211,7 +211,7 @@ routes.get('/images/export/data', auth2, (req, res) => {
 
     const data = [];
     fs.readdirSync(DOODLES).forEach(file => {
-        if(file.includes('.info')) return;
+        if(file.includes('.info') || file == 'cache') return;
         const base64 = fs.readFileSync(DOODLES+file, 'base64');
         data.push( { img_path: file, img_data: base64 } );
     });
