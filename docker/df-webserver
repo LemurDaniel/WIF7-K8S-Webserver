@@ -2,7 +2,7 @@ FROM node:alpine3.12
 
 WORKDIR /var/project
 
-COPY package.json .
+COPY ./nodesrc/package.json .
 
 RUN npm install
 

@@ -1,29 +1,28 @@
 # WIF7-K8S-Webserver-Project
 
-Website deployed by Kubernetes Cluster:
+<br>
 
-    https://doodles.daniel-testing.cloud/
-    www.daniel-testing.cloud
-    (Works optimal on normal 1920x1080 HD Screen)
-    
-    Anmeldedaten:
-    username:   Testnutzer
-    password:   Test0815!
-    
+### Website deployed by Kubernetes Cluster:
 
-SSL-Certificate created via:
+- https://doodles.daniel-testing.cloud/
+- [www.daniel-testing.cloud](https://www.daniel-testing.cloud)
 
-    https://letsencrypt.org/
-    
+<br>
 
-Info:
+### Info:  
+- SSL-Certificate created via **[letsencrypt](https://letsencrypt.org/)**
+- All passwords and certificates saved in './k8s-azure/config' have been replaced by new ones in the live system.
 
-    All passwords and certificates saved in ./k8s-azure/config 
-    have been replaced by new ones  in the live system.
-  
+<br>
 
-Read Access on Azure resources:
+### Anmeldedaten:
+|Username|Password|
+|--------|--------|
+|*Testnutzer*|*Test0815!*|
 
-    azure: https://portal.azure.com/
-    username: Read-access@daniellandau.onmicrosoft.com
-    password: (eA9(4{{p8Hhs77hVOfAX>Z03BGdI0jNd-m}oVl_{5mU38G_
+<br>
+
+### Read Access on [Azure](https://portal.azure.com/) resources:
+|Username|Password|
+|--------|--------|
+|*Read-access@daniellandau.onmicrosoft.com*|*(eA9(4{{p8Hhs77hVOfAX>Z03BGdI0jNd-m}oVl_{5mU38G_*|

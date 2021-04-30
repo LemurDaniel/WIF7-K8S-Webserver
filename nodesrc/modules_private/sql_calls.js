@@ -1,4 +1,4 @@
-const mysql = require('mysql'); //https://github.com/mysqljs/mysql#pooling-connections
+const mysql = require('mysql');
 const fs = require('fs');
 
 const SQL_HOST = process.env.SQL_HOST;
@@ -46,9 +46,6 @@ const SQL_CREATE_ML5 =      'create table '+TABLE_ML5+' ( '+
 	                        'ml5 nvarchar(25), '+
 	                        'ml5_confidence Decimal(20,19), '+
                             'FOREIGN KEY(img_id) REFERENCES '+TABLE_IMG+'(img_id) ) ';
-
-
-const SQL_IS_UNIQUE =       'Select img_id From '+TABLE_IMG+' where img_path = ?';
 
 const SQL_INSERT_IMG =      'Insert Into  '+TABLE_IMG+
                             ' (img_path, img_name, user_id, ml5_bestfit, ml5_bestfit_conf, ml5) '+
@@ -120,7 +117,6 @@ func = {};
             callback);
     }
 
-
     func.update_img = (con, body, callback) => {
     
         con.query(SQL_UPDATE_IMG, 
@@ -131,14 +127,6 @@ func = {};
             body.img_path,
             body.user.id], 
             callback);
-    }
-
-    /* Obsolete */
-    func.is_unique_path = (con, img_path, callback) => {
-
-        con.query(SQL_IS_UNIQUE, [img_path], function (error, result, fields) {
-            callback(error, (result.length === 0));
-        });
     }
 
     func.get_img = (con, params, callback) => {
@@ -218,24 +206,23 @@ func = {};
     
         func.call(error_callback, (con, end) => {
 
-            // Todo check for databases via SQL and create if not existent
-            // Check for file indicating initialization
-            if (fs.existsSync(doodles_path+TABLE_IMG+'_EXISTS.info'))
-                return callback();
+            // Check for file indicating that tables have been initialized
+            if (fs.existsSync(doodles_path+TABLE_IMG+'_EXISTS.info')) return callback();
 
-            let i=0;
+            // iterate through all statements to create tables in order
+            // one big statement with several 'create tables' kept causing errors
             const statements = [SQL_CREATE_USER, SQL_CREATE_SCORE, SQL_CREATE_IMG, SQL_CREATE_ML5];
             const func = (con, i) => {
                 con.query(statements[i],(error, result) => {
                     console.log(error)
                     if(error && error.errno != 1050) return console.log(error);
-                    else if( (!error || error.errno == 1050) && i++ < 3) return func(con, i);
+                    else if( (!error || error.errno == 1050) && i + 1 < 3) return func(con, i + 1);
 
                     fs.writeFile(doodles_path+TABLE_IMG+'_EXISTS.info', '', (err) => {console.log()});
                     callback();
                 })
             }
-            func(con, i);
+            func(con, 0);
         });
     }
 

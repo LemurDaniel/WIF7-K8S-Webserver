@@ -16,8 +16,8 @@ kubectl delete -f ./k8s-local/config/k8s-app-config.yaml
 #   / cert and key from file /
 
     kubectl create secret generic ssl.cert.data `
-             --from-file=./docker/gen-certs/ssl.cert.pem `
-             --from-file=./docker/gen-certs/ssl.key.pem `
+             --from-file=./k8s-local/config/certs/ssl.cert.pem `
+             --from-file=./k8s-local/config/certs/ssl.key.pem `
              --namespace=$doodles_namespace
 #
 #
@@ -26,8 +26,8 @@ kubectl delete -f ./k8s-local/config/k8s-app-config.yaml
 #    / private + public key from file /
 
     kubectl create secret generic jwt.rsa.data `
-             --from-file=./docker/gen-certs/jwt.private.pem `
-             --from-file=./docker/gen-certs/jwt.public.pem `
+             --from-file=./k8s-local/config/certs/jwt.private.pem `
+             --from-file=./k8s-local/config/certs/jwt.public.pem `
              --namespace=$doodles_namespace
             
 #

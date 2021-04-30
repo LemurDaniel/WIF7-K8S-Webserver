@@ -5,8 +5,7 @@ metadata:
   namespace: doodles-ns
 data:
 
-  # Port on which webserver listen
-  # no value defaults to 80 or 443k
+  # Port on which webserver listen. No value defaults to 80 or 443
   # PORT: 
 
   # dns and port of the Database
@@ -21,5 +20,6 @@ data:
 
   # Enables https
   HTTPS_ENABLE: 'true'
+
   # Enables encryption of the JWT-tokens
   JWT_ENCRYPTION_ENABLE: 'true'

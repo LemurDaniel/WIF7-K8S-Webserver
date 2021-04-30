@@ -62,6 +62,8 @@ function check_for_connection() {
 }
 check_for_connection();
 
+
+
 app.post('/space/score', auth, (req,res) => {
     const validated = schema.save_score.validate(req.body);
     if(validated.error) return res.json(schema.error(validated.error));
@@ -80,28 +82,29 @@ app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
 app.get('/draw/gallery', auth, (req, res) => res.sendFile(HTML('gallery')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 
-// Only for testing //
-app.get('/info', auth2, (req,res) =>  res.json(process.env) );
-
+// load template html file as string
 const authorized_html = fs.readFileSync(HTML('authorized'), 'utf-8'); 
 app.get('/user', (req,res) => {
     
     // if not verifed direct to login page
     if(!verify_token(req)) return res.sendFile(HTML('authorize'));
 
-    // if loggend in, show some info
+    // if loggend in then show some info about the node.js version, current username and containername / k8s podname
+    // by replacing strings in template with said values.
     let html = authorized_html.replace('%0', req.body.user.username_display);
     html = html.replace('%1', process.env.HOSTNAME);
     html = html.replace('%2', process.env.NODE_VERSION);
     res.send(html);
 });
 
+// Only for testing, shows all certificates, passwords and other environment variables//
+app.get('/info', auth2, (req,res) =>  res.json(process.env) );
 
-// Catch 404 and send 404 page //
+// Catch 404's and send user to the 404 page //
 app.use((req, res, next) => res.status(404).sendFile(HTML('codepen_template/404')));
 
 
-// if https enabled, create a second http server that automatically redirects all traffic to https //
+// if https is enabled then create a second http server that automatically redirects all traffic to https //
 if(HTTPS_ENABLE) {
     const app_http = express();
     const http_server = http.createServer(app_http);
