@@ -1,0 +1,14 @@
+Sources for vpd
+
+azure-disc					==> Screenshot - Azure Portal + Edit
+
+azure-storage				==> Screenshot - Azure Portal + Edit
+
+azure-dns					==> Screenshot - Azure Portal + Edit
+
+azure-fileshare				==> Screenshot - Azure Portal + Edit
+
+azure-lb					==> Screenshot - Azure Portal + Edit
+
+Server-rack					==>	https://icon-icons.com/de/symbol/Server-rack/101509
+Server-rack-white			==> Edit

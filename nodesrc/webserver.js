@@ -78,7 +78,6 @@ app.get('/draw', auth, (req,res) => res.sendFile(HTML('draw')));
 app.get('/space', auth, (req,res) => res.sendFile(HTML('asteriods_game')));
 app.get('/credits', (req,res) =>  res.sendFile(HTML('credits')));
 app.get('/rocket', auth, (req,res) => res.sendFile(HTML('rocket_game')));
-app.get('/tictactoe', auth, (req,res) => res.sendFile(HTML('tictactoe')));
 app.get('/draw/gallery', auth, (req, res) => res.sendFile(HTML('gallery')));
 app.get('/translation', auth, (req,res) => res.sendFile(helper.TRANSLATION));
 

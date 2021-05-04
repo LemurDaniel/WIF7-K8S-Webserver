@@ -1,0 +1,615 @@
+{
+    "images": [
+        {
+            "img_id": 1,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "38957504d9e2b6aa.png",
+            "img_name": "Ein Blitz",
+            "ml5_bestfit": "Blitz",
+            "ml5_bestfit_conf": 0.9658942222595215,
+            "ml5": "[{\"label\":\"Blitz\",\"confidence\":0.9658942222595215},{\"label\":\"Schnoerkel\",\"confidence\":0.012562108226120472},{\"label\":\"Zickzack\",\"confidence\":0.0065292068757116795},{\"label\":\"Hurrikan\",\"confidence\":0.004237303510308266},{\"label\":\"Tornado\",\"confidence\":0.0037132110446691513},{\"label\":\"Feder\",\"confidence\":0.0017312548588961363},{\"label\":\"Spritze\",\"confidence\":0.001605092897079885},{\"label\":\"Meerjungfrau\",\"confidence\":0.0005172225646674633},{\"label\":\"Fluss\",\"confidence\":0.00018971871759276837},{\"label\":\"Yoga\",\"confidence\":0.00018860609270632267}]"
+        },
+        {
+            "img_id": 2,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "7112d042a16fe112.png",
+            "img_name": "Mona Lisa",
+            "ml5_bestfit": "Mona Lisa",
+            "ml5_bestfit_conf": 0.9772739410400391,
+            "ml5": "[{\"label\":\"Mona_Lisa\",\"confidence\":0.9772739410400391},{\"label\":\"Kommode\",\"confidence\":0.005375720094889402},{\"label\":\"Eule\",\"confidence\":0.002738814102485776},{\"label\":\"Tarnung\",\"confidence\":0.0022942202631384134},{\"label\":\"Pullover\",\"confidence\":0.0011353222653269768},{\"label\":\"Wolkenkratzer\",\"confidence\":0.0011329142143949866},{\"label\":\"Kamin\",\"confidence\":0.0010690263006836176},{\"label\":\"Jacke\",\"confidence\":0.0006844614399597049},{\"label\":\"Unterwäsche\",\"confidence\":0.0005997282569296658},{\"label\":\"Chinesische_Mauer\",\"confidence\":0.0005635494599118829}]"
+        },
+        {
+            "img_id": 3,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "f0db573fca155967.png",
+            "img_name": "Snowbuddy",
+            "ml5_bestfit": "Schneemann",
+            "ml5_bestfit_conf": 0.9862820506095886,
+            "ml5": "[{\"label\":\"Schneemann\",\"confidence\":0.9862820506095886},{\"label\":\"Katze\",\"confidence\":0.002162649529054761},{\"label\":\"Baer\",\"confidence\":0.0011292306007817388},{\"label\":\"Schnurrbart\",\"confidence\":0.0009346009464934468},{\"label\":\"Engel\",\"confidence\":0.0008749805856496096},{\"label\":\"Vogel\",\"confidence\":0.0008416479686275125},{\"label\":\"Affe\",\"confidence\":0.0006816472159698606},{\"label\":\"Waschbaer\",\"confidence\":0.0005596338305622339},{\"label\":\"Frosch\",\"confidence\":0.0005590614746324718},{\"label\":\"Panda\",\"confidence\":0.0005489149480126798}]"
+        },
+        {
+            "img_id": 4,
+            "user_id": "c1a1a2a4d09a449b",
+            "img_path": "802dc850b5802210.png",
+            "img_name": "Snowman",
+            "ml5_bestfit": "Lagerfeuer",
+            "ml5_bestfit_conf": 0.3623073995113373,
+            "ml5": "[{\"label\":\"Lagerfeuer\",\"confidence\":0.3623073995113373},{\"label\":\"Engel\",\"confidence\":0.06081429496407509},{\"label\":\"Kaenguru\",\"confidence\":0.052046433091163635},{\"label\":\"Bohrer\",\"confidence\":0.04253358393907547},{\"label\":\"Leuchtturm\",\"confidence\":0.02557210624217987},{\"label\":\"Kamin\",\"confidence\":0.017402283847332},{\"label\":\"Filzstift\",\"confidence\":0.01724504493176937},{\"label\":\"Hubschrauber\",\"confidence\":0.013742970302700996},{\"label\":\"Deckenventilator\",\"confidence\":0.013643275946378708},{\"label\":\"Verband\",\"confidence\":0.013314441777765751}]"
+        },
+        {
+            "img_id": 8,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "af6acf8f41941208.png",
+            "img_name": "Hund",
+            "ml5_bestfit": "Hund",
+            "ml5_bestfit_conf": 0.20135855674743652,
+            "ml5": "[{\"label\":\"Hund\",\"confidence\":0.20135855674743652},{\"label\":\"Katze\",\"confidence\":0.1581420749425888},{\"label\":\"Ente\",\"confidence\":0.14806661009788513},{\"label\":\"Kuh\",\"confidence\":0.14245912432670593},{\"label\":\"Vogel\",\"confidence\":0.045354850590229034},{\"label\":\"Pferd\",\"confidence\":0.04148394986987114},{\"label\":\"Nashorn\",\"confidence\":0.03675053268671036},{\"label\":\"Drachen\",\"confidence\":0.025465894490480423},{\"label\":\"Maus\",\"confidence\":0.024902040138840675},{\"label\":\"Hummer\",\"confidence\":0.022482171654701233}]"
+        },
+        {
+            "img_id": 15,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "4826ddbb3894d78e.png",
+            "img_name": "Panda",
+            "ml5_bestfit": "Panda",
+            "ml5_bestfit_conf": 0.6713516116142273,
+            "ml5": "[{\"label\":\"Panda\",\"confidence\":0.6713516116142273},{\"label\":\"Tarnung\",\"confidence\":0.047503553330898285},{\"label\":\"Schafe\",\"confidence\":0.044892460107803345},{\"label\":\"Loewe\",\"confidence\":0.0440685972571373},{\"label\":\"Kuh\",\"confidence\":0.02449541538953781},{\"label\":\"Eule\",\"confidence\":0.02072302997112274},{\"label\":\"Fussball\",\"confidence\":0.017472723498940468},{\"label\":\"Igel\",\"confidence\":0.015453755855560303},{\"label\":\"Hund\",\"confidence\":0.011274765245616436},{\"label\":\"Waschbaer\",\"confidence\":0.01072303019464016}]"
+        },
+        {
+            "img_id": 16,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "c65d8b47d8bcc164.png",
+            "img_name": "My Diamonds",
+            "ml5_bestfit": "Diamant",
+            "ml5_bestfit_conf": 0.8408181667327881,
+            "ml5": "[{\"label\":\"Diamant\",\"confidence\":0.8408181667327881},{\"label\":\"Pizza\",\"confidence\":0.07690516859292984},{\"label\":\"Erdbeere\",\"confidence\":0.024140620604157448},{\"label\":\"Verband\",\"confidence\":0.009284406900405884},{\"label\":\"Fallschirm\",\"confidence\":0.005837761797010899},{\"label\":\"Bohrer\",\"confidence\":0.005808933172374964},{\"label\":\"Eiscreme\",\"confidence\":0.005668249912559986},{\"label\":\"Sechseck\",\"confidence\":0.002223153365775943},{\"label\":\"Kalender\",\"confidence\":0.0022022982593625784},{\"label\":\"Kaktus\",\"confidence\":0.0020593609660863876}]"
+        },
+        {
+            "img_id": 17,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "4fe0f6cd74e4bbc3.png",
+            "img_name": "Blitz",
+            "ml5_bestfit": "Blitz",
+            "ml5_bestfit_conf": 0.342389315366745,
+            "ml5": "[{\"label\":\"Blitz\",\"confidence\":0.342389315366745},{\"label\":\"Bohrer\",\"confidence\":0.2130490094423294},{\"label\":\"Saege\",\"confidence\":0.054873641580343246},{\"label\":\"Karotte\",\"confidence\":0.05173192173242569},{\"label\":\"Pizza\",\"confidence\":0.03502517193555832},{\"label\":\"Krokodil\",\"confidence\":0.03133820742368698},{\"label\":\"Drachen\",\"confidence\":0.02790328487753868},{\"label\":\"Fluss\",\"confidence\":0.020324062556028366},{\"label\":\"Spritze\",\"confidence\":0.017310582101345062},{\"label\":\"Fallschirm\",\"confidence\":0.01549172680824995}]"
+        },
+        {
+            "img_id": 18,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "addc42001926fbb2.png",
+            "img_name": "Brief",
+            "ml5_bestfit": "Postkarte",
+            "ml5_bestfit_conf": 0.7400160431861877,
+            "ml5": "[{\"label\":\"Postkarte\",\"confidence\":0.7400160431861877},{\"label\":\"Umschlag\",\"confidence\":0.12413877993822098},{\"label\":\"Pool\",\"confidence\":0.062467895448207855},{\"label\":\"Karte\",\"confidence\":0.03538484498858452},{\"label\":\"Whirlpool\",\"confidence\":0.011304420419037342},{\"label\":\"Farbeimer\",\"confidence\":0.007566988468170166},{\"label\":\"Herd\",\"confidence\":0.0029780608601868153},{\"label\":\"Badewanne\",\"confidence\":0.002130280015990138},{\"label\":\"Kuehler\",\"confidence\":0.0020786398090422153},{\"label\":\"Pass\",\"confidence\":0.0013576163910329342}]"
+        },
+        {
+            "img_id": 19,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "27c2317b5309ef24.png",
+            "img_name": "Haus",
+            "ml5_bestfit": "Haus",
+            "ml5_bestfit_conf": 0.7275511026382446,
+            "ml5": "[{\"label\":\"Haus\",\"confidence\":0.7275511026382446},{\"label\":\"Scheune\",\"confidence\":0.21193166077136993},{\"label\":\"Kirche\",\"confidence\":0.036373600363731384},{\"label\":\"Krankenhaus\",\"confidence\":0.021675391122698784},{\"label\":\"Burg\",\"confidence\":0.0015728950966149569},{\"label\":\"Ofen\",\"confidence\":0.00020110713376197964},{\"label\":\"Leuchtturm\",\"confidence\":0.00015649033593945205},{\"label\":\"Gartenschlauch\",\"confidence\":0.0001171174444607459},{\"label\":\"Herd\",\"confidence\":0.00009628450789023191},{\"label\":\"Laterne\",\"confidence\":0.000050867151003330946}]"
+        }
+    ],
+    "users": [
+        {
+            "user_id": "1d109757c78757e5",
+            "username": "testnutzer",
+            "username_display": "Test Nutzer",
+            "bcrypt": "$2b$10$h1Cj2Mll0k3J2DBTlrN0kuzTsdKSWPkcKbP0T.Gm0W6oJqoOWYk4i"
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "username": "landau.d",
+            "username_display": "Daniel L",
+            "bcrypt": "$2b$10$YULgxuHdY6cJDYkg7AGXDOq9PPOKt9FYa6psK5ehEruSyGexOS4hK"
+        },
+        {
+            "user_id": "50473df53ef0cf71",
+            "username": "d.landau",
+            "username_display": "Daniel Landau",
+            "bcrypt": "$2b$10$OVC12J64y0d7JijJ.ghes.q6yWmZAETrLkBuQE2N12GKoCrA8CKju"
+        },
+        {
+            "user_id": "9a9a08ca0add1612",
+            "username": "blabla",
+            "username_display": "Test A",
+            "bcrypt": "$2b$10$fM7F4qPy3v64xL7Hd2MB..1gGOXXYoYtHsm3r0Nw0TJ8OyRpyZy3O"
+        },
+        {
+            "user_id": "b589751177ea2a9c",
+            "username": "testuser2",
+            "username_display": "Test user2",
+            "bcrypt": "$2b$10$VjgvXetLuDfghg0xfqtboeq/j3gj1/BReuru1lp4haEdI7LnzpOYO"
+        },
+        {
+            "user_id": "c1a1a2a4d09a449b",
+            "username": "alicia.landau",
+            "username_display": "Alicia Landau",
+            "bcrypt": "$2b$10$sM52rj53ybLIoiZ//QfF9uduX6xrgmK3lbvDOU7Wz2pzc6abnOEAG"
+        }
+
+    ],
+    "scores": [
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364552411",
+            "score": 45
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364584065",
+            "score": 10
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364628630",
+            "score": 287
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364648433",
+            "score": 122
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364711712",
+            "score": 115
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364876437",
+            "score": 5
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612364970520",
+            "score": 667
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365128788",
+            "score": 22
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365244077",
+            "score": 149
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365303356",
+            "score": 905
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365526279",
+            "score": 70
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365617378",
+            "score": 676
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612365934831",
+            "score": 197
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612366081073",
+            "score": 266
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612366254322",
+            "score": 2007
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612367238886",
+            "score": 147
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612367777028",
+            "score": 22
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612367862041",
+            "score": 1563
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612368543853",
+            "score": 21
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612368562076",
+            "score": 28
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612368586133",
+            "score": 313
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374737551",
+            "score": 90
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374764354",
+            "score": 320
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374766611",
+            "score": 2
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374778236",
+            "score": 10
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374782616",
+            "score": 4
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374784373",
+            "score": 1
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612374816481",
+            "score": 332
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612381238525",
+            "score": 96
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612381509223",
+            "score": 3294
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612392332039",
+            "score": 1409
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612393332111",
+            "score": 52
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612393403867",
+            "score": 140
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612393469754",
+            "score": 413
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612393506238",
+            "score": 268
+        },
+        {
+            "user_id": "1d109757c78757e5",
+            "gamename": "ASTO",
+            "timestamp": "1612393562482",
+            "score": 338
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434406858",
+            "score": 723
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434419349",
+            "score": 74
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434492934",
+            "score": 544
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434529135",
+            "score": 110
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434572362",
+            "score": 290
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612434622386",
+            "score": 507
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612547494521",
+            "score": 35
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612547551933",
+            "score": 887
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612613693787",
+            "score": 1769
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612614144753",
+            "score": 6405
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612614245738",
+            "score": 2078
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612615857363",
+            "score": 1203
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612615985700",
+            "score": 585
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612616083358",
+            "score": 904
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612616143570",
+            "score": 59
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612620931164",
+            "score": 4041
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623016240",
+            "score": 1671
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623054931",
+            "score": 11
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623070271",
+            "score": 11
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623096844",
+            "score": 25
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623594021",
+            "score": 405
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612623640251",
+            "score": 45
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612641417269",
+            "score": 825
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612650230025",
+            "score": 3626
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612656018584",
+            "score": 2557
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612656067117",
+            "score": 1292
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612656296096",
+            "score": 10805
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612706479805",
+            "score": 172
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612706510897",
+            "score": 501
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612706565512",
+            "score": 776
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612706573287",
+            "score": 6
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612721259689",
+            "score": 2694
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612816698973",
+            "score": 4205
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1612979541706",
+            "score": 2779
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1614889587632",
+            "score": 249
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1615416465991",
+            "score": 3336
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1616817419355",
+            "score": 2866
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1616817768181",
+            "score": 25038
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1617132225347",
+            "score": 3011
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1617134284565",
+            "score": 462
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1617134467642",
+            "score": 1196
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1617918835571",
+            "score": 65
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1619123385834",
+            "score": 1217
+        },
+        {
+            "user_id": "24ade77ac69409a7",
+            "gamename": "ASTO",
+            "timestamp": "1619808465702",
+            "score": 73
+        }
+    ]
+}
