@@ -4,8 +4,8 @@
 
 ### Website deployed by Kubernetes Cluster:
 
-- https://doodles.daniel-testing.cloud/
-- [www.daniel-testing.cloud](https://www.daniel-testing.cloud)
+- ~~https://doodles.daniel-testing.cloud/~~
+- ~~[www.daniel-testing.cloud](https://www.daniel-testing.cloud)~~
 
 <br>
 
@@ -18,14 +18,14 @@
 ### Anmeldedaten:
 |Username|Password|
 |--------|--------|
-|*Testnutzer*|*Test0815!*|
+|~~*Testnutzer*~~|~~*Test0815!*~~|
 
 <br>
 
 ### Read Access on [Azure](https://portal.azure.com/) resources:
 |Username|Password|
 |--------|--------|
-|*Read-access@daniellandau.onmicrosoft.com*|*(eA9(4{{p8Hhs77hVOfAX>Z03BGdI0jNd-m}oVl_{5mU38G_*|
+|~~*Read-access@daniellandau.onmicrosoft.com*~~|~~*(eA9(4{{p8Hhs77hVOfAX>Z03BGdI0jNd-m}oVl_{5mU38G_*~~|
 
 <br>
 
