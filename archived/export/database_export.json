@@ -46,6 +46,24 @@
             "ml5": "[{\"label\":\"Hund\",\"confidence\":0.20135855674743652},{\"label\":\"Katze\",\"confidence\":0.1581420749425888},{\"label\":\"Ente\",\"confidence\":0.14806661009788513},{\"label\":\"Kuh\",\"confidence\":0.14245912432670593},{\"label\":\"Vogel\",\"confidence\":0.045354850590229034},{\"label\":\"Pferd\",\"confidence\":0.04148394986987114},{\"label\":\"Nashorn\",\"confidence\":0.03675053268671036},{\"label\":\"Drachen\",\"confidence\":0.025465894490480423},{\"label\":\"Maus\",\"confidence\":0.024902040138840675},{\"label\":\"Hummer\",\"confidence\":0.022482171654701233}]"
         },
         {
+            "img_id": 9,
+            "user_id": "c1a1a2a4d09a449b",
+            "img_path": "bfdb67fb8b4672dd.png",
+            "img_name": "ANSAGE",
+            "ml5_bestfit": "Erbsen",
+            "ml5_bestfit_conf": 0.13982556760311127,
+            "ml5": "[{\"label\":\"Erbsen\",\"confidence\":0.13982556760311127},{\"label\":\"Regen\",\"confidence\":0.12746085226535797},{\"label\":\"Brombeere\",\"confidence\":0.11842134594917297},{\"label\":\"Hurrikan\",\"confidence\":0.09956444799900055},{\"label\":\"Strand\",\"confidence\":0.07024873048067093},{\"label\":\"Tarnung\",\"confidence\":0.06678871065378189},{\"label\":\"Erdbeere\",\"confidence\":0.0395040400326252},{\"label\":\"Computer\",\"confidence\":0.02983091026544571},{\"label\":\"Schneemann\",\"confidence\":0.027907419949769974},{\"label\":\"Gras\",\"confidence\":0.023314181715250015}]"
+        },
+        {
+            "img_id": 10,
+            "user_id": "24ade77ac69409a7",
+            "img_path": "0c1bad49ad49d315.png",
+            "img_name": "Hmmm...",
+            "ml5_bestfit": "Blaubeere",
+            "ml5_bestfit_conf": 0.1395228350877762,
+            "ml5": "[{\"label\":\"Blaubeere\",\"confidence\":0.17382283508777618},{\"label\":\"Tierwanderung\",\"confidence\":0.08287583291530609},{\"label\":\"Erbsen\",\"confidence\":0.0823434442281723},{\"label\":\"Brombeere\",\"confidence\":0.060199424624443054},{\"label\":\"Bart\",\"confidence\":0.0569637306034565},{\"label\":\"Tarnung\",\"confidence\":0.037806473672389984},{\"label\":\"Flip Flops\",\"confidence\":0.022258998826146126},{\"label\":\"Garten\",\"confidence\":0.019704513251781464},{\"label\":\"Ananas\",\"confidence\":0.019068386405706406},{\"label\":\"Eichhoernchen\",\"confidence\":0.017329294234514236}]"
+        },
+        {
             "img_id": 15,
             "user_id": "24ade77ac69409a7",
             "img_path": "4826ddbb3894d78e.png",
